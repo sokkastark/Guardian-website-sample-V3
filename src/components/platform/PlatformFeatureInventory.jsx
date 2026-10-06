@@ -58,7 +58,7 @@ export default function PlatformFeatureInventory() {
           <p className="text-base sm:text-lg text-[#524b6b] leading-relaxed">
             A comprehensive, granular directory of Guardian’s enterprise capabilities—spanning 
             {' '}<span className="font-semibold text-[#7b3fc7]">{totalCategoriesCount} core modules</span> and{' '}
-            <span className="font-semibold text-[#1c1636]">{totalFeaturesCount} platform capabilities</span> engineered for Value-Based Care excellence.
+            <span className="font-semibold text-[#1c1636]">approved platform capabilities</span> engineered for Value-Based Care excellence.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export default function PlatformFeatureInventory() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search across all 241 features (e.g., CCLF, HCC, Telemedicine, MIPS, ADT)..."
+              placeholder="Search platform capabilities (e.g., CCLF, HCC, Telemedicine, MIPS, ADT)..."
               className="w-full pl-10 pr-4 py-2 text-xs sm:text-sm text-[#1c1636] placeholder-[#8d889e] bg-transparent focus:outline-none"
               aria-label="Filter features"
             />
@@ -86,7 +86,7 @@ export default function PlatformFeatureInventory() {
           </div>
           <div className="flex items-center gap-2 px-3 py-1 bg-[#faf8fd] rounded-xl text-xs font-mono text-[#7b3fc7] shrink-0 border border-[#ede7f6]">
             <SlidersHorizontal className="w-3.5 h-3.5" />
-            <span>{isSearching ? `${searchResults.length} matches found` : `${totalFeaturesCount} Verified Features`}</span>
+            <span>{isSearching ? `${searchResults.length} matches found` : `Platform Capability Directory`}</span>
           </div>
         </div>
 

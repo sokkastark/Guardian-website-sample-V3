@@ -120,19 +120,18 @@ export default function ChildPageLayout({
                       <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
                       <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block" />
                       <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block" />
-                      <span className="text-[11px] text-purple-300 font-mono ml-2">live.itsguardian.com / {mockupUrl || title.toLowerCase().replace(/\s+/g, '-')}</span>
+                      <span className="text-[11px] text-purple-300 font-mono ml-2">live.itsguardian.com</span>
                     </div>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-[#7b3fc7]/40 text-purple-200 border border-[#7b3fc7]/60">
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-[#7b3fc7]/40 text-purple-200 border border-[#7b3fc7]/60 font-mono">
                       Live Environment
                     </span>
                   </div>
-                  <div className="relative rounded-lg overflow-hidden bg-black">
+                  <div className="relative rounded-lg overflow-hidden bg-white border border-[#e9e4f0]">
                     <img 
                       src={heroImage} 
                       alt={`${title} Interface`} 
-                      className="w-full h-auto object-cover rounded-lg shadow-inner filter brightness-105 contrast-105"
+                      className="w-full h-auto object-contain rounded-lg shadow-sm"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#120b24]/40 via-transparent to-transparent opacity-60 pointer-events-none" />
                   </div>
                 </div>
               ) : (

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Building2, 
@@ -22,7 +23,7 @@ export default function AudienceSwitcher() {
       headline: 'Give care teams the information to act.',
       description: 'Support clinicians with a complete patient view, care gaps, and actionable insights at the point of care.',
       linkText: 'Learn more',
-      linkHref: '#contact',
+      linkHref: '/solutions/cin-provider-organizations',
       cardTitle: 'Patient: Eleanor Vance',
       cardCategory: 'Upcoming:',
       items: [
@@ -37,7 +38,7 @@ export default function AudienceSwitcher() {
       headline: 'Turn network data into better performance.',
       description: 'Help health plans and risk-bearing entities connect data, understand patterns, and support clinical quality benchmarks.',
       linkText: 'Explore payer solutions',
-      linkHref: '#solutions',
+      linkHref: '/solutions/health-plans',
       cardTitle: 'Network: Valley Health ACO',
       cardCategory: 'Priority Measures:',
       items: [
@@ -166,13 +167,13 @@ export default function AudienceSwitcher() {
                 {current.description}
               </p>
 
-              <a
-                href={current.linkHref}
+              <Link
+                to={current.linkHref}
                 className="inline-flex items-center gap-2 text-sm font-bold text-[#ff7a57] hover:text-[#ff967a] group transition-colors"
               >
                 <span>{current.linkText}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </motion.div>
           </AnimatePresence>
 

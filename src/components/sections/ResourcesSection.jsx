@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   ArrowRight, 
@@ -19,7 +20,7 @@ export default function ResourcesSection() {
       title: 'Improving HCC Gap Closure Through Targeted Outreach',
       desc: 'How a regional health plan improved RAF accuracy and closed care gaps with Guardian.',
       linkText: 'Read case study',
-      linkHref: '#case-study',
+      linkHref: '/resources/case-studies',
     },
     {
       type: 'INSIGHT',
@@ -30,7 +31,7 @@ export default function ResourcesSection() {
       title: 'Turning Fragmented Data Into Actionable Intelligence',
       desc: 'Key strategies for unifying clinical, claims, and patient data to drive value-based care.',
       linkText: 'Read Insight',
-      linkHref: '#insights',
+      linkHref: '/resources/insights',
     },
     {
       type: 'GUIDE',
@@ -41,7 +42,7 @@ export default function ResourcesSection() {
       title: 'A Practical Guide to Value-Based Care Readiness',
       desc: 'Steps healthcare organizations can take to prepare for success in value-based programs.',
       linkText: 'Download guide',
-      linkHref: '#guides',
+      linkHref: '/resources/guides',
     },
   ];
 
@@ -89,17 +90,13 @@ export default function ResourcesSection() {
           </motion.div>
 
           {/* View All Link */}
-          <motion.a
-            href="#all-resources"
-            initial={{ opacity: 0, x: 12 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.55, ease: 'easeOut' }}
+          <Link
+            to="/resources"
             className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#7b3fc7] hover:text-[#9333ea] group shrink-0"
           >
             <span>View all resources</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </motion.a>
+          </Link>
         </div>
 
         {/* ─────────────────────────────────────────────────────────────
@@ -152,13 +149,13 @@ export default function ResourcesSection() {
 
                 {/* Link */}
                 <div className="pt-4 border-t border-[#f0edf7] flex items-center justify-between">
-                  <a
-                    href={item.linkHref}
+                  <Link
+                    to={item.linkHref}
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-[#7b3fc7] group-hover:text-[#9333ea] transition-colors"
                   >
                     <span>{item.linkText}</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>

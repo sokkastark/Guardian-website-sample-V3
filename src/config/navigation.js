@@ -1,70 +1,86 @@
 export const navigationConfig = [
   {
-    label: 'Solutions',
-    path: '/solutions',
-    children: [
-      { label: 'Overview', path: '/solutions' },
-      { label: 'Population Health', path: '/solutions/population-health' },
-      { label: 'Care Management', path: '/solutions/care-management' },
-      { label: 'Risk Adjustment', path: '/solutions/risk-adjustment' },
-      { label: 'Quality & Performance', path: '/solutions/quality-performance' },
-      { label: 'Patient Engagement', path: '/solutions/patient-engagement' },
-      { label: 'Analytics & Intelligence', path: '/solutions/analytics-intelligence' },
-    ]
+    label: 'Home',
+    path: '/',
   },
   {
     label: 'Platform',
     path: '/platform',
     children: [
-      { label: 'Overview', path: '/platform' },
-      { label: 'Data Integration', path: '/platform/data-integration' },
-      { label: 'Data Enrichment', path: '/platform/data-enrichment' },
-      { label: 'Information Services', path: '/platform/information-services' },
-      { label: 'Patient Intelligence', path: '/platform/patient-intelligence' },
+      { label: 'Platform Overview', path: '/platform' },
+      { label: 'Population Health', path: '/platform/population-health' },
+      { label: 'Analytics', path: '/platform/analytics' },
+      {
+        label: 'Patient Intelligence',
+        path: '/platform/patient-intelligence',
+        subchildren: [
+          { label: 'Patient 360 / PMC', path: '/platform/patient-intelligence/patient-360' }
+        ]
+      },
+      { label: 'Risk Stratification', path: '/platform/risk-stratification' },
+      { label: 'Risk Adjustment / MRA', path: '/platform/risk-adjustment' },
+      { label: 'Quality / Care Gaps', path: '/platform/quality-care-gaps' },
+      { label: 'Care Management', path: '/platform/care-management' },
+      { label: 'Transitions of Care / ADT', path: '/platform/transitions-of-care-adt' },
+      { label: 'Referral Management', path: '/platform/referral-management' },
+      { label: 'Patient Engagement', path: '/platform/patient-engagement' },
+      { label: 'Telemedicine', path: '/platform/telemedicine' },
     ]
   },
   {
-    label: 'Who We Serve',
-    path: '/who-we-serve',
+    label: 'Solutions',
+    path: '/solutions',
     children: [
-      { label: 'Overview', path: '/who-we-serve' },
-      { label: 'Providers', path: '/who-we-serve/providers' },
-      { label: 'Payers', path: '/who-we-serve/payers' },
+      { label: 'ACO & Value-Based Care', path: '/solutions/aco-value-based-care' },
+      { label: 'Health Plans', path: '/solutions/health-plans' },
+      { label: 'CIN & Provider Organizations', path: '/solutions/cin-provider-organizations' },
+      { label: 'Care Management / Care Teams', path: '/solutions/care-management-teams' },
     ]
   },
-  /*
   {
-    label: 'Services',
-    path: '/services',
+    label: 'Intelligence',
+    path: '/intelligence',
     children: [
-      { label: 'Overview', path: '/services' },
-      { label: 'Account Executives', path: '/services/account-executives' },
-      { label: 'Risk Coders', path: '/services/risk-coders' },
-      { label: 'Care Managers', path: '/services/care-managers' },
-      { label: 'Care Navigators', path: '/services/care-navigators' },
+      { label: 'Clinical Knowledge Graph', path: '/intelligence/clinical-knowledge-graph' },
+      { label: 'AI', path: '/intelligence/ai' },
+      { label: 'Predictive Intelligence', path: '/intelligence/predictive-intelligence' },
+      { label: 'Intelligent Workflows', path: '/intelligence/intelligent-workflows' },
+      { label: 'Human-in-the-Loop', path: '/intelligence/human-in-the-loop' },
     ]
   },
-  */
   {
-    label: 'Why Guardian',
-    path: '/why-guardian',
+    label: 'Data & Integration',
+    path: '/data-integration',
     children: [
-      { label: 'Overview', path: '/why-guardian' },
-      { label: 'About Guardian', path: '/why-guardian/about' },
-      { label: 'Our Story', path: '/why-guardian/our-story' },
-      { label: 'Healthcare Expertise', path: '/why-guardian/healthcare-expertise' },
-      { label: 'Leadership', path: '/why-guardian/leadership' },
-      { label: 'Certifications & Trust', path: '/why-guardian/certifications-trust' },
+      { label: 'Clinical Integration', path: '/data-integration/clinical-integration' },
+      { label: 'Claims Integration', path: '/data-integration/claims-integration' },
+      { label: 'HIE & ADT', path: '/data-integration/hie-adt' },
+      { label: 'Labs / Pharmacy / Other Data', path: '/data-integration/labs-pharmacy-other' },
+      { label: 'Data Foundation', path: '/data-integration/data-foundation' },
+      { label: 'APIs / Mobile Integration', path: '/data-integration/apis-mobile' },
     ]
   },
   {
     label: 'Resources',
     path: '/resources',
     children: [
-      { label: 'Overview', path: '/resources' },
       { label: 'Insights', path: '/resources/insights' },
-      { label: 'Case Studies', path: '/resources/case-studies' },
       { label: 'Guides', path: '/resources/guides' },
+      { label: 'Case Studies', path: '/resources/case-studies' },
+      { label: 'Webinars', path: '/resources/webinars' },
+      { label: 'Product Tours', path: '/resources/product-tours' },
+      { label: 'Videos', path: '/resources/videos' },
+    ]
+  },
+  {
+    label: 'Company',
+    path: '/company',
+    children: [
+      { label: 'About Guardian', path: '/company/about' },
+      { label: 'Leadership', path: '/company/leadership' },
+      { label: 'Security & Trust', path: '/company/security-trust' },
+      { label: 'Careers', path: '/company/careers' },
+      { label: 'Contact', path: '/company/contact' },
     ]
   }
 ];
@@ -73,7 +89,13 @@ export function isParentActive(currentPath, item) {
   if (!item || !item.path) return false;
   if (currentPath === item.path) return true;
   if (item.children) {
-    return item.children.some(child => child.path !== item.path && currentPath === child.path);
+    return item.children.some(child => {
+      if (child.path === currentPath) return true;
+      if (child.subchildren) {
+        return child.subchildren.some(sub => sub.path === currentPath);
+      }
+      return false;
+    });
   }
   return false;
 }

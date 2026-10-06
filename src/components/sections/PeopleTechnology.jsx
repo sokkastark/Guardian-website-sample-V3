@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Users, 
@@ -137,20 +138,20 @@ export default function PeopleTechnology() {
 
             {/* CTA Button */}
             <div className="flex flex-wrap items-center gap-3.5">
-              <a
-                href="#contact"
+              <Link
+                to="/company/contact"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-[#7b3fc7] via-[#8b5cf6] to-[#a855f7] hover:from-[#8b5cf6] hover:to-[#c084fc] shadow-[0_6px_28px_rgba(147,51,234,0.55)] hover:shadow-[0_8px_36px_rgba(147,51,234,0.75)] hover:scale-[1.02] active:scale-95 transition-all duration-300 group"
               >
                 <span>Meet our experts</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
 
-              <a
-                href="#services"
+              <Link
+                to="/solutions/care-management-teams"
                 className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-purple-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/15 backdrop-blur-md transition-all duration-200"
               >
                 <span>View Service Model</span>
-              </a>
+              </Link>
             </div>
           </motion.div>
 

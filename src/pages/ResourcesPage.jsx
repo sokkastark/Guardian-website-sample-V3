@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
@@ -6,390 +6,551 @@ import {
   TrendingUp, 
   ArrowRight, 
   Sparkles, 
-  Mail,
-  CheckCircle2
+  Mail, 
+  CheckCircle2, 
+  FileText, 
+  Video, 
+  PlayCircle, 
+  Compass, 
+  Layers, 
+  ChevronRight, 
+  Users, 
+  ShieldCheck, 
+  Zap, 
+  Lock,
+  MessageSquare
 } from 'lucide-react';
 
 export default function ResourcesPage() {
-
-  const categories = [
+  const learningPathway = [
     {
       num: '01',
-      title: 'Insights',
-      desc: 'Perspectives on healthcare data, technology, value-based care, care management, risk, quality, patient engagement, and healthcare performance.',
-      icon: Sparkles
+      label: 'LEARN',
+      title: 'Industry Perspective',
+      desc: 'Discover regulatory shifts (CMS V28, MIPS, ACO REACH) and interoperability standards.',
+      gradient: 'from-[#4f46e5] to-[#7c3aed]'
     },
     {
       num: '02',
-      title: 'Case Studies',
-      desc: 'Real-world examples showing how healthcare organizations use technology, data, and expertise to address specific challenges.',
-      icon: TrendingUp
+      label: 'CONTEXTUALIZE',
+      title: 'Healthcare Framework',
+      desc: 'Frame industry insights within your organization’s specific clinical and financial contracts.',
+      gradient: 'from-[#7b3fc7] to-[#9565d2]'
     },
     {
       num: '03',
-      title: 'Guides',
-      desc: 'Practical resources designed to help teams understand healthcare concepts, workflows, technologies, and opportunities.',
-      icon: BookOpen
+      label: 'IDENTIFY',
+      title: 'Opportunity Mapping',
+      desc: 'Uncover immediate risk adjustment, care gap closure, and readmission reduction opportunities.',
+      gradient: 'from-[#059669] to-[#10b981]'
+    },
+    {
+      num: '04',
+      label: 'APPLY',
+      title: 'Workflow Execution',
+      desc: 'Implement proven care management playbooks, automated task routing, and point-of-care alerts.',
+      gradient: 'from-[#ff7a57] to-[#ea580c]'
+    },
+    {
+      num: '05',
+      label: 'MEASURE',
+      title: 'Quantified Outcomes',
+      desc: 'Track clinical quality score improvements, PMPY cost savings, and shared savings growth.',
+      gradient: 'from-[#1c1636] to-[#7b3fc7]'
     }
   ];
 
-  const insightTopics = [
-    'Healthcare data and interoperability',
-    'Value-based care',
-    'Population health',
-    'Care management',
-    'Risk adjustment',
-    'Quality and performance',
-    'Patient engagement',
-    'Healthcare technology and intelligence'
-  ];
-
-  const caseStudyStructure = [
-    { label: 'The challenge', desc: 'The specific clinical or operational hurdle faced by the organization.' },
-    { label: 'The healthcare context', desc: 'The organizational and regulatory environment.' },
-    { label: 'The Guardian approach', desc: 'How Guardian was deployed to address the problem.' },
-    { label: 'Technology & services involved', desc: 'The exact platform tools and embedded staff utilized.' },
-    { label: 'The action taken', desc: 'Day-to-day workflow execution and care team engagement.' },
-    { label: 'The measurable outcome', desc: 'Quantified clinical and operational results, where approved.' }
-  ];
-
-  const guideStructure = [
-    { label: 'The question or challenge', desc: 'Framing the healthcare problem clearly.' },
-    { label: 'Key concepts', desc: 'Core principles and definitions required for clarity.' },
-    { label: 'Practical considerations', desc: 'Real-world hurdles, EHR constraints, and workflow realities.' },
-    { label: 'Recommended approach', desc: 'Proven step-by-step methodologies.' },
-    { label: 'How Guardian can help', desc: 'How platform capabilities and staff accelerate success.' }
-  ];
-
-  const insightToActionSteps = [
-    { step: 'LEARN', desc: 'Understand the issue.' },
-    { step: 'UNDERSTAND', desc: 'Put it into healthcare context.' },
-    { step: 'IDENTIFY', desc: 'Recognize the opportunity.' },
-    { step: 'APPLY', desc: 'Translate knowledge into action.' },
-    { step: 'OUTCOME', desc: 'Measure what changes.' }
+  const resourceCenters = [
+    {
+      id: 'insights',
+      title: 'Insights',
+      path: '/resources/insights',
+      tagline: 'EXECUTIVE PERSPECTIVES & ARTICLES',
+      headline: 'Articles on healthcare data, AI, value-based care, and population health.',
+      description: 'Perspectives written by clinical and technology experts exploring healthcare data interoperability, CMS policy changes, risk adjustment integrity, quality performance, and care team productivity.',
+      icon: Sparkles,
+      gradient: 'from-[#7b3fc7] via-[#9333ea] to-[#a855f7]',
+      shadowGlow: 'hover:shadow-[0_20px_40px_rgba(123,63,199,0.22)]',
+      accentColor: 'text-[#7b3fc7]',
+      badgeBg: 'bg-[#7b3fc7]/10 text-[#7b3fc7]',
+      highlights: [
+        'Healthcare Data & Interoperability',
+        'Value-Based Care Strategy',
+        'CMS-HCC V28 Transition Analysis',
+        'Clinical AI & Decision Support'
+      ]
+    },
+    {
+      id: 'guides',
+      title: 'Guides & Playbooks',
+      path: '/resources/guides',
+      tagline: 'PRACTICAL OPERATIONAL PLAYBOOKS',
+      headline: 'Step-by-step guides for risk coders, care managers, and clinical leaders.',
+      description: 'Practical playbooks and whitepapers designed to help healthcare teams navigate complex clinical workflows, HEDIS measure compliance, risk adjustment audits, and transition-of-care protocols.',
+      icon: BookOpen,
+      gradient: 'from-[#059669] via-[#10b981] to-[#0d9488]',
+      shadowGlow: 'hover:shadow-[0_20px_40px_rgba(16,185,129,0.22)]',
+      accentColor: 'text-[#059669]',
+      badgeBg: 'bg-[#059669]/10 text-[#059669]',
+      highlights: [
+        'Risk Adjustment Documentation Playbook',
+        'HEDIS Care Gap Closure Manual',
+        '30-Day Readmission Reduction Protocol',
+        '150+ Assessment Implementation Guide'
+      ]
+    },
+    {
+      id: 'case-studies',
+      title: 'Case Studies',
+      path: '/resources/case-studies',
+      tagline: 'REAL-WORLD CLINICAL PROOF',
+      headline: 'Real-world examples showcasing quantified clinical and financial outcomes.',
+      description: 'In-depth case studies examining how health systems, ACOs, health plans, and CINs deploy Guardian technology and operational services to solve real clinical and financial challenges.',
+      icon: TrendingUp,
+      gradient: 'from-[#ff7a57] via-[#f97316] to-[#ea580c]',
+      shadowGlow: 'hover:shadow-[0_20px_40px_rgba(255,122,87,0.22)]',
+      accentColor: 'text-[#ea580c]',
+      badgeBg: 'bg-[#ff7a57]/10 text-[#ea580c]',
+      highlights: [
+        'ED High-Utilizer Utilization Reduction',
+        'PMPY Shared Savings Growth in ACO REACH',
+        'Multi-EHR Clinical Integration Case Study',
+        'Care Gap Closure Speed Acceleration'
+      ]
+    },
+    {
+      id: 'webinars',
+      title: 'Webinars & Events',
+      path: '/resources/webinars',
+      tagline: 'EXPERT PANELS & BRIEFINGS',
+      headline: 'Live and on-demand discussions with healthcare technology leaders.',
+      description: 'Executive webinars, regulatory briefings, and interactive panel discussions featuring clinical leaders, health plan executives, and healthcare technology experts.',
+      icon: MessageSquare,
+      gradient: 'from-[#4f46e5] via-[#6366f1] to-[#7c3aed]',
+      shadowGlow: 'hover:shadow-[0_20px_40px_rgba(79,70,229,0.22)]',
+      accentColor: 'text-[#4f46e5]',
+      badgeBg: 'bg-[#4f46e5]/10 text-[#4f46e5]',
+      highlights: [
+        'Live Executive Q&A Sessions',
+        'CMS Policy & Regulatory Briefings',
+        'Clinical AI & Governance Panels',
+        'On-Demand Event Recordings Library'
+      ]
+    },
+    {
+      id: 'product-tours',
+      title: 'Product Tours',
+      path: '/resources/product-tours',
+      tagline: 'INTERACTIVE PLATFORM DEMOS',
+      headline: 'Guided interactive walkthroughs of Guardian platform modules.',
+      description: 'Self-paced product tours showcasing Guardian’s Patient Master Chart (PMC), Risk Stratification Engine, Care Plan Generator, and Point-of-Care Gaps Notification tools.',
+      icon: Compass,
+      gradient: 'from-[#0891b2] via-[#06b6d4] to-[#0284c7]',
+      shadowGlow: 'hover:shadow-[0_20px_40px_rgba(6,182,212,0.22)]',
+      accentColor: 'text-[#0891b2]',
+      badgeBg: 'bg-[#0891b2]/10 text-[#0891b2]',
+      highlights: [
+        'Patient Master Chart 360 Tour',
+        'MRA HCC Suspecting Engine Tour',
+        'Individual Care Plan Generator Walkthrough',
+        'Quality Gap Dashboard Interactive'
+      ]
+    },
+    {
+      id: 'videos',
+      title: 'Videos & Demos',
+      path: '/resources/videos',
+      tagline: 'VIDEO DEMONSTRATIONS & OVERVIEWS',
+      headline: 'Short video feature overviews showcasing platform capabilities.',
+      description: 'Concise video demonstrations highlighting specific software capabilities, care team workflow automation, data ingestion pipelines, and client testimonial highlights.',
+      icon: PlayCircle,
+      gradient: 'from-[#1c1636] via-[#2e1065] to-[#7b3fc7]',
+      shadowGlow: 'hover:shadow-[0_20px_40px_rgba(123,63,199,0.22)]',
+      accentColor: 'text-[#7b3fc7]',
+      badgeBg: 'bg-[#1c1636] text-white',
+      highlights: [
+        '2-Minute Platform Capability Shorts',
+        'Clinician Care Plan Workflow Demos',
+        'Architecture & Interoperability Videos',
+        'Client Success & Testimonial Clips'
+      ]
+    }
   ];
 
   return (
     <div className="bg-white text-[#35304c] min-h-screen">
+      
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 1: HERO
+          SECTION 1: HERO (PANORAMIC CORPORATE HERO BANNER)
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-28 bg-gradient-to-b from-[#120b24] via-[#1a1233] to-[#241744] text-white overflow-hidden">
+      <section className="relative w-full pt-32 sm:pt-40 pb-20 sm:pb-28 bg-[#0d1527] text-white overflow-hidden border-b border-[#1c1636]">
+        
+        {/* Full-Bleed Background Overlay */}
         <div className="absolute inset-0 pointer-events-none z-0">
-          <div className="absolute top-1/4 right-1/4 w-[700px] h-[500px] bg-gradient-to-tr from-[#7b3fc7]/25 via-[#9565d2]/15 to-transparent blur-[140px] rounded-full" />
-          <div className="absolute bottom-10 left-1/4 w-[550px] h-[380px] bg-[#ff7a57]/15 blur-[140px] rounded-full" />
+          <img 
+            src="/images/clinician-whitecoat.jpg" 
+            alt="Healthcare professionals engaging with Guardian knowledge resources" 
+            className="w-full h-full object-cover object-center filter brightness-[0.3] contrast-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1527]/98 via-[#0d1527]/90 to-[#0d1527]/75" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0d1527]/90 via-transparent to-[#0d1527]" />
+          
+          {/* Ambient Lighting Accents */}
+          <div className="absolute top-1/4 left-1/4 w-[600px] h-[450px] bg-[#7b3fc7]/25 blur-[160px] rounded-full" />
+          <div className="absolute bottom-10 right-10 w-[500px] h-[350px] bg-[#ff7a57]/20 blur-[140px] rounded-full" />
           <div className="absolute inset-0 ambient-grid opacity-15" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-4xl"
-          >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-purple-200 text-xs font-semibold tracking-wider uppercase mb-6">
-              <BookOpen className="w-3.5 h-3.5 text-[#ff7a57]" />
-              <span>GUARDIAN RESOURCES</span>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Narrative */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="lg:col-span-7"
+            >
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-purple-200 text-xs font-semibold tracking-wider uppercase mb-6 shadow-xs">
+                <BookOpen className="w-3.5 h-3.5 text-[#ff7a57]" />
+                <span>GUARDIAN KNOWLEDGE & RESOURCE HUB</span>
+              </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12] mb-6">
-              Ideas and insights for a <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-white to-[#ff7a57]">changing healthcare landscape.</span>
-            </h1>
+              <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-white leading-[1.12] mb-6">
+                Ideas, evidence, and guidance for <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-white to-[#ff7a57]">value-based healthcare leaders.</span>
+              </h1>
 
-            <p className="text-base sm:text-xl text-purple-100/90 leading-relaxed max-w-3xl mb-10 font-normal">
-              Explore healthcare insights, practical guidance, and real-world stories that help organizations understand the challenges behind data, care, quality, risk, and performance.
-            </p>
+              <p className="text-base sm:text-lg text-purple-100/90 leading-relaxed max-w-2xl mb-8 font-normal">
+                Explore healthcare insights, whitepaper playbooks, real-world case studies, product tours, and expert webinars designed to help health systems, ACOs, and health plans move from data to outcome.
+              </p>
 
-            <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="#insights"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-medium text-sm text-white bg-[#7b3fc7] hover:bg-[#9565d2] shadow-[0_4px_20px_rgba(123,63,199,0.45)] transition-all duration-300 hover:scale-[1.02] active:scale-95"
-              >
-                <span>Explore Insights</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href="#case-studies"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-medium text-sm text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md transition-all duration-300"
-              >
-                <span>View Case Studies</span>
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+              <div className="flex flex-wrap items-center gap-4">
+                <a
+                  href="#resources-overview"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-white bg-[#7b3fc7] hover:bg-[#9565d2] shadow-[0_4px_25px_rgba(123,63,199,0.45)] transition-all duration-300 hover:scale-[1.02] active:scale-95 whitespace-nowrap shrink-0 group"
+                >
+                  <span>Explore Resources</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#ff7a57]" />
+                </a>
 
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 2: RESOURCE INTRODUCTION
-          ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-28 bg-[#f8f6fc] border-b border-[#e1e1e5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#7b3fc7] block mb-3">
-              Knowledge Hub
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#1c1636] tracking-tight mb-6">
-              Useful information for the work ahead.
-            </h2>
-            <p className="text-base sm:text-lg text-[#35304c] leading-relaxed mb-4">
-              Healthcare is changing quickly. New data sources, evolving care models, quality requirements, technology, and patient expectations create new challenges for healthcare organizations.
-            </p>
-            <p className="text-base sm:text-lg text-[#727272] leading-relaxed">
-              Guardian resources are designed to help healthcare leaders and teams understand those challenges, explore practical approaches, and learn from experience.
-            </p>
+                <Link
+                  to="/company/contact?intent=demo"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-white bg-white/10 hover:bg-white/20 border border-white/25 backdrop-blur-md transition-all duration-300 whitespace-nowrap shrink-0"
+                >
+                  <span>Talk to Guardian</span>
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Right Compact Floating Live Dashboard Visual */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
+              className="lg:col-span-5 hidden lg:block"
+            >
+              <div className="relative rounded-2xl bg-[#1a1233]/90 border border-white/20 backdrop-blur-xl p-3 shadow-2xl overflow-hidden group">
+                <div className="flex items-center justify-between px-3 py-1.5 bg-[#120b24] rounded-lg border-b border-white/10 mb-2">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block" />
+                    <span className="text-[10px] text-purple-300 font-mono ml-2">resources.itsguardian.com</span>
+                  </div>
+                  <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#7b3fc7]/40 text-purple-200 border border-[#7b3fc7]/60">
+                    Knowledge Hub
+                  </span>
+                </div>
+
+                <div className="relative rounded-md overflow-hidden bg-white border border-[#e9e4f0] p-4 text-[#1c1636]">
+                  <span className="text-[10px] font-mono font-bold text-[#7b3fc7] uppercase tracking-wider block mb-1">Featured Whitepaper</span>
+                  <h3 className="text-base font-extrabold mb-2 text-[#1c1636]">CMS-HCC V28 Risk Adjustment Transition Playbook</h3>
+                  <p className="text-xs text-[#524b6b] leading-relaxed mb-3">Practical guidance for risk coding teams navigating CMS model changes and ethical documentation.</p>
+                  <div className="flex items-center justify-between text-[11px] font-bold text-[#7b3fc7] pt-2 border-t border-[#f0ebf8]">
+                    <span>Download Playbook PDF</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+
+                <div className="mt-2.5 flex items-center justify-between text-[11px] text-purple-200 font-mono px-1">
+                  <span className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> 6 Content Centers
+                  </span>
+                  <span className="text-purple-300">Updated Weekly</span>
+                </div>
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 3: RESOURCE CATEGORIES
+          SECTION 2: THE LEARNING CONTINUUM (INFOGRAPHIC PATHWAY)
           ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-28 bg-white border-b border-[#e1e1e5]">
+      <section className="py-20 sm:py-28 bg-[#faf8fd] border-b border-[#e9e4f0] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#7b3fc7] block mb-2">
-              Browse by Format
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#1c1636] tracking-tight mb-4">
-              Explore by what you need to know.
+          
+          <div className="max-w-3xl mb-14">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7b3fc7]/10 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-3 border border-[#7b3fc7]/20 shadow-2xs">
+              <Compass className="w-3.5 h-3.5 text-[#ff7a57]" />
+              <span>THE LEARNING TO ACTION PATHWAY</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1c1636] tracking-tight mb-4 leading-tight">
+              How healthcare leaders translate <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fc7] via-[#4f46e5] to-[#ff7a57]">knowledge into operational impact.</span>
             </h2>
+            <p className="text-base sm:text-lg text-[#524b6b] leading-relaxed">
+              Guardian resources are designed to help teams understand healthcare challenges, evaluate practical methodologies, and execute workflows that deliver results:
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {categories.map((cat) => {
-              const Icon = cat.icon;
-              return (
-                <div key={cat.title} className="p-8 rounded-3xl bg-[#f8f6fc] border border-[#e1e1e5] shadow-xs flex flex-col justify-between hover:border-[#7b3fc7]/40 transition-all">
+          {/* Infographic Connected Pathway */}
+          <div className="relative pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              {learningPathway.map((step) => (
+                <div 
+                  key={step.num}
+                  className="p-6 rounded-2xl bg-white border border-[#e9e4f0] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between group"
+                >
+                  {/* Top Step Header */}
                   <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs font-mono font-bold text-[#7b3fc7]">{cat.num}</span>
-                      <div className="w-10 h-10 rounded-xl bg-white text-[#7b3fc7] flex items-center justify-center shadow-xs">
-                        <Icon className="w-5 h-5" />
+                    <div className="flex items-center justify-between mb-3">
+                      <span className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-md bg-gradient-to-r ${step.gradient} text-white shadow-2xs`}>
+                        {step.num}
+                      </span>
+                      <span className="text-[9.5px] font-extrabold tracking-widest text-[#8e8a9f] uppercase truncate ml-1">
+                        {step.label}
+                      </span>
+                    </div>
+
+                    <h3 className="text-base font-extrabold text-[#1c1636] mb-2 leading-tight group-hover:text-[#7b3fc7] transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-xs text-[#524b6b] leading-relaxed">
+                      {step.desc}
+                    </p>
+                  </div>
+
+                  {/* Bottom Pathway Connector Indicator */}
+                  <div className="mt-4 pt-3 border-t border-[#f0ebf8] flex items-center justify-between text-[11px] font-bold text-[#7b3fc7]">
+                    <span>Step {step.num} of 05</span>
+                    <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          SECTION 3: THE 6 RESOURCE HUBS (INFOGRAPHIC RIBBON CARDS)
+          ───────────────────────────────────────────────────────────── */}
+      <section id="resources-overview" className="py-20 sm:py-28 bg-white border-b border-[#e9e4f0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="max-w-3xl mb-14">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7b3fc7]/10 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-3 border border-[#7b3fc7]/20 shadow-2xs">
+              <Layers className="w-3.5 h-3.5 text-[#ff7a57]" />
+              <span>THE 6 RESOURCE CENTERS</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1c1636] tracking-tight mb-3 leading-tight">
+              Curated content formats for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fc7] via-[#4f46e5] to-[#ff7a57]">every stage of your journey.</span>
+            </h2>
+            <p className="text-base text-[#524b6b] leading-relaxed">
+              Explore the six canonical resource categories covering healthcare data, quality, risk, webinars, and platform walkthroughs:
+            </p>
+          </div>
+
+          {/* 6 Core Resource Editorial Cards (Distinct Media Library Layout) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 pt-4">
+            {resourceCenters.map((res, index) => {
+              const ResIcon = res.icon;
+              return (
+                <div 
+                  key={res.id} 
+                  className={`bg-white rounded-2xl border border-[#e9e4f0] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden group relative ${res.shadowGlow}`}
+                >
+                  {/* Top Gradient Accent Line */}
+                  <div className={`h-1.5 w-full bg-gradient-to-r ${res.gradient}`} />
+
+                  <div className="p-6 sm:p-7 flex flex-col justify-between h-full">
+                    <div>
+                      {/* Top Meta Bar: Icon + Format Tag */}
+                      <div className="flex items-center justify-between mb-5">
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${res.gradient} text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform`}>
+                          <ResIcon className="w-6 h-6 stroke-[2.2]" />
+                        </div>
+                        <span className="text-[10px] font-mono font-bold tracking-widest text-[#8e8a9f] px-2.5 py-1 rounded-full bg-[#f4f0fa] border border-[#e5deef]">
+                          FORMAT 0{index + 1}
+                        </span>
+                      </div>
+
+                      {/* Tagline Badge & Title */}
+                      <div className="mb-3">
+                        <span className={`text-[9.5px] font-mono font-bold tracking-widest uppercase px-2.5 py-1 rounded-md ${res.badgeBg} inline-block mb-2`}>
+                          {res.tagline}
+                        </span>
+                        <h3 className="text-xl font-extrabold text-[#1c1636] leading-tight group-hover:text-[#7b3fc7] transition-colors">
+                          {res.title}
+                        </h3>
+                      </div>
+
+                      <p className={`text-xs font-bold ${res.accentColor} mb-2.5 leading-snug`}>
+                        {res.headline}
+                      </p>
+                      <p className="text-xs text-[#524b6b] leading-relaxed mb-6 font-normal">
+                        {res.description}
+                      </p>
+
+                      {/* Featured Topics & Formats Checklist Box */}
+                      <div className="p-4 rounded-xl bg-[#faf8fd] border border-[#e9e4f0] mb-6">
+                        <h4 className="text-[9.5px] font-mono font-bold uppercase tracking-wider text-[#8e8a9f] mb-2.5">
+                          Key Coverage & Resources:
+                        </h4>
+                        <div className="space-y-2">
+                          {res.highlights.map((item, idx) => (
+                            <div key={idx} className="flex items-start gap-2 text-xs text-[#1c1636]">
+                              <CheckCircle2 className={`w-3.5 h-3.5 ${res.accentColor} shrink-0 mt-0.5`} />
+                              <span className="font-medium text-[11px] leading-tight text-[#35304c]">{item}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-[#1c1636] mb-3">{cat.title}</h3>
-                    <p className="text-sm text-[#727272] leading-relaxed mb-6">{cat.desc}</p>
+
+                    {/* Bottom Link Bar */}
+                    <div className="pt-4 border-t border-[#f0ebf8] flex items-center justify-between">
+                      <Link
+                        to={res.path}
+                        className={`inline-flex items-center gap-1.5 text-xs font-bold ${res.accentColor} hover:opacity-80 transition-all group-hover:translate-x-1`}
+                      >
+                        <span>Explore {res.title}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                      <span className="text-[10px] font-mono font-bold text-[#8e8a9f] group-hover:text-[#1c1636] transition-colors">
+                        View Hub &rarr;
+                      </span>
+                    </div>
+
                   </div>
                 </div>
               );
             })}
           </div>
+
         </div>
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 4: FEATURED CONTENT (APPROVED TEMPLATE)
+          SECTION 4: FEATURED CURATED HIGHLIGHTS
           ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-28 bg-[#eae4f4]/40 border-b border-[#d6cde2]">
+      <section className="py-20 sm:py-28 bg-[#faf8fd] border-b border-[#e9e4f0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
           <div className="max-w-3xl mb-14">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#7b3fc7] block mb-2">
-              Curated Highlights
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#1c1636] tracking-tight">
-              Explore what matters now.
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7b3fc7]/10 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-3 border border-[#7b3fc7]/20 shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#ff7a57]" />
+              <span>CURATED HIGHLIGHTS</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1c1636] tracking-tight mb-3 leading-tight">
+              Explore what matters now <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fc7] via-[#4f46e5] to-[#ff7a57]">across value-based care.</span>
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 rounded-3xl bg-white border border-[#e1e1e5] shadow-xs flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono uppercase text-[#7b3fc7] font-semibold block mb-2">Featured Insight</span>
-                <h3 className="text-xl font-bold text-[#1c1636] mb-3">Connecting Fragmented Healthcare Data</h3>
-                <p className="text-xs sm:text-sm text-[#727272] leading-relaxed mb-6">
-                  An in-depth perspective on how longitudinal data aggregation transforms patient context across independent health systems.
-                </p>
-              </div>
-              <div className="pt-4 border-t border-[#e1e1e5]">
-                <Link to="/contact" className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#7b3fc7] hover:underline">
-                  <span>Read the Insight</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="p-8 rounded-3xl bg-white border border-[#e1e1e5] shadow-xs flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono uppercase text-[#ff7a57] font-semibold block mb-2">Featured Case Study</span>
-                <h3 className="text-xl font-bold text-[#1c1636] mb-3">ED Utilization Reduction in Value-Based Care</h3>
-                <p className="text-xs sm:text-sm text-[#727272] leading-relaxed mb-6">
-                  Examining the workflow and real-time ADT intervention protocols that support patient follow-up and care loop closure.
-                </p>
-              </div>
-              <div className="pt-4 border-t border-[#e1e1e5]">
-                <Link to="/contact" className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#ff7a57] hover:underline">
-                  <span>Read the Case Study</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="p-8 rounded-3xl bg-white border border-[#e1e1e5] shadow-xs flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono uppercase text-[#7b3fc7] font-semibold block mb-2">Featured Guide</span>
-                <h3 className="text-xl font-bold text-[#1c1636] mb-3">Risk Adjustment Documentation Playbook</h3>
-                <p className="text-xs sm:text-sm text-[#727272] leading-relaxed mb-6">
-                  Practical guidance for clinicians and coding teams on maintaining ethical documentation integrity and HCC capture.
-                </p>
-              </div>
-              <div className="pt-4 border-t border-[#e1e1e5]">
-                <Link to="/contact" className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#7b3fc7] hover:underline">
-                  <span>Read the Guide</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 5: INSIGHTS & TOPIC AREAS
-          ───────────────────────────────────────────────────────────── */}
-      <section id="insights" className="py-20 sm:py-28 bg-white border-b border-[#e1e1e5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#7b3fc7] block mb-2">
-              Perspectives
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#1c1636] tracking-tight mb-4">
-              Understand the forces shaping healthcare.
-            </h2>
-            <p className="text-base text-[#727272] leading-relaxed">
-              Guardian insights explore the intersection of healthcare data, clinical intelligence, technology, care delivery, and organizational performance.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            {insightTopics.map((topic) => (
-              <div key={topic} className="p-5 rounded-2xl bg-[#f8f6fc] border border-[#e1e1e5] flex items-center gap-3">
-                <CheckCircle2 className="w-4 h-4 text-[#7b3fc7] shrink-0" />
-                <span className="text-xs font-medium text-[#35304c]">{topic}</span>
-              </div>
-            ))}
-          </div>
-
-          <Link to="/contact" className="inline-flex items-center gap-2 text-xs font-semibold text-[#7b3fc7] hover:underline">
-            <span>Explore All Insights</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 6: CASE STUDIES & GUIDES FRAMEWORK
-          ───────────────────────────────────────────────────────────── */}
-      <section id="case-studies" className="py-20 sm:py-28 bg-[#f8f6fc] border-b border-[#e1e1e5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
-            {/* Case Studies Architecture */}
-            <div className="lg:col-span-6 space-y-6">
+            {/* Highlight 1: Insights */}
+            <div className="p-8 rounded-2xl bg-white border border-[#e9e4f0] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#7b3fc7] block mb-2">
-                  Evidence Architecture
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#7b3fc7] px-2.5 py-1 rounded bg-[#7b3fc7]/10 inline-block mb-4">
+                  Featured Insight
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-bold text-[#1c1636] mb-3">
-                  See healthcare technology in action.
-                </h2>
-                <p className="text-sm text-[#727272] leading-relaxed">
-                  Case studies show the challenge, the approach, the work involved, and the outcome—giving readers a clear view of how Guardian capabilities are applied in real healthcare environments.
+                <h3 className="text-xl font-extrabold text-[#1c1636] mb-3 leading-snug group-hover:text-[#7b3fc7] transition-colors">
+                  Connecting Fragmented Healthcare Data Across Independent Networks
+                </h3>
+                <p className="text-xs sm:text-sm text-[#524b6b] leading-relaxed mb-6 font-normal">
+                  An in-depth perspective on how longitudinal data aggregation transforms clinical patient context across siloed EHRs and health systems.
                 </p>
               </div>
-
-              <div className="p-6 rounded-3xl bg-white border border-[#e1e1e5] shadow-xs space-y-4">
-                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#1c1636]">
-                  Case Study Blueprint
-                </h4>
-                {caseStudyStructure.map((item) => (
-                  <div key={item.label} className="border-t border-[#e1e1e5] pt-3">
-                    <span className="text-xs font-bold text-[#7b3fc7] block">{item.label}</span>
-                    <span className="text-xs text-[#727272]">{item.desc}</span>
-                  </div>
-                ))}
+              <div className="pt-4 border-t border-[#f0ebf8]">
+                <Link to="/resources/insights" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#7b3fc7] group-hover:translate-x-1 transition-transform">
+                  <span>Read Full Insight Article</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
 
-            {/* Guides Architecture */}
-            <div className="lg:col-span-6 space-y-6">
+            {/* Highlight 2: Case Studies */}
+            <div className="p-8 rounded-2xl bg-white border border-[#e9e4f0] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#ff7a57] block mb-2">
-                  Practical Guidance
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#ea580c] px-2.5 py-1 rounded bg-[#ff7a57]/10 inline-block mb-4">
+                  Featured Case Study
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-bold text-[#1c1636] mb-3">
-                  Practical knowledge for healthcare teams.
-                </h2>
-                <p className="text-sm text-[#727272] leading-relaxed">
-                  Guides provide accessible, useful information for organizations working through healthcare data, care delivery, quality, risk, performance, and technology challenges.
+                <h3 className="text-xl font-extrabold text-[#1c1636] mb-3 leading-snug group-hover:text-[#ea580c] transition-colors">
+                  30-Day Readmission Reduction via Real-Time ADT Workflows
+                </h3>
+                <p className="text-xs sm:text-sm text-[#524b6b] leading-relaxed mb-6 font-normal">
+                  Examining how a regional CIN achieved a 24% reduction in avoidable readmissions using automated care manager alert dispatch.
                 </p>
               </div>
+              <div className="pt-4 border-t border-[#f0ebf8]">
+                <Link to="/resources/case-studies" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#ea580c] group-hover:translate-x-1 transition-transform">
+                  <span>View Full Case Study</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
 
-              <div className="p-6 rounded-3xl bg-white border border-[#e1e1e5] shadow-xs space-y-4">
-                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#1c1636]">
-                  Guide Blueprint
-                </h4>
-                {guideStructure.map((item) => (
-                  <div key={item.label} className="border-t border-[#e1e1e5] pt-3">
-                    <span className="text-xs font-bold text-[#ff7a57] block">{item.label}</span>
-                    <span className="text-xs text-[#727272]">{item.desc}</span>
-                  </div>
-                ))}
+            {/* Highlight 3: Guides */}
+            <div className="p-8 rounded-2xl bg-white border border-[#e9e4f0] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group">
+              <div>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#059669] px-2.5 py-1 rounded bg-[#059669]/10 inline-block mb-4">
+                  Featured Guide
+                </span>
+                <h3 className="text-xl font-extrabold text-[#1c1636] mb-3 leading-snug group-hover:text-[#059669] transition-colors">
+                  CMS-HCC V28 Risk Adjustment Transition & Documentation Playbook
+                </h3>
+                <p className="text-xs sm:text-sm text-[#524b6b] leading-relaxed mb-6 font-normal">
+                  Practical guidance for clinicians and coding teams on maintaining ethical documentation integrity and HCC recapture during V28 model phase-in.
+                </p>
+              </div>
+              <div className="pt-4 border-t border-[#f0ebf8]">
+                <Link to="/resources/guides" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#059669] group-hover:translate-x-1 transition-transform">
+                  <span>Download Free Guide</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
 
           </div>
+
         </div>
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 7: FROM INSIGHT TO ACTION
+          SECTION 5: NEWSLETTER SUBSCRIPTION
           ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-24 bg-white border-b border-[#e1e1e5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <h2 className="text-2xl sm:text-4xl font-bold text-[#1c1636] mb-3">
-              Information is only useful when it helps someone do something.
-            </h2>
-            <p className="text-sm sm:text-base text-[#727272] leading-relaxed">
-              The best resource does more than explain a topic. It helps a healthcare organization understand a challenge, identify an opportunity, and determine what action could come next.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {insightToActionSteps.map((item, idx) => (
-              <div key={item.step} className="p-6 rounded-2xl bg-[#f8f6fc] border border-[#e1e1e5]">
-                <span className="text-xs font-mono text-[#adabb7] block mb-1">0{idx + 1}</span>
-                <h4 className="text-sm font-bold text-[#7b3fc7] mb-2">{item.step}</h4>
-                <p className="text-xs text-[#727272]">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 8: NEWSLETTER
-          ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-24 bg-[#eae4f4]/40 border-b border-[#d6cde2]">
+      <section className="py-20 sm:py-24 bg-white border-b border-[#e9e4f0]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-12 h-12 rounded-2xl bg-white text-[#7b3fc7] flex items-center justify-center mx-auto mb-4 shadow-xs">
-            <Mail className="w-6 h-6" />
+          <div className="w-14 h-14 rounded-2xl bg-[#7b3fc7]/10 text-[#7b3fc7] flex items-center justify-center mx-auto mb-5 shadow-xs">
+            <Mail className="w-7 h-7" />
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1c1636] mb-3">
-            Stay connected to healthcare insights.
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1c1636] mb-3">
+            Stay connected to healthcare intelligence updates.
           </h2>
-          <p className="text-sm text-[#727272] mb-6 max-w-lg mx-auto">
-            Receive approved Guardian insights, resources, and healthcare intelligence updates directly to your inbox.
+          <p className="text-xs sm:text-sm text-[#524b6b] mb-8 max-w-lg mx-auto font-normal">
+            Receive approved Guardian research insights, regulatory briefings, and healthcare intelligence updates directly to your inbox.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your professional email"
-              className="w-full px-5 py-3 rounded-full border border-[#e1e1e5] bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#7b3fc7]"
+              className="w-full px-5 py-3.5 rounded-full border border-[#e9e4f0] bg-[#faf8fd] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#7b3fc7] text-[#1c1636]"
             />
             <button
-              className="w-full sm:w-auto px-7 py-3 rounded-full bg-[#7b3fc7] text-white text-sm font-medium hover:bg-[#9565d2] transition-all shrink-0"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#7b3fc7] text-white text-xs sm:text-sm font-semibold hover:bg-[#9565d2] transition-all shrink-0 shadow-md"
             >
               Subscribe
             </button>
@@ -398,37 +559,53 @@ export default function ResourcesPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 9: FINAL CTA
+          SECTION 6: FINAL EXECUTIVE CTA
           ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-gradient-to-b from-white to-[#f8f6fc]">
+      <section className="py-20 sm:py-28 bg-gradient-to-b from-white to-[#faf8fd]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-br from-[#1c1636] to-[#2d1b54] text-white shadow-xl relative overflow-hidden">
+          
+          <div className="p-10 sm:p-16 rounded-3xl bg-gradient-to-br from-[#1c1636] via-[#2d1b54] to-[#0d1527] text-white shadow-2xl relative overflow-hidden border border-white/10">
+            
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#7b3fc7]/30 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#ff7a57]/20 blur-[120px] rounded-full pointer-events-none" />
+
             <div className="relative z-10 max-w-2xl mx-auto">
-              <h2 className="text-2xl sm:text-4xl font-bold mb-4">
-                Have a healthcare challenge worth exploring?
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-purple-200 text-xs font-semibold tracking-wider uppercase mb-6">
+                <BookOpen className="w-3.5 h-3.5 text-[#ff7a57]" />
+                <span>EXPLORE HEALTHCARE PRIORITIES</span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 tracking-tight leading-tight">
+                Have a healthcare challenge <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-white to-[#ff7a57]">worth exploring?</span>
               </h2>
-              <p className="text-sm sm:text-base text-purple-100/90 mb-8">
-                Talk with Guardian about the data, technology, and expertise behind your healthcare priorities.
+
+              <p className="text-sm sm:text-base text-purple-100/90 mb-8 leading-relaxed font-normal">
+                Connect with Guardian's clinical and technology experts to discover how our platform and services address your value-based care priorities.
               </p>
+
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-white text-[#1c1636] font-medium text-sm hover:bg-[#f2ecf9] transition-all"
+                  to="/company/contact?intent=demo"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#7b3fc7] text-white font-semibold text-xs sm:text-sm hover:bg-[#9565d2] shadow-[0_4px_25px_rgba(123,63,199,0.45)] transition-all duration-300 hover:scale-[1.02] active:scale-95"
                 >
                   <span>Talk to Guardian</span>
-                  <ArrowRight className="w-4 h-4 text-[#7b3fc7]" />
+                  <ArrowRight className="w-4 h-4 text-[#ff7a57]" />
                 </Link>
+                
                 <Link
                   to="/platform"
-                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-white/10 text-white font-medium text-sm hover:bg-white/20 border border-white/20 transition-all"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 text-white font-semibold text-xs sm:text-sm hover:bg-white/20 border border-white/25 backdrop-blur-md transition-all duration-300"
                 >
-                  <span>Explore the Platform</span>
+                  <span>Explore Platform Capabilities</span>
                 </Link>
               </div>
             </div>
+
           </div>
+
         </div>
       </section>
+
     </div>
   );
 }

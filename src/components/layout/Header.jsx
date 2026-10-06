@@ -83,19 +83,19 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Action CTAs: Contact Us + Login ↗ */}
+          {/* Action CTAs: Request a Demo + Login ↗ */}
           <div className="hidden sm:flex items-center gap-3">
             <Link
-              to="/contact"
+              to="/company/contact?intent=demo"
               className={`px-4 py-2 text-xs lg:text-sm font-medium transition-colors rounded-full ${
-                location.pathname === '/contact'
+                location.pathname === '/company/contact'
                   ? 'text-[#7b3fc7] font-semibold bg-white/10'
                   : isScrolled
                   ? 'text-[#35304c] hover:text-[#7b3fc7]'
                   : 'text-white hover:text-purple-200'
               }`}
             >
-              Contact Us
+              Request a Demo
             </Link>
 
             <a
@@ -143,7 +143,7 @@ export default function Header() {
                 return (
                   <div key={item.label} className="border-b border-[#e1e1e5]/40 pb-1 last:border-b-0">
                     <div className="flex items-center justify-between">
-                      {/* Tapping label navigates to the landing page */}
+                      {/* Tapping label navigates to page */}
                       <Link
                         to={item.path}
                         onClick={closeMobileMenu}
@@ -186,18 +186,42 @@ export default function Header() {
                           {item.children.map((child) => {
                             const childActive = isChildActive(location.pathname, child.path);
                             return (
-                              <Link
-                                key={child.path + child.label}
-                                to={child.path}
-                                onClick={closeMobileMenu}
-                                className={`py-1.5 px-3 rounded-lg text-sm transition-colors ${
-                                  childActive
-                                    ? 'bg-[#f2ecf9] text-[#7b3fc7] font-semibold'
-                                    : 'text-[#727272] hover:text-[#7b3fc7] hover:bg-[#f8f6fc]'
-                                }`}
-                              >
-                                {child.label}
-                              </Link>
+                              <React.Fragment key={child.path + child.label}>
+                                <Link
+                                  to={child.path}
+                                  onClick={closeMobileMenu}
+                                  className={`py-1.5 px-3 rounded-lg text-sm transition-colors ${
+                                    childActive
+                                      ? 'bg-[#f2ecf9] text-[#7b3fc7] font-semibold'
+                                      : 'text-[#727272] hover:text-[#7b3fc7] hover:bg-[#f8f6fc]'
+                                  }`}
+                                >
+                                  {child.label}
+                                </Link>
+
+                                {child.subchildren && (
+                                  <div className="pl-4 flex flex-col gap-1">
+                                    {child.subchildren.map((sub) => {
+                                      const subActive = isChildActive(location.pathname, sub.path);
+                                      return (
+                                        <Link
+                                          key={sub.path + sub.label}
+                                          to={sub.path}
+                                          onClick={closeMobileMenu}
+                                          className={`py-1 px-3 rounded-lg text-xs transition-colors flex items-center gap-1.5 ${
+                                            subActive
+                                              ? 'bg-[#f2ecf9] text-[#7b3fc7] font-semibold'
+                                              : 'text-[#727272] hover:text-[#7b3fc7] hover:bg-[#f8f6fc]'
+                                          }`}
+                                        >
+                                          <span className="text-[#adabb7]">↳</span>
+                                          <span>{sub.label}</span>
+                                        </Link>
+                                      );
+                                    })}
+                                  </div>
+                                )}
+                              </React.Fragment>
                             );
                           })}
                         </motion.div>
@@ -210,11 +234,11 @@ export default function Header() {
               {/* Mobile Action CTAs */}
               <div className="pt-4 border-t border-[#e1e1e5] flex flex-col gap-2.5 mt-2">
                 <Link
-                  to="/contact"
+                  to="/company/contact?intent=demo"
                   onClick={closeMobileMenu}
                   className="w-full text-center py-2.5 rounded-full font-medium text-sm text-[#35304c] hover:bg-[#f2ecf9] border border-[#e1e1e5]"
                 >
-                  Contact Us
+                  Request a Demo
                 </Link>
                 <a
                   href="https://live.itsguardian.com/"

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   Stethoscope, 
@@ -87,13 +88,13 @@ export default function WhyGuardian() {
             </p>
 
             {/* CTA Button */}
-            <a
-              href="#contact"
+            <Link
+              to="/company/about"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-[#7b3fc7] via-[#8b5cf6] to-[#a855f7] hover:from-[#8b5cf6] hover:to-[#c084fc] shadow-[0_6px_28px_rgba(123,63,199,0.35)] hover:shadow-[0_8px_36px_rgba(123,63,199,0.5)] hover:scale-[1.02] active:scale-95 transition-all duration-300 group"
             >
               <span>Learn more about Guardian</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
           </motion.div>
 
           {/* ─────────────────────────────────────────────────────────────

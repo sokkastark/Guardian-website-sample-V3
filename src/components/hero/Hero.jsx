@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck, Award, Layers } from 'lucide-react';
 import { useMouseParallax } from '../../hooks/useMouseParallax';
@@ -51,7 +52,6 @@ export default function Hero() {
         <div
           className="relative will-change-transform"
           style={{
-            // Grounded firmly with micro horizontal tilt stability (Y locked to 0)
             transform: `translate3d(${mouseX * 1.5}px, 0px, 0px)`,
           }}
         >
@@ -103,20 +103,20 @@ export default function Hero() {
 
             {/* CTAs */}
             <div className="flex flex-row items-center gap-2.5 w-full sm:w-auto mb-4 sm:mb-8">
-              <a
-                href="#platform"
+              <Link
+                to="/platform"
                 className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-5 sm:px-7 py-2.5 sm:py-3 rounded-full font-medium text-xs sm:text-sm text-white bg-gradient-to-r from-[#7b3fc7] to-[#9333ea] hover:from-[#9333ea] hover:to-[#a855f7] shadow-[0_4px_20px_rgba(147,51,234,0.45)] transition-all duration-300 hover:scale-[1.02] active:scale-95"
               >
                 <span>Explore Guardian</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </a>
+              </Link>
 
-              <a
-                href="#contact"
+              <Link
+                to="/company/contact"
                 className="flex-1 sm:flex-initial inline-flex items-center justify-center px-4 sm:px-7 py-2.5 sm:py-3 rounded-full font-medium text-xs sm:text-sm text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md shadow-xs transition-all duration-300 active:scale-95"
               >
                 <span>Talk to us</span>
-              </a>
+              </Link>
             </div>
 
             {/* Micro Trust Indicators */}
@@ -143,7 +143,6 @@ export default function Hero() {
 
           {/* ─────────────────────────────────────────────────────────────
               MOBILE INTERACTIVE STAGE (< lg screens)
-              Left Pills (z-30) + Right Cards (z-10), doctor anchored at -bottom-px (z-20)
               ───────────────────────────────────────────────────────────── */}
           <div className="lg:hidden relative w-full h-[290px] sm:h-[350px] mb-0 select-none pointer-events-auto">
             {/* Mobile Layer 3: Right Holographic Cards (z-10) */}
@@ -160,12 +159,10 @@ export default function Hero() {
           {/* ─────────────────────────────────────────────────────────────
               DESKTOP LAYOUT (lg: screens)
               ───────────────────────────────────────────────────────────── */}
-          {/* DESKTOP LAYER 1 (Reversed): Center-Left Column: 5 Data Stream Holographic Pills (IN FRONT OF DOCTOR, z-30) */}
           <div className="hidden lg:flex lg:col-span-2 xl:col-span-2 items-center justify-start lg:pl-1 relative z-30">
             <HeroDataPills mouseX={mouseX} mouseY={mouseY} />
           </div>
 
-          {/* DESKTOP LAYER 3 (Reversed): Right Column: Holographic Glass HUD Cards (BEHIND DOCTOR, z-10) */}
           <div className="hidden lg:flex lg:col-span-5 xl:col-span-5 relative w-full items-center justify-end z-10 pt-8 sm:pt-12 lg:pt-16 xl:pt-20 -translate-y-[20px]">
             <HeroVisualCards mouseX={mouseX} mouseY={mouseY} />
           </div>

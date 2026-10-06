@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   HeartPulse, 
@@ -85,10 +86,7 @@ export default function SolutionsSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* ─────────────────────────────────────────────────────────────
-              LEFT COLUMN: Story Narrative & CTA Button
-              Matches Master Reference Mockup
-              ───────────────────────────────────────────────────────────── */}
+          {/* LEFT COLUMN: Story Narrative & CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -117,16 +115,16 @@ export default function SolutionsSection() {
 
             {/* CTA Button */}
             <div className="flex items-center gap-4">
-              <a
-                href="#contact"
+              <Link
+                to="/solutions"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-[#7b3fc7] via-[#8b5cf6] to-[#a855f7] hover:from-[#8b5cf6] hover:to-[#c084fc] shadow-[0_6px_28px_rgba(123,63,199,0.35)] hover:shadow-[0_8px_36px_rgba(123,63,199,0.5)] hover:scale-[1.02] active:scale-95 transition-all duration-300 group"
               >
                 <span>Explore solutions</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </div>
 
-            {/* Active Satellite Summary Drawer with Original Product Module Label */}
+            {/* Active Satellite Summary Drawer */}
             <div className="mt-8 p-4 rounded-2xl bg-[#faf8fd] border border-[#ede7f6] text-xs text-[#524b6b]">
               <div className="flex items-center justify-between mb-1.5">
                 <div className="flex items-center gap-2 font-bold text-[#1c1636]">
@@ -141,142 +139,74 @@ export default function SolutionsSection() {
             </div>
           </motion.div>
 
-          {/* ─────────────────────────────────────────────────────────────
-              RIGHT COLUMN: Radial Satellite Constellation Network
-              Directly reproducing the Master Reference Mockup!
-              ───────────────────────────────────────────────────────────── */}
+          {/* RIGHT COLUMN: Radial Satellite Constellation Network */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="lg:col-span-7 flex flex-col items-center justify-center relative py-4 sm:py-6"
+            transition={{ duration: 0.65, ease: 'easeOut', delay: 0.15 }}
+            className="lg:col-span-7 flex flex-col items-center justify-center relative min-h-[420px] sm:min-h-[480px] lg:min-h-[540px]"
           >
-            {/* The Constellation Canvas Container (520px x 520px) */}
-            <div className="relative w-[340px] h-[340px] sm:w-[480px] sm:h-[480px] lg:w-[520px] lg:h-[520px] flex items-center justify-center">
-              
-              {/* Outer Orbit Rings with Dashed SVG Connections */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 520 520">
-                <defs>
-                  <radialGradient id="ringGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#7b3fc7" stopOpacity="0.08" />
-                    <stop offset="100%" stopColor="#7b3fc7" stopOpacity="0" />
-                  </radialGradient>
-                </defs>
+            {/* Orbiting Radial Rings */}
+            <div className="absolute w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] lg:w-[460px] lg:h-[460px] rounded-full border border-[#7b3fc7]/15 pointer-events-none" />
+            <div className="absolute w-[240px] h-[240px] sm:w-[310px] sm:h-[310px] lg:w-[340px] lg:h-[340px] rounded-full border border-dashed border-[#7b3fc7]/20 pointer-events-none" />
 
-                {/* Soft Radial Ambient Circle */}
-                <circle cx="260" cy="260" r="210" fill="url(#ringGlow)" />
-                <circle cx="260" cy="260" r="185" fill="none" stroke="#e8e2f2" strokeWidth="1.5" strokeDasharray="4 4" />
-                <circle cx="260" cy="260" r="120" fill="none" stroke="#e8e2f2" strokeWidth="1" strokeDasharray="2 3" opacity="0.6" />
+            {/* Center Core Node: Guardian Ecosystem */}
+            <div className="relative z-20 w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-tr from-[#1c1636] via-[#2a1e4a] to-[#1c1636] border-2 border-white/20 shadow-[0_12px_40px_rgba(28,22,54,0.4)] flex flex-col items-center justify-center text-center p-3">
+              <div className="w-8 h-8 rounded-full bg-[#7b3fc7]/30 flex items-center justify-center mb-1 border border-[#7b3fc7]/50">
+                <Sparkles className="w-4 h-4 text-[#ff7a57]" />
+              </div>
+              <span className="text-[10px] sm:text-xs font-bold text-white tracking-tight leading-tight">
+                Guardian Engine
+              </span>
+              <span className="text-[8px] sm:text-[9px] font-mono text-purple-200/70 block mt-0.5">
+                Integrated Suite
+              </span>
+            </div>
 
-                {/* Continuous Orbiting Glowing Circle traveling along the r=185 dotted line path */}
-                <motion.g
-                  animate={{ rotate: 360 }}
-                  transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
-                  style={{ transformOrigin: '260px 260px' }}
-                >
-                  <circle cx="260" cy="75" r="5" fill="#7b3fc7" />
-                  <circle cx="260" cy="75" r="11" fill="#a855f7" opacity="0.35" />
-                </motion.g>
-
-                {/* Radial Connector Rays from Center to 6 Satellite Positions */}
-                {satellites.map((sat, i) => {
-                  const rad = (sat.angle * Math.PI) / 180;
-                  const x = 260 + 185 * Math.cos(rad);
-                  const y = 260 + 185 * Math.sin(rad);
-                  const isActive = activeNode === i;
-
-                  return (
-                    <g key={sat.id}>
-                      <line
-                        x1="260"
-                        y1="260"
-                        x2={x}
-                        y2={y}
-                        stroke={isActive ? sat.color : '#e2dbed'}
-                        strokeWidth={isActive ? 2 : 1.2}
-                        strokeDasharray={isActive ? 'none' : '3 3'}
-                        className="transition-all duration-300"
-                      />
-                      {isActive && (
-                        <circle cx={x} cy={y} r="6" fill={sat.color} opacity="0.3" className="animate-ping" />
-                      )}
-                    </g>
-                  );
-                })}
-              </svg>
-
-              {/* ─────────────────────────────────────────────
-                  CENTRAL GUARDIAN ORB
-                  ───────────────────────────────────────────── */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="relative z-20 w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-white shadow-[0_16px_48px_rgba(123,63,199,0.18)] border border-[#ede7f6] flex flex-col items-center justify-center p-3 sm:p-4 text-center cursor-pointer"
-              >
-                {/* Official Guardian Brand Logo */}
-                <img 
-                  src="/logos/Logo.webp" 
-                  alt="Guardian Health Service" 
-                  className="h-7 sm:h-9 w-auto max-w-[100px] sm:max-w-[125px] object-contain mb-1 filter drop-shadow-xs" 
-                  onError={(e) => {
-                    e.currentTarget.src = '/logos/guardian-logo.png';
-                  }}
-                />
-
-                <span className="text-[8px] sm:text-[9px] font-mono text-[#7b3fc7] uppercase tracking-wider font-semibold">
-                  Core Engine
-                </span>
-              </motion.div>
-
-              {/* ─────────────────────────────────────────────
-                  6 SURROUNDING SATELLITE NODES
-                  ───────────────────────────────────────────── */}
+            {/* 6 Peripheral Satellite Nodes */}
+            <div className="absolute inset-0 flex items-center justify-center">
               {satellites.map((sat, idx) => {
                 const Icon = sat.icon;
-                const rad = (sat.angle * Math.PI) / 180;
-                // Responsive distance: 35.5% percentage from center
-                const distancePct = 35.5;
-                const xPct = 50 + distancePct * Math.cos(rad);
-                const yPct = 50 + distancePct * Math.sin(rad);
                 const isActive = activeNode === idx;
+                const radius = 160;
+
+                const rad = (sat.angle * Math.PI) / 180;
+                const x = Math.round(Math.cos(rad) * radius);
+                const y = Math.round(Math.sin(rad) * radius);
 
                 return (
                   <div
                     key={sat.id}
-                    className="absolute z-30 -translate-x-1/2 -translate-y-1/2"
+                    className="absolute transition-transform duration-500 pointer-events-auto"
                     style={{
-                      left: `${xPct}%`,
-                      top: `${yPct}%`,
+                      transform: `translate(${x}px, ${y}px)`,
                     }}
                   >
                     <motion.button
-                      onClick={() => setActiveNode(idx)}
-                      whileHover={{ scale: 1.12 }}
+                      whileHover={{ scale: 1.08 }}
                       whileTap={{ scale: 0.95 }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                      className="flex flex-col items-center group focus:outline-none cursor-pointer"
+                      onClick={() => setActiveNode(idx)}
+                      className={`group relative flex items-center gap-2 p-2 sm:p-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                        isActive
+                          ? 'bg-white border-2 shadow-[0_8px_30px_rgba(123,63,199,0.35)] scale-110'
+                          : 'bg-white/90 hover:bg-white border border-[#e5e0ee] shadow-sm hover:shadow-md'
+                      }`}
+                      style={{
+                        borderColor: isActive ? sat.color : undefined,
+                      }}
                     >
-                      {/* Circular Icon Node */}
                       <div
-                        className={`w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-md ${
-                          isActive
-                            ? 'shadow-[0_8px_24px_rgba(123,63,199,0.3)] ring-2 ring-offset-2'
-                            : 'bg-white hover:bg-[#faf8fd] border border-[#ede7f6]'
-                        }`}
-                        style={{
-                          backgroundColor: isActive ? sat.color : '#ffffff',
-                          color: isActive ? '#ffffff' : sat.color,
-                          ringColor: sat.color,
-                        }}
+                        className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-white shrink-0 shadow-xs"
+                        style={{ backgroundColor: sat.color }}
                       >
-                        <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                        <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       </div>
 
-                      {/* Satellite Text Label */}
-                      <div className="mt-1.5 sm:mt-2 text-center">
-                        {sat.id === 'pop-health' ? (
-                          <div className="w-40 sm:w-48 flex items-center text-[10px] sm:text-xs font-bold tracking-tight whitespace-nowrap">
-                            <span className={`w-1/2 text-right pr-2.5 sm:pr-3 transition-colors ${
+                      <div className="flex items-center text-left max-w-[85px] sm:max-w-[110px] pr-1">
+                        {sat.title === 'Population Health' ? (
+                          <div className="flex items-center justify-between w-full text-[10px] sm:text-xs font-bold tracking-tight leading-tight">
+                            <span className={`w-1/2 text-right pr-2.5 sm:pr-3 border-r border-[#e5e0ee] transition-colors ${
                               isActive ? 'text-[#1c1636]' : 'text-[#524b6b] group-hover:text-[#1c1636]'
                             }`}>
                               Population
@@ -303,9 +233,7 @@ export default function SolutionsSection() {
               })}
             </div>
 
-            {/* ─────────────────────────────────────────────────────────
-                HANDWRITTEN ANNOTATION (Matching Master Reference Mockup)
-                ───────────────────────────────────────────────────────── */}
+            {/* Handwritten Annotation */}
             <div className="w-full text-right pr-4 sm:pr-8 mt-6 sm:mt-10">
               <span className="font-['Caveat',cursive] text-2xl sm:text-3xl text-[#7b3fc7]/85 -rotate-3 inline-block tracking-wide">
                 Connected solutions. Real impact.

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Award, Lock, Network, ArrowRight } from 'lucide-react';
 
@@ -75,13 +76,13 @@ export default function TrustSection() {
               transition={{ duration: 0.65, ease: 'easeOut' }}
               className="shrink-0"
             >
-              <a
-                href="#security"
+              <Link
+                to="/company/security-trust"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-[#7b3fc7] via-[#8b5cf6] to-[#a855f7] hover:from-[#8b5cf6] hover:to-[#c084fc] shadow-[0_6px_28px_rgba(123,63,199,0.35)] hover:shadow-[0_8px_36px_rgba(123,63,199,0.5)] hover:scale-[1.02] active:scale-95 transition-all duration-300 group"
               >
                 <span>Our approach to security</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </motion.div>
           </div>
 
@@ -182,20 +183,20 @@ export default function TrustSection() {
 
               {/* Dual CTA Buttons */}
               <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href="#contact"
+                <Link
+                  to="/company/contact"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-xs sm:text-sm font-semibold text-[#0c0919] bg-white hover:bg-purple-100 shadow-[0_6px_28px_rgba(255,255,255,0.3)] hover:scale-[1.02] active:scale-95 transition-all duration-300 group"
                 >
                   <span>Talk to Guardian</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                </Link>
 
-                <a
-                  href="#platform"
+                <Link
+                  to="/platform"
                   className="inline-flex items-center gap-2 px-7 py-4 rounded-full text-xs sm:text-sm font-semibold text-purple-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/20 backdrop-blur-md transition-all duration-200"
                 >
                   <span>Explore our platform</span>
-                </a>
+                </Link>
               </div>
             </motion.div>
 
