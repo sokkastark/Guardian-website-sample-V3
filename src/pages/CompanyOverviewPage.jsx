@@ -357,7 +357,7 @@ export default function CompanyOverviewPage() {
 
           {/* Infographic Connected 3D Folded Ribbon Pathway */}
           <div className="relative pt-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-7 xl:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 xl:gap-7">
               {valueChain.map((step, idx) => (
                 <motion.div 
                   key={step.num}
@@ -365,26 +365,28 @@ export default function CompanyOverviewPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-30px' }}
                   transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
-                  className="bg-white rounded-[26px] border border-[#e2dcfa] shadow-[0_12px_35px_rgba(28,22,54,0.06)] hover:shadow-[0_22px_45px_rgba(28,22,54,0.12)] transition-all duration-300 hover:-translate-y-1.5 relative flex flex-col justify-between group pt-4 pb-6 px-5 min-h-[280px]"
+                  className="bg-white rounded-[26px] border border-[#e5e0ee] shadow-[0_15px_35px_rgba(28,22,54,0.07)] hover:shadow-[0_25px_50px_rgba(28,22,54,0.14)] transition-all duration-300 hover:-translate-y-1.5 relative flex flex-col justify-between group pt-4 pb-7 px-6 min-h-[290px]"
                 >
-                  {/* Top 3D Ribbon Bar Header */}
-                  <div className="relative h-11 mb-6 mt-1">
-                    {/* The Horizontal Ribbon Bar Container */}
-                    <div className={`absolute -left-3 right-[-10px] top-0 h-10 ${step.ribbonBg} rounded-r-xs shadow-md flex items-center justify-end pl-12 pr-4 z-10`}>
-                      <span className="text-xs font-extrabold tracking-widest uppercase text-white font-mono truncate text-right">
-                        {step.label}
-                      </span>
-                    </div>
+                  {/* Top 3D Ribbon Bar Header (Exact Match to Reference Image) */}
+                  <div className="relative -mx-6 mt-2 mb-6">
+                    <div className="relative flex items-center z-10 pl-2">
+                      {/* Left Circular Ring Collar Badge */}
+                      <div className={`w-12 h-12 rounded-full ${step.ribbonBg} shadow-[0_4px_12px_rgba(0,0,0,0.25)] flex items-center justify-center shrink-0 z-20`}>
+                        <div className={`w-8 h-8 rounded-full bg-white ${step.numberColor} font-mono font-extrabold text-xs flex items-center justify-center shadow-inner`}>
+                          {step.num}
+                        </div>
+                      </div>
 
-                    {/* Left Protruding Circle Badge (Overlapping Left Edge) */}
-                    <div className={`absolute -left-3 top-[-2px] w-11 h-11 rounded-full ${step.ribbonBg} shadow-[0_4px_10px_rgba(0,0,0,0.22)] flex items-center justify-center z-20`}>
-                      <div className={`w-7.5 h-7.5 rounded-full bg-white ${step.numberColor} font-mono font-extrabold text-xs flex items-center justify-center shadow-inner`}>
-                        {step.num}
+                      {/* Main Horizontal Ribbon Bar */}
+                      <div className={`flex-1 h-10 ${step.ribbonBg} -ml-6 pl-8 pr-4 flex items-center justify-center text-white shadow-md z-10 -mr-6 rounded-r-xs`}>
+                        <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white font-sans text-center truncate">
+                          {step.label}
+                        </span>
                       </div>
                     </div>
 
-                    {/* 3D Fold Triangle underneath the right hanging ribbon tail */}
-                    <div className={`absolute -right-[10px] top-[40px] w-0 h-0 border-t-[10px] ${step.foldBorderColor} border-r-[10px] border-r-transparent z-0`} />
+                    {/* 3D Fold Ribbon Tail Wrapping Around Right Edge */}
+                    <div className={`absolute -right-[14px] top-[34px] w-0 h-0 border-t-[14px] ${step.foldBorderColor} border-r-[14px] border-r-transparent z-0`} />
                   </div>
 
                   {/* Card Content Body */}
