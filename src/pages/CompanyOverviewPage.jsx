@@ -19,6 +19,10 @@ import {
   Check
 } from 'lucide-react';
 
+import InfographicMilestoneTimeline from '../components/common/InfographicMilestoneTimeline';
+import EnterpriseComplianceBar from '../components/common/EnterpriseComplianceBar';
+import { RibbonStepGrid } from '../components/common/RibbonStepCard';
+
 function CountUpNumber({ target, prefix = '', suffix = '', duration = 4000 }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
@@ -63,7 +67,7 @@ export default function CompanyOverviewPage() {
       title: 'EHR & Claims Ingestion',
       desc: 'Bring information together across EHRs, claims, HIE feeds, and pharmacy systems.',
       ribbonBg: 'bg-[#10b981]',
-      foldBorderColor: 'border-t-[#047857]',
+      foldColor: '#047857',
       numberColor: 'text-[#047857]',
     },
     {
@@ -72,7 +76,7 @@ export default function CompanyOverviewPage() {
       title: 'Longitudinal Context',
       desc: 'Synthesize raw data into longitudinal patient charts, risk stratification, and cohort analytics.',
       ribbonBg: 'bg-[#84cc16]',
-      foldBorderColor: 'border-t-[#4d7c0f]',
+      foldColor: '#4d7c0f',
       numberColor: 'text-[#4d7c0f]',
     },
     {
@@ -81,7 +85,7 @@ export default function CompanyOverviewPage() {
       title: 'Risk & Gap Identification',
       desc: 'Surface high-risk patients, HEDIS care gaps, and MRA suspecting opportunities needing action.',
       ribbonBg: 'bg-[#eab308]',
-      foldBorderColor: 'border-t-[#a16207]',
+      foldColor: '#a16207',
       numberColor: 'text-[#a16207]',
     },
     {
@@ -90,7 +94,7 @@ export default function CompanyOverviewPage() {
       title: 'Coordinated Workflows',
       desc: 'Equip multidisciplinary care teams with automated task routing, care plans, and point-of-care alerts.',
       ribbonBg: 'bg-[#f97316]',
-      foldBorderColor: 'border-t-[#c2410c]',
+      foldColor: '#c2410c',
       numberColor: 'text-[#c2410c]',
     },
     {
@@ -99,7 +103,7 @@ export default function CompanyOverviewPage() {
       title: 'Clinical & Financial Impact',
       desc: 'Track quality score improvements, PMPY cost reductions, and shared savings growth.',
       ribbonBg: 'bg-[#ec4899]',
-      foldBorderColor: 'border-t-[#be185d]',
+      foldColor: '#be185d',
       numberColor: 'text-[#be185d]',
     }
   ];
@@ -399,50 +403,7 @@ export default function CompanyOverviewPage() {
 
           {/* Infographic Connected 3D Folded Ribbon Pathway */}
           <div className="relative pt-2">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 xl:gap-6">
-              {valueChain.map((step, idx) => (
-                <motion.div 
-                  key={step.num}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-30px' }}
-                  transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
-                  className="bg-white rounded-[22px] border border-[#e5e0ee] shadow-[0_10px_30px_rgba(28,22,54,0.06)] hover:shadow-[0_18px_40px_rgba(28,22,54,0.12)] transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between group pt-3 pb-5 px-5 min-h-[210px] sm:min-h-[220px]"
-                >
-                  {/* Top 3D Ribbon Bar Header (Proportional Compact Ribbon) */}
-                  <div className="relative -mx-5 mt-1 mb-4">
-                    <div className="relative flex items-center z-10 pl-1">
-                      {/* Left Circular Ring Collar Badge */}
-                      <div className={`w-10 h-10 rounded-full ${step.ribbonBg} shadow-[0_3px_8px_rgba(0,0,0,0.2)] flex items-center justify-center shrink-0 z-20`}>
-                        <div className={`w-7 h-7 rounded-full bg-white ${step.numberColor} font-mono font-extrabold text-[11px] flex items-center justify-center shadow-inner`}>
-                          {step.num}
-                        </div>
-                      </div>
-
-                      {/* Main Horizontal Ribbon Bar */}
-                      <div className={`flex-1 h-8.5 ${step.ribbonBg} -ml-5 pl-6 pr-2.5 flex items-center justify-center text-white shadow-sm z-10 -mr-2 rounded-r-xs`}>
-                        <span className="text-[10.5px] font-semibold tracking-[0.16em] uppercase text-white font-sans text-center truncate">
-                          {step.label}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* 3D Fold Ribbon Tail Wrapping Around Right Edge */}
-                    <div className={`absolute -right-[8px] top-[28px] w-0 h-0 border-t-[8px] ${step.foldBorderColor} border-r-[8px] border-r-transparent z-0`} />
-                  </div>
-
-                  {/* Card Content Body */}
-                  <div className="flex-1 flex flex-col justify-start pt-0.5">
-                    <h3 className="text-sm sm:text-base font-extrabold text-[#1c1636] mb-1.5 leading-snug group-hover:text-[#7b3fc7] transition-colors">
-                      {step.title}
-                    </h3>
-                    <p className="text-[11.5px] text-[#524b6b] leading-relaxed font-normal">
-                      {step.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <RibbonStepGrid steps={valueChain} />
           </div>
 
         </div>
@@ -558,12 +519,12 @@ export default function CompanyOverviewPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 4: COMPANY MILESTONES (TIMELINE)
+          SECTION 4: COMPANY MILESTONES (INFOGRAPHIC STAIR TIMELINE)
           ───────────────────────────────────────────────────────────── */}
-      <section className="py-12 sm:py-16 bg-[#faf8fd] border-b border-[#e9e4f0] relative overflow-hidden">
+      <section className="py-12 sm:py-20 bg-[#faf8fd] border-b border-[#e9e4f0] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7b3fc7]/10 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-2.5 border border-[#7b3fc7]/20 shadow-2xs">
               <Clock className="w-3.5 h-3.5 text-[#ff7a57]" />
               <span>OUR JOURNEY & MILESTONES</span>
@@ -576,47 +537,7 @@ export default function CompanyOverviewPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-6">
-            {milestones.map((m, idx) => (
-              <motion.div 
-                key={m.year}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-30px' }}
-                transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
-                className="bg-white rounded-[22px] border border-[#e5e0ee] shadow-[0_10px_30px_rgba(28,22,54,0.06)] hover:shadow-[0_18px_40px_rgba(28,22,54,0.12)] transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between group pt-3 pb-5 px-5 min-h-[170px]"
-              >
-                {/* Top 3D Ribbon Bar Header */}
-                <div className="relative -mx-5 mt-1 mb-4">
-                  <div className="relative flex items-center z-10 pl-1">
-                    {/* Left Circular Ring Collar Badge */}
-                    <div className={`w-10 h-10 rounded-full ${m.ribbonBg} shadow-[0_3px_8px_rgba(0,0,0,0.2)] flex items-center justify-center shrink-0 z-20`}>
-                      <div className={`w-7 h-7 rounded-full bg-white ${m.numberColor} font-mono font-extrabold text-[11px] flex items-center justify-center shadow-inner`}>
-                        {m.num}
-                      </div>
-                    </div>
-
-                    {/* Main Horizontal Ribbon Bar */}
-                    <div className={`flex-1 h-8.5 ${m.ribbonBg} -ml-5 pl-6 pr-4 flex items-center justify-between text-white shadow-sm z-10 -mr-2 rounded-r-xs`}>
-                      <span className="text-sm font-mono font-extrabold tracking-wider text-white">
-                        {m.year}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* 3D Fold Ribbon Tail Wrapping Around Right Edge */}
-                  <div className={`absolute -right-[8px] top-[28px] w-0 h-0 border-t-[8px] ${m.foldBorderColor} border-r-[8px] border-r-transparent z-0`} />
-                </div>
-
-                {/* Card Content Body */}
-                <div className="flex-1 flex flex-col justify-start pt-0.5">
-                  <p className="text-xs sm:text-[13px] text-[#524b6b] leading-relaxed font-medium">
-                    {m.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <InfographicMilestoneTimeline />
 
         </div>
       </section>
@@ -624,27 +545,9 @@ export default function CompanyOverviewPage() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 5: ENTERPRISE TRUST & COMPLIANCE BAR
           ───────────────────────────────────────────────────────────── */}
-      <section className="py-16 bg-white border-b border-[#e9e4f0]">
+      <section className="py-14 sm:py-16 bg-[#faf8fd] border-b border-[#e9e4f0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-6 rounded-2xl bg-[#faf8fd] border border-[#e9e4f0] shadow-xs flex flex-wrap items-center justify-between gap-6">
-            <span className="text-xs font-mono font-bold text-[#1c1636] uppercase tracking-wider">
-              ENTERPRISE COMPLIANCE & RECOGNITION:
-            </span>
-            <div className="flex flex-wrap items-center gap-6 text-xs text-[#35304c] font-semibold">
-              <span className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> CMS MIPS Qualified Registry Architecture
-              </span>
-              <span className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> eHealth Exchange Interoperability
-              </span>
-              <span className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> CareQuality Framework Alignment
-              </span>
-              <span className="flex items-center gap-2">
-                <Lock className="w-4 h-4 text-[#ff7a57]" /> HITRUST & HIPAA Security Alignment
-              </span>
-            </div>
-          </div>
+          <EnterpriseComplianceBar />
         </div>
       </section>
 
