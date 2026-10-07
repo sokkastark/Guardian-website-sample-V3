@@ -203,12 +203,54 @@ export default function CompanyOverviewPage() {
   ];
 
   const milestones = [
-    { year: '2013', desc: 'Guardian founded to support Medicare ACO risk management and care coordination.' },
-    { year: '2016', desc: 'Expanded into Statewide Event Notification Services (ENS) for hospital ADT alerts.' },
-    { year: '2017', desc: 'Integrated with nationwide eHealth Exchange and CareQuality health data networks.' },
-    { year: '2018', desc: 'Connected patient data foundation surpassed 1,000,000 active clinical records.' },
-    { year: '2019', desc: 'Achieved first $100,000,000 in cumulative shared savings for client ACOs.' },
-    { year: '2021', desc: 'Certified as an official CMS MIPS Qualified Registry for quality reporting.' }
+    {
+      num: '01',
+      year: '2013',
+      desc: 'Guardian founded to support Medicare ACO risk management and care coordination.',
+      ribbonBg: 'bg-[#7b3fc7]',
+      foldBorderColor: 'border-t-[#4c1d95]',
+      numberColor: 'text-[#7b3fc7]',
+    },
+    {
+      num: '02',
+      year: '2016',
+      desc: 'Expanded into Statewide Event Notification Services (ENS) for hospital ADT alerts.',
+      ribbonBg: 'bg-[#4f46e5]',
+      foldBorderColor: 'border-t-[#3730a3]',
+      numberColor: 'text-[#4f46e5]',
+    },
+    {
+      num: '03',
+      year: '2017',
+      desc: 'Integrated with nationwide eHealth Exchange and CareQuality health data networks.',
+      ribbonBg: 'bg-[#059669]',
+      foldBorderColor: 'border-t-[#047857]',
+      numberColor: 'text-[#059669]',
+    },
+    {
+      num: '04',
+      year: '2018',
+      desc: 'Connected patient data foundation surpassed 1,000,000 active clinical records.',
+      ribbonBg: 'bg-[#84cc16]',
+      foldBorderColor: 'border-t-[#4d7c0f]',
+      numberColor: 'text-[#4d7c0f]',
+    },
+    {
+      num: '05',
+      year: '2019',
+      desc: 'Achieved first $100,000,000 in cumulative shared savings for client ACOs.',
+      ribbonBg: 'bg-[#f97316]',
+      foldBorderColor: 'border-t-[#c2410c]',
+      numberColor: 'text-[#c2410c]',
+    },
+    {
+      num: '06',
+      year: '2021',
+      desc: 'Certified as an official CMS MIPS Qualified Registry for quality reporting.',
+      ribbonBg: 'bg-[#ec4899]',
+      foldBorderColor: 'border-t-[#be185d]',
+      numberColor: 'text-[#be185d]',
+    }
   ];
 
   return (
@@ -518,31 +560,61 @@ export default function CompanyOverviewPage() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 4: COMPANY MILESTONES (TIMELINE)
           ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-28 bg-[#faf8fd] border-b border-[#e9e4f0]">
+      <section className="py-12 sm:py-16 bg-[#faf8fd] border-b border-[#e9e4f0] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7b3fc7]/10 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-3 border border-[#7b3fc7]/20 shadow-2xs">
+          <div className="max-w-3xl mb-8">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7b3fc7]/10 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-2.5 border border-[#7b3fc7]/20 shadow-2xs">
               <Clock className="w-3.5 h-3.5 text-[#ff7a57]" />
               <span>OUR JOURNEY & MILESTONES</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1c1636] tracking-tight mb-3 leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1c1636] tracking-tight mb-3 leading-tight">
               A decade of innovation <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fc7] via-[#4f46e5] to-[#ff7a57]">in value-based care.</span>
             </h2>
-            <p className="text-base text-[#524b6b] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#524b6b] leading-relaxed">
               Guardian’s history reflects a long-term commitment to connecting healthcare data and delivering clinical and financial results:
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {milestones.map((m) => (
-              <div key={m.year} className="p-7 rounded-2xl bg-white border border-[#e9e4f0] shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div className="text-2xl font-extrabold text-[#7b3fc7] mb-2 font-mono flex items-center justify-between">
-                  <span>{m.year}</span>
-                  <Award className="w-5 h-5 text-[#ff7a57]" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-6">
+            {milestones.map((m, idx) => (
+              <motion.div 
+                key={m.year}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-30px' }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
+                className="bg-white rounded-[22px] border border-[#e5e0ee] shadow-[0_10px_30px_rgba(28,22,54,0.06)] hover:shadow-[0_18px_40px_rgba(28,22,54,0.12)] transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between group pt-3 pb-5 px-5 min-h-[170px]"
+              >
+                {/* Top 3D Ribbon Bar Header */}
+                <div className="relative -mx-5 mt-1 mb-4">
+                  <div className="relative flex items-center z-10 pl-1">
+                    {/* Left Circular Ring Collar Badge */}
+                    <div className={`w-10 h-10 rounded-full ${m.ribbonBg} shadow-[0_3px_8px_rgba(0,0,0,0.2)] flex items-center justify-center shrink-0 z-20`}>
+                      <div className={`w-7 h-7 rounded-full bg-white ${m.numberColor} font-mono font-extrabold text-[11px] flex items-center justify-center shadow-inner`}>
+                        {m.num}
+                      </div>
+                    </div>
+
+                    {/* Main Horizontal Ribbon Bar */}
+                    <div className={`flex-1 h-8.5 ${m.ribbonBg} -ml-5 pl-6 pr-4 flex items-center justify-between text-white shadow-sm z-10 -mr-2 rounded-r-xs`}>
+                      <span className="text-sm font-mono font-extrabold tracking-wider text-white">
+                        {m.year}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* 3D Fold Ribbon Tail Wrapping Around Right Edge */}
+                  <div className={`absolute -right-[8px] top-[28px] w-0 h-0 border-t-[8px] ${m.foldBorderColor} border-r-[8px] border-r-transparent z-0`} />
                 </div>
-                <p className="text-xs sm:text-sm text-[#524b6b] leading-relaxed font-medium">{m.desc}</p>
-              </div>
+
+                {/* Card Content Body */}
+                <div className="flex-1 flex flex-col justify-start pt-0.5">
+                  <p className="text-xs sm:text-[13px] text-[#524b6b] leading-relaxed font-medium">
+                    {m.desc}
+                  </p>
+                </div>
+              </motion.div>
             ))}
           </div>
 
