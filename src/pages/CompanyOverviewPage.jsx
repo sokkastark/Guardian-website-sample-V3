@@ -370,8 +370,8 @@ export default function CompanyOverviewPage() {
                   {/* Top 3D Ribbon Bar Header */}
                   <div className="relative h-11 mb-6 mt-1">
                     {/* The Horizontal Ribbon Bar Container */}
-                    <div className={`absolute -left-3 right-[-10px] top-0 h-10 ${step.ribbonBg} rounded-r-xs shadow-md flex items-center justify-start pl-11 pr-2 z-10`}>
-                      <span className="text-[11px] font-extrabold tracking-widest uppercase text-white font-mono truncate">
+                    <div className={`absolute -left-3 right-[-10px] top-0 h-10 ${step.ribbonBg} rounded-r-xs shadow-md flex items-center justify-end pl-12 pr-4 z-10`}>
+                      <span className="text-xs font-extrabold tracking-widest uppercase text-white font-mono truncate text-right">
                         {step.label}
                       </span>
                     </div>
