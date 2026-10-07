@@ -357,7 +357,7 @@ export default function CompanyOverviewPage() {
 
           {/* Infographic Connected 3D Folded Ribbon Pathway */}
           <div className="relative pt-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 xl:gap-7">
               {valueChain.map((step, idx) => (
                 <motion.div 
                   key={step.num}
@@ -365,20 +365,20 @@ export default function CompanyOverviewPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-30px' }}
                   transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
-                  className="bg-white rounded-[28px] border border-[#e5e0ee] shadow-[0_15px_35px_rgba(28,22,54,0.07)] hover:shadow-[0_25px_50px_rgba(28,22,54,0.14)] transition-all duration-300 hover:-translate-y-1.5 relative flex flex-col justify-between group pt-5 pb-6 px-6"
+                  className="bg-white rounded-[26px] border border-[#e5e0ee] shadow-[0_15px_35px_rgba(28,22,54,0.07)] hover:shadow-[0_25px_50px_rgba(28,22,54,0.14)] transition-all duration-300 hover:-translate-y-1.5 relative flex flex-col justify-between group pt-5 pb-7 px-6 min-h-[290px]"
                 >
                   {/* Top 3D Folded Ribbon Bar Header (White Card Visible Above Ribbon) */}
                   <div className="relative -mx-6 mt-1 mb-6">
                     <div className="relative flex items-center z-10">
-                      {/* Left Circular Ring Collar Badge */}
-                      <div className={`w-12 h-12 rounded-full ${step.ribbonBg} shadow-md flex items-center justify-center shrink-0 -ml-2 z-20 ring-2 ring-white/20`}>
+                      {/* Protruding Left Circular Ring Collar Badge */}
+                      <div className={`w-12 h-12 rounded-full ${step.ribbonBg} shadow-[0_4px_12px_rgba(0,0,0,0.25)] flex items-center justify-center shrink-0 -ml-4 z-20`}>
                         <div className={`w-8 h-8 rounded-full bg-white ${step.numberColor} font-mono font-extrabold text-xs flex items-center justify-center shadow-inner`}>
                           {step.num}
                         </div>
                       </div>
 
                       {/* Horizontal Ribbon Bar */}
-                      <div className={`flex-1 h-10 ${step.ribbonBg} -ml-6 pl-8 pr-3 flex items-center justify-between text-white shadow-md z-10 -mr-6 rounded-r-xs`}>
+                      <div className={`flex-1 h-10 ${step.ribbonBg} -ml-6 pl-8 pr-3 flex items-center justify-start text-white shadow-md z-10 -mr-7 rounded-r-xs`}>
                         <span className="text-[11px] font-extrabold tracking-widest uppercase text-white font-mono truncate">
                           {step.label}
                         </span>
@@ -386,25 +386,17 @@ export default function CompanyOverviewPage() {
                     </div>
 
                     {/* 3D Fold Triangle underneath the right hanging ribbon tail */}
-                    <div className={`absolute -right-[14px] top-[28px] w-0 h-0 border-t-[12px] ${step.foldBorderColor} border-r-[12px] border-r-transparent z-0`} />
+                    <div className={`absolute -right-[14px] top-[28px] w-0 h-0 border-t-[14px] ${step.foldBorderColor} border-r-[14px] border-r-transparent z-0`} />
                   </div>
 
                   {/* Card Content Body */}
-                  <div className="flex-1 flex flex-col justify-between pt-1">
-                    <div>
-                      <h3 className="text-base font-extrabold text-[#1c1636] mb-2 leading-snug group-hover:text-[#7b3fc7] transition-colors">
-                        {step.title}
-                      </h3>
-                      <p className="text-xs text-[#524b6b] leading-relaxed">
-                        {step.desc}
-                      </p>
-                    </div>
-
-                    {/* Bottom Step Indicator */}
-                    <div className="mt-5 pt-3 border-t border-[#f0ebf8] flex items-center justify-between text-[11px] font-bold text-[#7b3fc7]">
-                      <span>Step {step.num} of 05</span>
-                      <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                  <div className="flex-1 flex flex-col justify-start pt-1">
+                    <h3 className="text-base font-extrabold text-[#1c1636] mb-2 leading-snug group-hover:text-[#7b3fc7] transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-xs sm:text-[12.5px] text-[#524b6b] leading-relaxed font-normal">
+                      {step.desc}
+                    </p>
                   </div>
                 </motion.div>
               ))}
