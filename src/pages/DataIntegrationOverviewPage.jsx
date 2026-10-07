@@ -145,7 +145,7 @@ export default function DataIntegrationOverviewPage() {
       title: 'Data Foundation & Mesh',
       path: '/data-integration/data-foundation',
       tagline: 'CORE DATA MESH & SECURITY',
-      headline: 'High-scale, HITRUST e1 certified healthcare data architecture.',
+      headline: 'High-scale, HITRUST & SOC 2 aligned healthcare data architecture.',
       description: 'The core operational data store housing Master Patient Index (MPI) matching, longitudinal record synthesis, enterprise encryption, and multi-tenant security controls.',
       icon: Server,
       gradient: 'from-[#1c1636] via-[#2e1065] to-[#7b3fc7]',
@@ -155,7 +155,7 @@ export default function DataIntegrationOverviewPage() {
       capabilities: [
         'Master Patient Index (MPI) Matching',
         'Longitudinal Patient Record Engine',
-        'HITRUST e1 & SOC 2 Certified Cloud',
+        'HITRUST & SOC 2 Security Frameworks',
         'FHIR R4 Operational Data Store'
       ]
     },
@@ -228,15 +228,15 @@ export default function DataIntegrationOverviewPage() {
           <img 
             src="/images/platform-hero-banner.jpg" 
             alt="Guardian Data & Integration Ingestion Infrastructure" 
-            className="w-full h-full object-cover object-center filter brightness-[0.35] contrast-110"
+            className="w-full h-full object-cover object-center filter brightness-[0.6] contrast-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1527]/98 via-[#0d1527]/90 to-[#0d1527]/75" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0d1527]/90 via-transparent to-[#0d1527]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1527]/90 via-[#0d1527]/75 to-[#0d1527]/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0d1527]/80 via-transparent to-[#0d1527]" />
           
           {/* Ambient Lighting Accents */}
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[450px] bg-[#059669]/25 blur-[160px] rounded-full" />
-          <div className="absolute bottom-10 right-10 w-[500px] h-[350px] bg-[#4f46e5]/20 blur-[140px] rounded-full" />
-          <div className="absolute inset-0 ambient-grid opacity-20" />
+          <div className="absolute top-1/4 left-1/4 w-[600px] h-[450px] bg-[#059669]/30 blur-[140px] rounded-full" />
+          <div className="absolute bottom-10 right-10 w-[500px] h-[350px] bg-[#4f46e5]/25 blur-[120px] rounded-full" />
+          <div className="absolute inset-0 ambient-grid opacity-25" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -285,34 +285,37 @@ export default function DataIntegrationOverviewPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
-              className="lg:col-span-5 hidden lg:block"
+              className="lg:col-span-5 hidden lg:block transform lg:scale-108 transition-transform duration-300"
             >
-              <div className="relative rounded-2xl bg-[#1a1233]/90 border border-white/20 backdrop-blur-xl p-3 shadow-2xl overflow-hidden group">
-                <div className="flex items-center justify-between px-3 py-1.5 bg-[#120b24] rounded-lg border-b border-white/10 mb-2">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block" />
-                    <span className="text-[10px] text-emerald-300 font-mono ml-2">data.itsguardian.com</span>
+              <div className="relative group">
+                <div className="absolute -inset-2 bg-gradient-to-tr from-[#059669]/40 to-[#7b3fc7]/30 rounded-3xl blur-2xl opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                <div className="relative rounded-2xl bg-[#1a1233]/95 border border-white/30 backdrop-blur-xl p-3 shadow-2xl overflow-hidden">
+                  <div className="flex items-center justify-between px-3 py-1.5 bg-[#120b24] rounded-lg border-b border-white/15 mb-2">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/90 inline-block" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/90 inline-block" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-green-500/90 inline-block" />
+                      <span className="text-[10px] text-emerald-300 font-mono ml-2">data.itsguardian.com</span>
+                    </div>
+                    <span className="text-[9px] font-mono px-2.5 py-0.5 rounded bg-[#059669] text-white font-bold">
+                      Integration Pipeline
+                    </span>
                   </div>
-                  <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#059669]/40 text-emerald-200 border border-[#059669]/60">
-                    Integration Pipeline
-                  </span>
-                </div>
 
-                <div className="relative rounded-md overflow-hidden bg-white border border-[#e9e4f0]">
-                  <img 
-                    src="/images/appliction images/ui-adt-notifications.png" 
-                    alt="Guardian Real-Time ADT & Data Integration Suite" 
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
+                  <div className="relative rounded-md overflow-hidden bg-white border border-[#e9e4f0] shadow-md">
+                    <img 
+                      src="/images/appliction images/ui-adt-notifications.png" 
+                      alt="Guardian Real-Time ADT & Data Integration Suite" 
+                      className="w-full h-auto object-contain filter brightness-[1.06] contrast-[1.03]"
+                    />
+                  </div>
 
-                <div className="mt-2.5 flex items-center justify-between text-[11px] text-emerald-200 font-mono px-1">
-                  <span className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> FHIR R4 & HL7 v2 Certified
-                  </span>
-                  <span className="text-emerald-300">Bi-Directional Exchange</span>
+                  <div className="mt-2.5 flex items-center justify-between text-[11px] text-emerald-200 font-mono px-1 font-medium">
+                    <span className="flex items-center gap-1.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> FHIR R4 & HL7 v2 Protocols
+                    </span>
+                    <span className="text-emerald-300 font-bold">Bi-Directional Exchange</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -343,9 +346,13 @@ export default function DataIntegrationOverviewPage() {
           {/* Infographic Connected Pathway */}
           <div className="relative pt-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {pipelineSteps.map((step) => (
-                <div 
+              {pipelineSteps.map((step, idx) => (
+                <motion.div 
                   key={step.num}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
                   className="p-6 rounded-2xl bg-white border border-[#e9e4f0] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between group"
                 >
                   {/* Top Step Header */}
@@ -372,7 +379,7 @@ export default function DataIntegrationOverviewPage() {
                     <span>Step {step.num} of 05</span>
                     <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -386,7 +393,13 @@ export default function DataIntegrationOverviewPage() {
       <section id="data-overview" className="py-20 sm:py-28 bg-white border-b border-[#e9e4f0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mb-14">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="max-w-3xl mb-14"
+          >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#059669]/10 text-[#059669] text-xs font-semibold tracking-wider uppercase mb-3 border border-[#059669]/20 shadow-2xs">
               <Layers className="w-3.5 h-3.5 text-[#ff7a57]" />
               <span>THE 6 PILLARS OF DATA INTEGRATION</span>
@@ -397,15 +410,19 @@ export default function DataIntegrationOverviewPage() {
             <p className="text-base text-[#524b6b] leading-relaxed">
               Explore the 6 core data integration capabilities connecting Guardian across the healthcare ecosystem:
             </p>
-          </div>
+          </motion.div>
 
           {/* 6 High-Tech Data Connector Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
             {integrationPillars.map((pil, idx) => {
               const PilIcon = pil.icon;
               return (
-                <div 
+                <motion.div 
                   key={pil.id} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
                   className="p-7 rounded-2xl bg-[#faf8fd] border border-[#e9e4f0] hover:border-[#059669]/50 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group relative overflow-hidden"
                 >
                   {/* Top Solid Gradient Edge Stripe */}
@@ -467,7 +484,7 @@ export default function DataIntegrationOverviewPage() {
                     </Link>
                   </div>
 
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -601,8 +618,8 @@ export default function DataIntegrationOverviewPage() {
                     <Globe className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-[#1c1636] mb-1">FHIR R4 & HL7 v2 Certified Protocols</h3>
-                    <p className="text-xs text-[#524b6b] leading-relaxed">Full compliance with ONC Cures Act final rules, supporting FHIR R4 resources, C-CDA XML, and HL7 v2 messages.</p>
+                    <h3 className="text-sm font-bold text-[#1c1636] mb-1">FHIR R4 & HL7 v2 Interoperability</h3>
+                    <p className="text-xs text-[#524b6b] leading-relaxed">Full support for ONC Cures Act interoperability frameworks, supporting FHIR R4 resources, C-CDA XML, and HL7 v2 messages.</p>
                   </div>
                 </div>
 
@@ -611,7 +628,7 @@ export default function DataIntegrationOverviewPage() {
                     <Radio className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-[#1c1636] mb-1">eHealth Exchange & CareQuality Implementer</h3>
+                    <h3 className="text-sm font-bold text-[#1c1636] mb-1">eHealth Exchange & CareQuality Frameworks</h3>
                     <p className="text-xs text-[#524b6b] leading-relaxed">Direct network connectivity across national health data exchanges for instant cross-organization patient lookup.</p>
                   </div>
                 </div>
@@ -621,7 +638,7 @@ export default function DataIntegrationOverviewPage() {
                     <Lock className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-[#1c1636] mb-1">HITRUST e1 & SOC 2 Type II Certified Architecture</h3>
+                    <h3 className="text-sm font-bold text-[#1c1636] mb-1">HITRUST & SOC 2 Security Alignment</h3>
                     <p className="text-xs text-[#524b6b] leading-relaxed">End-to-end TLS 1.3 encryption in transit and AES-256 encryption at rest with multi-tenant row-level access controls.</p>
                   </div>
                 </div>
@@ -652,8 +669,8 @@ export default function DataIntegrationOverviewPage() {
                       <Lock className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="text-xs font-extrabold text-[#1c1636] block">HITRUST e1 Certified</span>
-                      <span className="text-[11px] text-[#524b6b]">SOC 2 Type II Architecture</span>
+                      <span className="text-xs font-extrabold text-[#1c1636] block">Enterprise Security</span>
+                      <span className="text-[11px] text-[#524b6b]">HITRUST & SOC 2 Alignment</span>
                     </div>
                   </div>
                 </div>

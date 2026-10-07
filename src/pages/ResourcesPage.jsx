@@ -190,15 +190,15 @@ export default function ResourcesPage() {
           <img 
             src="/images/clinician-whitecoat.jpg" 
             alt="Healthcare professionals engaging with Guardian knowledge resources" 
-            className="w-full h-full object-cover object-center filter brightness-[0.3] contrast-110"
+            className="w-full h-full object-cover object-center filter brightness-[0.6] contrast-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1527]/98 via-[#0d1527]/90 to-[#0d1527]/75" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0d1527]/90 via-transparent to-[#0d1527]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1527]/90 via-[#0d1527]/75 to-[#0d1527]/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0d1527]/80 via-transparent to-[#0d1527]" />
           
           {/* Ambient Lighting Accents */}
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[450px] bg-[#7b3fc7]/25 blur-[160px] rounded-full" />
-          <div className="absolute bottom-10 right-10 w-[500px] h-[350px] bg-[#ff7a57]/20 blur-[140px] rounded-full" />
-          <div className="absolute inset-0 ambient-grid opacity-15" />
+          <div className="absolute top-1/4 left-1/4 w-[600px] h-[450px] bg-[#7b3fc7]/30 blur-[140px] rounded-full" />
+          <div className="absolute bottom-10 right-10 w-[500px] h-[350px] bg-[#ff7a57]/25 blur-[120px] rounded-full" />
+          <div className="absolute inset-0 ambient-grid opacity-20" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -247,36 +247,39 @@ export default function ResourcesPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
-              className="lg:col-span-5 hidden lg:block"
+              className="lg:col-span-5 hidden lg:block transform lg:scale-108 transition-transform duration-300"
             >
-              <div className="relative rounded-2xl bg-[#1a1233]/90 border border-white/20 backdrop-blur-xl p-3 shadow-2xl overflow-hidden group">
-                <div className="flex items-center justify-between px-3 py-1.5 bg-[#120b24] rounded-lg border-b border-white/10 mb-2">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block" />
-                    <span className="text-[10px] text-purple-300 font-mono ml-2">resources.itsguardian.com</span>
+              <div className="relative group">
+                <div className="absolute -inset-2 bg-gradient-to-tr from-[#7b3fc7]/40 to-[#ff7a57]/30 rounded-3xl blur-2xl opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                <div className="relative rounded-2xl bg-[#1a1233]/95 border border-white/30 backdrop-blur-xl p-3 shadow-2xl overflow-hidden">
+                  <div className="flex items-center justify-between px-3 py-1.5 bg-[#120b24] rounded-lg border-b border-white/15 mb-2">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/90 inline-block" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/90 inline-block" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-green-500/90 inline-block" />
+                      <span className="text-[10px] text-purple-200 font-mono ml-2">resources.itsguardian.com</span>
+                    </div>
+                    <span className="text-[9px] font-mono px-2.5 py-0.5 rounded bg-[#7b3fc7] text-white border border-purple-300/50 font-bold">
+                      Knowledge Hub
+                    </span>
                   </div>
-                  <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#7b3fc7]/40 text-purple-200 border border-[#7b3fc7]/60">
-                    Knowledge Hub
-                  </span>
-                </div>
 
-                <div className="relative rounded-md overflow-hidden bg-white border border-[#e9e4f0] p-4 text-[#1c1636]">
-                  <span className="text-[10px] font-mono font-bold text-[#7b3fc7] uppercase tracking-wider block mb-1">Featured Whitepaper</span>
-                  <h3 className="text-base font-extrabold mb-2 text-[#1c1636]">CMS-HCC V28 Risk Adjustment Transition Playbook</h3>
-                  <p className="text-xs text-[#524b6b] leading-relaxed mb-3">Practical guidance for risk coding teams navigating CMS model changes and ethical documentation.</p>
-                  <div className="flex items-center justify-between text-[11px] font-bold text-[#7b3fc7] pt-2 border-t border-[#f0ebf8]">
-                    <span>Download Playbook PDF</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                  <div className="relative rounded-md overflow-hidden bg-white border border-[#e9e4f0] p-4 text-[#1c1636] shadow-md">
+                    <span className="text-[10px] font-mono font-bold text-[#7b3fc7] uppercase tracking-wider block mb-1">Featured Whitepaper</span>
+                    <h3 className="text-base font-extrabold mb-2 text-[#1c1636]">CMS-HCC V28 Risk Adjustment Transition Playbook</h3>
+                    <p className="text-xs text-[#524b6b] leading-relaxed mb-3 font-normal">Practical guidance for risk coding teams navigating CMS model changes and ethical documentation.</p>
+                    <div className="flex items-center justify-between text-[11px] font-bold text-[#7b3fc7] pt-2 border-t border-[#f0ebf8]">
+                      <span>Download Playbook PDF</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
                   </div>
-                </div>
 
-                <div className="mt-2.5 flex items-center justify-between text-[11px] text-purple-200 font-mono px-1">
-                  <span className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> 6 Content Centers
-                  </span>
-                  <span className="text-purple-300">Updated Weekly</span>
+                  <div className="mt-2.5 flex items-center justify-between text-[11px] text-purple-200 font-mono px-1 font-medium">
+                    <span className="flex items-center gap-1.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> 6 Content Centers
+                    </span>
+                    <span className="text-purple-300 font-bold">Updated Weekly</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -307,9 +310,13 @@ export default function ResourcesPage() {
           {/* Infographic Connected Pathway */}
           <div className="relative pt-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {learningPathway.map((step) => (
-                <div 
+              {learningPathway.map((step, idx) => (
+                <motion.div 
                   key={step.num}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
                   className="p-6 rounded-2xl bg-white border border-[#e9e4f0] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between group"
                 >
                   {/* Top Step Header */}
@@ -336,7 +343,7 @@ export default function ResourcesPage() {
                     <span>Step {step.num} of 05</span>
                     <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -350,7 +357,13 @@ export default function ResourcesPage() {
       <section id="resources-overview" className="py-20 sm:py-28 bg-white border-b border-[#e9e4f0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mb-14">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="max-w-3xl mb-14"
+          >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7b3fc7]/10 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-3 border border-[#7b3fc7]/20 shadow-2xs">
               <Layers className="w-3.5 h-3.5 text-[#ff7a57]" />
               <span>THE 6 RESOURCE CENTERS</span>
@@ -361,15 +374,19 @@ export default function ResourcesPage() {
             <p className="text-base text-[#524b6b] leading-relaxed">
               Explore the six canonical resource categories covering healthcare data, quality, risk, webinars, and platform walkthroughs:
             </p>
-          </div>
+          </motion.div>
 
           {/* 6 Core Resource Editorial Cards (Distinct Media Library Layout) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 pt-4">
             {resourceCenters.map((res, index) => {
               const ResIcon = res.icon;
               return (
-                <div 
+                <motion.div 
                   key={res.id} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.05 }}
                   className={`bg-white rounded-2xl border border-[#e9e4f0] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden group relative ${res.shadowGlow}`}
                 >
                   {/* Top Gradient Accent Line */}
@@ -435,7 +452,7 @@ export default function ResourcesPage() {
                     </div>
 
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>

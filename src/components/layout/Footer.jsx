@@ -75,11 +75,11 @@ export default function Footer() {
             
             {/* 01 — PLATFORM */}
             <div className="space-y-3.5">
-              <h3 className="text-[#adabb7] font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-                <span className="text-[#7b3fc7] font-mono text-[10px]">01 —</span>
+              <h3 className="text-[#adabb7] font-semibold uppercase tracking-wider text-xs flex items-center gap-1.5">
+                <span className="text-[#7b3fc7] font-mono text-xs">01 —</span>
                 <span>PLATFORM</span>
               </h3>
-              <ul className="space-y-2 text-xs">
+              <ul className="space-y-2 text-xs sm:text-[13px]">
                 <li>
                   <Link to="/platform" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
                     Platform Overview
@@ -110,11 +110,11 @@ export default function Footer() {
 
             {/* 02 — SOLUTIONS */}
             <div className="space-y-3.5">
-              <h3 className="text-[#adabb7] font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-                <span className="text-[#7b3fc7] font-mono text-[10px]">02 —</span>
+              <h3 className="text-[#adabb7] font-semibold uppercase tracking-wider text-xs flex items-center gap-1.5">
+                <span className="text-[#7b3fc7] font-mono text-xs">02 —</span>
                 <span>SOLUTIONS</span>
               </h3>
-              <ul className="space-y-2 text-xs">
+              <ul className="space-y-2 text-xs sm:text-[13px]">
                 <li>
                   <Link to="/solutions" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
                     Solutions Overview
@@ -145,11 +145,11 @@ export default function Footer() {
 
             {/* 03 — DATA & INTELLIGENCE */}
             <div className="space-y-3.5">
-              <h3 className="text-[#adabb7] font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-                <span className="text-[#7b3fc7] font-mono text-[10px]">03 —</span>
+              <h3 className="text-[#adabb7] font-semibold uppercase tracking-wider text-xs flex items-center gap-1.5">
+                <span className="text-[#7b3fc7] font-mono text-xs">03 —</span>
                 <span>DATA & AI</span>
               </h3>
-              <ul className="space-y-2 text-xs">
+              <ul className="space-y-2 text-xs sm:text-[13px]">
                 <li>
                   <Link to="/intelligence" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
                     Intelligence Overview
@@ -180,11 +180,11 @@ export default function Footer() {
 
             {/* 04 — RESOURCES */}
             <div className="space-y-3.5">
-              <h3 className="text-[#adabb7] font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-                <span className="text-[#7b3fc7] font-mono text-[10px]">04 —</span>
+              <h3 className="text-[#adabb7] font-semibold uppercase tracking-wider text-xs flex items-center gap-1.5">
+                <span className="text-[#7b3fc7] font-mono text-xs">04 —</span>
                 <span>RESOURCES</span>
               </h3>
-              <ul className="space-y-2 text-xs">
+              <ul className="space-y-2 text-xs sm:text-[13px]">
                 <li>
                   <Link to="/resources" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
                     Resources Overview
@@ -210,11 +210,11 @@ export default function Footer() {
 
             {/* 05 — COMPANY */}
             <div className="space-y-3.5">
-              <h3 className="text-[#adabb7] font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-                <span className="text-[#7b3fc7] font-mono text-[10px]">05 —</span>
+              <h3 className="text-[#adabb7] font-semibold uppercase tracking-wider text-xs flex items-center gap-1.5">
+                <span className="text-[#7b3fc7] font-mono text-xs">05 —</span>
                 <span>COMPANY</span>
               </h3>
-              <ul className="space-y-2 text-xs">
+              <ul className="space-y-2 text-xs sm:text-[13px]">
                 <li>
                   <Link to="/company/about" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
                     About Guardian
@@ -357,33 +357,33 @@ export default function Footer() {
           
           {/* 01 — PLATFORM */}
           <div className="space-y-3.5">
-            <h3 className="text-purple-300 font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-              <span className="text-[#ff7a57] font-mono text-[10px]">01 —</span>
+            <h3 className="text-purple-300 font-semibold uppercase tracking-wider text-xs flex items-center gap-1.5">
+              <span className="text-[#ff7a57] font-mono text-xs">01 —</span>
               <span>PLATFORM</span>
             </h3>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-xs sm:text-[13px]">
               <li>
-                <Link to="/platform" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/platform" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Platform Overview
                 </Link>
               </li>
               <li>
-                <Link to="/platform/population-health" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/platform/population-health" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Population Health
                 </Link>
               </li>
               <li>
-                <Link to="/platform/analytics" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/platform/analytics" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Analytics
                 </Link>
               </li>
               <li>
-                <Link to="/platform/patient-intelligence" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/platform/patient-intelligence" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Patient Intelligence
                 </Link>
               </li>
               <li>
-                <Link to="/platform/risk-adjustment" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/platform/risk-adjustment" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Risk Adjustment / MRA
                 </Link>
               </li>
@@ -392,33 +392,33 @@ export default function Footer() {
 
           {/* 02 — SOLUTIONS */}
           <div className="space-y-3.5">
-            <h3 className="text-purple-300 font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-              <span className="text-[#ff7a57] font-mono text-[10px]">02 —</span>
+            <h3 className="text-purple-300 font-semibold uppercase tracking-wider text-xs flex items-center gap-1.5">
+              <span className="text-[#ff7a57] font-mono text-xs">02 —</span>
               <span>SOLUTIONS</span>
             </h3>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-xs sm:text-[13px]">
               <li>
-                <Link to="/solutions" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/solutions" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Solutions Overview
                 </Link>
               </li>
               <li>
-                <Link to="/solutions/aco-value-based-care" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/solutions/aco-value-based-care" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   ACO & Value-Based Care
                 </Link>
               </li>
               <li>
-                <Link to="/solutions/health-plans" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/solutions/health-plans" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Health Plans
                 </Link>
               </li>
               <li>
-                <Link to="/solutions/cin-provider-organizations" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/solutions/cin-provider-organizations" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   CIN & Provider Orgs
                 </Link>
               </li>
               <li>
-                <Link to="/solutions/care-management-teams" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/solutions/care-management-teams" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Care Teams
                 </Link>
               </li>
@@ -427,33 +427,33 @@ export default function Footer() {
 
           {/* 03 — DATA & INTELLIGENCE */}
           <div className="space-y-3.5">
-            <h3 className="text-purple-300 font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-              <span className="text-[#ff7a57] font-mono text-[10px]">03 —</span>
+            <h3 className="text-purple-300 font-semibold uppercase tracking-wider text-xs flex items-center gap-1.5">
+              <span className="text-[#ff7a57] font-mono text-xs">03 —</span>
               <span>DATA & AI</span>
             </h3>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-xs sm:text-[13px]">
               <li>
-                <Link to="/intelligence" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/intelligence" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Intelligence Overview
                 </Link>
               </li>
               <li>
-                <Link to="/intelligence/ai" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/intelligence/ai" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   AI & Predictive
                 </Link>
               </li>
               <li>
-                <Link to="/data-integration" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/data-integration" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Data & Integration
                 </Link>
               </li>
               <li>
-                <Link to="/data-integration/clinical-integration" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/data-integration/clinical-integration" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Clinical Integration
                 </Link>
               </li>
               <li>
-                <Link to="/data-integration/data-foundation" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/data-integration/data-foundation" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Data Foundation
                 </Link>
               </li>
@@ -462,28 +462,28 @@ export default function Footer() {
 
           {/* 04 — RESOURCES */}
           <div className="space-y-3.5">
-            <h3 className="text-purple-300 font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-              <span className="text-[#ff7a57] font-mono text-[10px]">04 —</span>
+            <h3 className="text-purple-300 font-semibold uppercase tracking-wider text-xs flex items-center gap-1.5">
+              <span className="text-[#ff7a57] font-mono text-xs">04 —</span>
               <span>RESOURCES</span>
             </h3>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-xs sm:text-[13px]">
               <li>
-                <Link to="/resources" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/resources" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Resources Overview
                 </Link>
               </li>
               <li>
-                <Link to="/resources/insights" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/resources/insights" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Insights
                 </Link>
               </li>
               <li>
-                <Link to="/resources/case-studies" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/resources/case-studies" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Case Studies
                 </Link>
               </li>
               <li>
-                <Link to="/resources/guides" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/resources/guides" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Guides
                 </Link>
               </li>
@@ -492,33 +492,33 @@ export default function Footer() {
 
           {/* 05 — COMPANY */}
           <div className="space-y-3.5">
-            <h3 className="text-purple-300 font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-              <span className="text-[#ff7a57] font-mono text-[10px]">05 —</span>
+            <h3 className="text-purple-300 font-semibold uppercase tracking-wider text-xs flex items-center gap-1.5">
+              <span className="text-[#ff7a57] font-mono text-xs">05 —</span>
               <span>COMPANY</span>
             </h3>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-xs sm:text-[13px]">
               <li>
-                <Link to="/company/about" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/company/about" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   About Guardian
                 </Link>
               </li>
               <li>
-                <Link to="/company/leadership" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/company/leadership" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Leadership
                 </Link>
               </li>
               <li>
-                <Link to="/company/security-trust" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/company/security-trust" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Security & Trust
                 </Link>
               </li>
               <li>
-                <Link to="/company/careers" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/company/careers" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Careers
                 </Link>
               </li>
               <li>
-                <Link to="/company/contact" className="text-purple-100/80 hover:text-white transition-colors font-medium block py-0.5">
+                <Link to="/company/contact" className="text-purple-100/90 hover:text-white transition-colors font-medium block py-0.5">
                   Contact Us
                 </Link>
               </li>

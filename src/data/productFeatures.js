@@ -393,7 +393,7 @@ export const productFeatureCategories = [
       'API-First Platform Design',
       'Secure Data Center Environment',
       'Production, Test & Development Environments',
-      'HITRUST Certification',
+      'HITRUST Aligned Architecture',
       'HIPAA Compliance',
       'SOC 2 Security Controls',
       'Data Encryption at Rest & Transit (AES-256 / TLS)',

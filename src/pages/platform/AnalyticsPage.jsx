@@ -6,146 +6,156 @@ import {
   Sparkles,
   ChevronRight,
   CheckCircle2,
-  Database,
-  Award,
-  Users,
-  CheckSquare,
   BarChart3,
-  ArrowUpRight,
-  Shield,
   TrendingUp,
-  MessageSquare,
+  PieChart,
+  Sliders,
+  Database,
+  Lightbulb,
+  CheckSquare,
+  Zap,
+  LineChart,
+  ArrowUpRight,
+  Layers,
+  FileText,
   DollarSign,
-  Activity
+  Users
 } from 'lucide-react';
 
-export default function PayersPage() {
-  const [activeTab, setActiveTab] = useState('quality');
-  const [activeStepIndex, setActiveStepIndex] = useState(0);
+export default function AnalyticsPage() {
+  const [activeTab, setActiveTab] = useState('executive');
+  const [activeCycleIndex, setActiveCycleIndex] = useState(0);
 
-  // Approved Storytelling Direction:
-  // Payer Data Integration → Star / RAF Surveillance → Provider Engagement → Point-of-Care Gap Closure → Organizational Outcomes
-  const payerPipeline = [
+  // Visual Story: DATA → INSIGHT → DECISION → ACTION → MEASUREMENT
+  const intelligenceCycle = [
     {
+      id: 'data',
       step: '01',
-      stage: 'PAYER DATA INTEGRATION',
-      title: 'Claims, CCLF & Clinical Data Aggregation',
+      stage: 'DATA',
+      title: 'Multi-Source Data Aggregation',
       icon: Database,
-      badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
-      summary: 'Ingest and normalize medical claims, pharmacy data, CMS CCLF feeds, and clinical EHR records across attributed plan members.',
-      details: [
-        'Multi-format claims & CCLF/BCDA data ingestion',
-        'Clinical document exchange (C-CDA) & EMR integration',
-        'Master Patient Indexing (MPI) for deduplicated member charts'
+      badgeColor: 'bg-[#7b3fc7]/15 text-[#7b3fc7] border-[#7b3fc7]/30',
+      summary: 'Ingest and normalize disparate EHR feeds, claims data, financial transactions, and utilization records into an integrated data model.',
+      highlights: [
+        'Multi-practice EHR and cross-payer claims ingestion',
+        'Data normalization and Master Patient Indexing (MPI)',
+        'Continuous synchronization across clinical and financial domains'
       ],
-      output: 'Unified Payer Member Database'
+      output: 'Unified Analytics Foundation'
     },
     {
+      id: 'insight',
       step: '02',
-      stage: 'STAR / RAF SURVEILLANCE',
-      title: 'Star Ratings & Dual-Engine RAF Surveillance',
-      icon: Award,
-      badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
-      summary: 'Monitor projected CMS Star Ratings, HEDIS measures, and dual-engine CMS HCC V24 & V28 risk scores in real time.',
-      details: [
-        'CMS Star Ratings & HEDIS quality measure surveillance',
-        'Dual-engine CMS HCC V24 & V28 prospective risk scoring',
-        'Uncaptured chronic condition suspecting & gap detection'
-      ],
-      output: 'Real-Time Star & RAF Intelligence'
-    },
-    {
-      step: '03',
-      stage: 'PROVIDER ENGAGEMENT',
-      title: 'Provider Network Scorecards & Collaboration',
-      icon: Users,
+      stage: 'INSIGHT',
+      title: 'Automated Insight Discovery',
+      icon: Lightbulb,
       badgeColor: 'bg-blue-50 text-blue-700 border-blue-200',
-      summary: 'Share actionable quality scorecards, care gap lists, and documentation insights with contracted provider networks.',
-      details: [
-        'Provider & practice-level quality performance scorecards',
-        'Direct Secure Messaging (DSM) communication with clinics',
-        'Transparent gap closure tracking across network practices'
+      summary: 'Surveil clinical, financial, and operational indicators to detect cost drivers, risk migration, and quality measure gaps.',
+      highlights: [
+        'Real-time KPI surveillance across clinical & financial metrics',
+        'PMPM / PMPY trend detection and risk score variation',
+        'Predictive risk modeling for high-cost event forecasting'
       ],
-      output: 'Engaged Network Providers'
+      output: 'Real-Time KPI Intelligence'
     },
     {
-      step: '04',
-      stage: 'POINT-OF-CARE GAP CLOSURE',
-      title: 'Point-of-Care Gap Closure & Outreach',
+      id: 'decision',
+      step: '03',
+      stage: 'DECISION',
+      title: 'Executive & Clinical Decision Support',
       icon: CheckSquare,
-      badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-      summary: 'Deliver point-of-care care gap alerts during clinical encounters and deploy conversational AI outreach to schedule member screenings.',
-      details: [
-        'Point-of-care clinical care gap notifications',
-        'Conversational AI outreach (SMS/voice) for screening reminders',
-        'CMS Certified MIPS/Quality Registry exception tracking'
+      badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
+      summary: 'Empower executive leaders and medical directors with role-based cockpits, provider scorecards, and drill-through root cause analysis.',
+      highlights: [
+        'Executive dashboards for financial and quality performance',
+        'Provider & practice performance benchmarking',
+        'Drill-down and drill-through capability for granular investigation'
       ],
-      output: 'Closed Member Care Gaps'
+      output: 'Actionable Executive Clarity'
     },
     {
-      step: '05',
-      stage: 'ORGANIZATIONAL OUTCOMES',
-      title: 'PMPM Cost Analytics & Financial Oversight',
-      icon: BarChart3,
-      badgeColor: 'bg-amber-50 text-amber-700 border-amber-200',
-      summary: 'Track Per Member Per Month (PMPM) expenditure, utilization trends, and quality compliance metrics across health plan contracts.',
-      details: [
-        'PMPM & PMPY financial cost tracking dashboards',
-        'Medical loss ratio (MLR) indicator surveillance',
-        'Executive cockpits for value-based plan performance'
+      id: 'action',
+      step: '04',
+      stage: 'ACTION',
+      title: 'Workflow Action Integration',
+      icon: Zap,
+      badgeColor: 'bg-[#ff7a57]/15 text-[#ff7a57] border-[#ff7a57]/30',
+      summary: 'Translate analytical insights directly into operational workflows, care management tasks, gap closures, and outreach protocols.',
+      highlights: [
+        'Direct task routing to care managers and clinical teams',
+        'Automated care gap notification at point of care',
+        'Closed-loop referral and care plan assignment'
       ],
-      output: 'Optimized Plan Performance'
+      output: 'Workflow-Embedded Execution'
+    },
+    {
+      id: 'measurement',
+      step: '05',
+      stage: 'MEASUREMENT',
+      title: 'Continuous Outcome Measurement',
+      icon: LineChart,
+      badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+      summary: 'Monitor financial savings, medical loss ratios, quality performance scores, and operational efficiency over time.',
+      highlights: [
+        'PMPM cost reduction tracking against risk-bearing contracts',
+        'MIPS, HEDIS, and MSSP quality measure scorecards',
+        'Scheduled report distribution and custom export capabilities'
+      ],
+      output: 'Measurable Value-Based ROI'
     }
   ];
 
-  // Approved Features Sourced from Product Profile 6.0
+  // Approved Key Capabilities from Product Profile 6.0 (Page 5: Analytics & Reporting)
   const capabilities = [
     {
-      title: 'CMS Star Ratings & HEDIS Surveillance',
-      description: 'Continuous monitoring of projected CMS Star Ratings performance and HEDIS quality measures across health plan contracts.',
-      category: 'Quality Management',
-      icon: Award
+      title: 'Executive Dashboards & KPI Monitoring',
+      description: 'Comprehensive clinical, operational, financial, and quality performance cockpits with real-time KPI monitoring and drill-down views.',
+      category: 'Executive Intelligence',
+      icon: BarChart3
     },
     {
-      title: 'Dual-Engine CMS HCC V24 & V28 Risk Models',
-      description: 'Prospective and retrospective risk adjustment factor (RAF) score calculation supporting CMS HCC V24 and V28 models.',
-      category: 'Risk Adjustment',
-      icon: Shield
+      title: 'PMPM / PMPY Financial & Cost Analytics',
+      description: 'Track Per Member Per Month (PMPM) and Per Member Per Year (PMPY) expenditure trends across risk contracts and patient cohorts.',
+      category: 'Financial Analytics',
+      icon: DollarSign
     },
     {
-      title: 'Claims, CCLF & Clinical Integration',
-      description: 'Multi-source data ingestion pipeline integrating medical claims, pharmacy fills, CMS CCLF data, and EHR clinical feeds.',
-      category: 'Interoperability',
-      icon: Database
-    },
-    {
-      title: 'Provider & Practice Quality Scorecards',
-      description: 'Comparative performance scorecards evaluating contracted provider groups across quality gap closure rates and attribution.',
-      category: 'Network Operations',
+      title: 'Provider & Practice Performance Analytics',
+      description: 'Comparative scorecards evaluating provider performance across quality measures, utilization, RAF accuracy, and cost metrics.',
+      category: 'Performance Management',
       icon: Users
     },
     {
-      title: 'Conversational AI Member Outreach',
-      description: 'Automated conversational AI outreach (SMS/voice) to remind members of preventive screenings and schedule appointments.',
-      category: 'Member Outreach',
-      icon: MessageSquare
+      title: 'Utilization & Cost Pattern Analytics',
+      description: 'Identify high-cost utilization patterns including avoidable ER visits, inpatient admissions, and post-acute readmissions.',
+      category: 'Utilization Analytics',
+      icon: TrendingUp
     },
     {
-      title: 'PMPM Cost & Utilization Analytics',
-      description: 'Executive dashboards tracking Per Member Per Month (PMPM) expenditure, utilization patterns, and financial performance.',
-      category: 'Financial Analytics',
-      icon: DollarSign
+      title: 'Quality Measure & Star Ratings Analytics',
+      description: 'Monitor HEDIS, MIPS, and MSSP quality performance, gap closure rates, and projected CMS Star Ratings in real time.',
+      category: 'Quality Analytics',
+      icon: PieChart
+    },
+    {
+      title: 'Custom Reporting & Scheduled Distribution',
+      description: 'Ad-hoc query engine, custom report builder, drill-through analysis, and automated scheduled report distribution.',
+      category: 'Reporting & Data Export',
+      icon: FileText
     }
   ];
 
+  // Canonical Sibling Navigation
   const siblings = [
-    { label: 'ACO & Value-Based Care', path: '/solutions/aco-value-based-care', desc: 'CMS CCLF data integration, attribution tracking, and shared savings workflows.' },
-    { label: 'CIN & Provider Organizations', path: '/solutions/cin-provider-organizations', desc: 'Closed-loop referral routing and provider geo-mapping.' },
-    { label: 'Care Management Teams', path: '/solutions/care-management-teams', desc: 'Personal care plan building, CCM/TCM/RPM programs, and care manager cockpits.' }
+    { label: 'Population Health', path: '/platform/population-health', desc: 'Connect population data to identify risk, care gaps, and cardiometabolic insights.' },
+    { label: 'Risk Stratification', path: '/platform/risk-stratification', desc: 'Categorize populations into actionable risk tiers and intervention lists.' },
+    { label: 'Care Management', path: '/platform/care-management', desc: 'Centralized workspace to enroll, assess, and coordinate chronic care.' },
+    { label: 'Patient Intelligence', path: '/platform/patient-intelligence', desc: 'Unified longitudinal patient record and 360-degree clinical view.' }
   ];
 
   return (
     <div className="min-h-screen bg-[#faf9fc] text-[#35304c] overflow-hidden">
+      
       {/* 1. HERO SECTION */}
       <section className="relative bg-gradient-to-b from-[#1c1636] via-[#251b47] to-[#1c1636] text-white pt-32 sm:pt-40 pb-20 sm:pb-28 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#7b3fc7]/25 rounded-full blur-3xl pointer-events-none" />
@@ -153,6 +163,7 @@ export default function PayersPage() {
         <div className="absolute inset-0 ambient-grid opacity-15 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Breadcrumb Nav */}
           <motion.nav 
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -162,12 +173,13 @@ export default function PayersPage() {
           >
             <Link to="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5 text-purple-300/40" />
-            <Link to="/solutions" className="hover:text-white transition-colors">Solutions</Link>
+            <Link to="/platform" className="hover:text-white transition-colors">Platform</Link>
             <ChevronRight className="w-3.5 h-3.5 text-purple-300/40" />
-            <span className="text-white font-medium">Health Plans / Payers</span>
+            <span className="text-white font-medium">Analytics & Intelligence</span>
           </motion.nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Hero Left Content */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -176,35 +188,36 @@ export default function PayersPage() {
             >
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-purple-200 text-xs font-semibold uppercase tracking-wider backdrop-blur-md">
                 <Sparkles className="w-3.5 h-3.5 text-[#ff7a57]" />
-                <span>Health Plan & Payer Solution</span>
+                <span>Executive Intelligence & Performance Cockpits</span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.12]">
-                Turn Network Data Into Performance
+                Turn Healthcare Data Into Decisive Action
               </h1>
 
               <p className="text-base sm:text-lg text-purple-100/90 leading-relaxed font-normal max-w-2xl">
-                Guardian connects claims data, clinical records, and network information to help health plans monitor CMS Star Ratings, manage HCC risk adjustment accuracy, and track PMPM cost metrics.
+                Guardian transforms multi-source healthcare data into clinical, financial, and operational intelligence—giving executive leaders and medical directors real-time KPI visibility, PMPM cost analytics, and actionable decision support.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-3">
                 <Link
                   to="/company/contact?intent=demo"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#1c1636] bg-white hover:bg-[#f2ecf9] shadow-lg transition-all duration-200 hover:scale-105 active:scale-95 shrink-0"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#1c1636] bg-white hover:bg-[#f2ecf9] shadow-lg shadow-black/20 transition-all duration-200 hover:scale-105 active:scale-95 shrink-0"
                 >
-                  <span>Request a Payer Demo</span>
+                  <span>Schedule a Demo</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#7b3fc7]" />
                 </Link>
 
                 <Link
-                  to="/solutions"
+                  to="/platform"
                   className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full font-medium text-xs sm:text-sm text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md transition-all duration-200 shrink-0"
                 >
-                  <span>Solutions Overview</span>
+                  <span>Platform Overview</span>
                 </Link>
               </div>
             </motion.div>
 
+            {/* Hero Right Visual Showcase */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -217,16 +230,16 @@ export default function PayersPage() {
                     <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
                     <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block" />
                     <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block" />
-                    <span className="text-[11px] text-purple-300 font-mono ml-2">live.itsguardian.com/solutions/health-plans</span>
+                    <span className="text-[11px] text-purple-300 font-mono ml-2">live.itsguardian.com</span>
                   </div>
                   <span className="text-[10px] px-2 py-0.5 rounded bg-[#7b3fc7]/40 text-purple-200 border border-[#7b3fc7]/60 font-mono">
-                    Payer Intelligence
+                    Executive Intelligence
                   </span>
                 </div>
                 <div className="relative rounded-lg overflow-hidden bg-white border border-[#e9e4f0]">
                   <img 
-                    src="/images/product-ui/ui-quality-manager.png" 
-                    alt="Guardian Health Plan Quality Cockpit" 
+                    src="/images/product-ui/ui-dashboard-main.png" 
+                    alt="Guardian Executive Intelligence Dashboard" 
                     className="w-full h-auto object-contain rounded-lg shadow-sm"
                   />
                 </div>
@@ -236,29 +249,30 @@ export default function PayersPage() {
         </div>
       </section>
 
-      {/* 2. VISUAL STORY PIPELINE */}
+      {/* 2. VISUAL STORY: DATA → INSIGHT → DECISION → ACTION → MEASUREMENT */}
       <section className="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f2ecf9] border border-[#d6cde2] text-[#7b3fc7] text-xs font-bold uppercase tracking-wider mb-4">
-            <Award className="w-3.5 h-3.5 text-[#7b3fc7]" />
-            <span>Health Plan Performance Workflow</span>
+            <BarChart3 className="w-3.5 h-3.5 text-[#7b3fc7]" />
+            <span>The Intelligence Cycle</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-bold text-[#1c1636] tracking-tight">
-            Data Integration → Star/RAF Surveillance → Provider Engagement → Point-of-Care Closure → Outcomes
+            DATA → INSIGHT → DECISION → ACTION → MEASUREMENT
           </h2>
           <p className="text-sm sm:text-base text-[#727272] mt-3 leading-relaxed">
-            How Guardian connects payer data streams with provider network execution and member quality closure.
+            How Guardian bridges raw clinical and claims records with executive decision-making and measurable healthcare outcomes.
           </p>
         </div>
 
+        {/* Intelligence Cycle Stage Navigation */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
-          {payerPipeline.map((item, idx) => {
+          {intelligenceCycle.map((item, idx) => {
             const Icon = item.icon;
-            const isSelected = activeStepIndex === idx;
+            const isSelected = activeCycleIndex === idx;
             return (
               <button
-                key={item.stage}
-                onClick={() => setActiveStepIndex(idx)}
+                key={item.id}
+                onClick={() => setActiveCycleIndex(idx)}
                 className={`p-4 rounded-2xl border text-left transition-all duration-300 relative ${
                   isSelected
                     ? 'bg-white border-[#7b3fc7] shadow-lg shadow-[#7b3fc7]/10 ring-2 ring-[#7b3fc7]/20 scale-[1.02]'
@@ -279,9 +293,10 @@ export default function PayersPage() {
           })}
         </div>
 
+        {/* Selected Stage Detail Display */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeStepIndex}
+            key={activeCycleIndex}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
@@ -291,40 +306,48 @@ export default function PayersPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className={`text-xs font-mono font-bold px-2.5 py-1 rounded-md ${payerPipeline[activeStepIndex].badgeColor}`}>
-                    Phase {payerPipeline[activeStepIndex].step}: {payerPipeline[activeStepIndex].stage}
+                  <span className={`text-xs font-mono font-bold px-2.5 py-1 rounded-md ${intelligenceCycle[activeCycleIndex].badgeColor}`}>
+                    Phase {intelligenceCycle[activeCycleIndex].step}: {intelligenceCycle[activeCycleIndex].stage}
                   </span>
                 </div>
 
                 <h3 className="text-xl sm:text-3xl font-bold text-[#1c1636]">
-                  {payerPipeline[activeStepIndex].title}
+                  {intelligenceCycle[activeCycleIndex].title}
                 </h3>
 
                 <p className="text-sm sm:text-base text-[#58536e] leading-relaxed">
-                  {payerPipeline[activeStepIndex].summary}
+                  {intelligenceCycle[activeCycleIndex].summary}
                 </p>
 
                 <div className="pt-2 space-y-2.5">
-                  {payerPipeline[activeStepIndex].details.map((d, dIdx) => (
-                    <div key={dIdx} className="flex items-start gap-3">
+                  {intelligenceCycle[activeCycleIndex].highlights.map((h, hIdx) => (
+                    <div key={hIdx} className="flex items-start gap-3">
                       <div className="w-5 h-5 rounded-full bg-[#f2ecf9] text-[#7b3fc7] flex items-center justify-center shrink-0 mt-0.5">
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>
                       <span className="text-xs sm:text-sm text-[#35304c] font-medium leading-snug">
-                        {d}
+                        {h}
                       </span>
                     </div>
                   ))}
                 </div>
               </div>
 
+              {/* Stage Graphic Output Badge */}
               <div className="lg:col-span-5 bg-[#faf9fc] rounded-2xl border border-[#e1e1e5] p-6 text-center space-y-4">
                 <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-[#1c1636] to-[#7b3fc7] text-white flex items-center justify-center shadow-md">
-                  {React.createElement(payerPipeline[activeStepIndex].icon, { className: "w-7 h-7" })}
+                  {React.createElement(intelligenceCycle[activeCycleIndex].icon, { className: "w-7 h-7" })}
                 </div>
                 <div>
-                  <p className="text-xs font-mono uppercase tracking-wider text-[#8e8c99]">Payer Workflow Output</p>
-                  <p className="text-base font-bold text-[#1c1636] mt-1">{payerPipeline[activeStepIndex].output}</p>
+                  <p className="text-xs font-mono uppercase tracking-wider text-[#8e8c99]">Intelligence Stage Output</p>
+                  <p className="text-base font-bold text-[#1c1636] mt-1">{intelligenceCycle[activeCycleIndex].output}</p>
+                </div>
+                <div className="p-3.5 rounded-xl bg-white border border-[#e1e1e5] text-left text-xs text-[#58536e] space-y-1.5">
+                  <div className="flex justify-between items-center text-[11px] font-mono text-[#7b3fc7]">
+                    <span>STATUS</span>
+                    <span>ACTIVE SURVEILLANCE</span>
+                  </div>
+                  <p className="font-semibold text-[#1c1636]">{intelligenceCycle[activeCycleIndex].title}</p>
                 </div>
               </div>
             </div>
@@ -340,50 +363,57 @@ export default function PayersPage() {
               Product Proof
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold text-[#1c1636] mt-4 mb-3 tracking-tight">
-              Real Quality & Risk Adjustment Interfaces
+              Executive Cockpits & Performance Dashboards
             </h2>
             <p className="text-sm sm:text-base text-[#727272]">
-              Explore live software UI interfaces for Quality Manager surveillance and HCC V24/V28 risk adjustment scoring.
+              Explore live software UI interfaces built for real-time KPI monitoring, cost tracking, and drill-down analysis.
             </p>
 
+            {/* Interface Switcher Tabs */}
             <div className="flex justify-center gap-3 mt-8">
               <button
-                onClick={() => setActiveTab('quality')}
+                onClick={() => setActiveTab('executive')}
                 className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
-                  activeTab === 'quality'
+                  activeTab === 'executive'
                     ? 'bg-[#1c1636] text-white shadow-md'
                     : 'bg-[#faf9fc] text-[#58536e] hover:bg-[#f2ecf9] border border-[#e1e1e5]'
                 }`}
               >
-                Quality & Star Ratings Cockpit
+                Executive Performance Cockpit
               </button>
               <button
-                onClick={() => setActiveTab('risk')}
+                onClick={() => setActiveTab('population')}
                 className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
-                  activeTab === 'risk'
+                  activeTab === 'population'
                     ? 'bg-[#1c1636] text-white shadow-md'
                     : 'bg-[#faf9fc] text-[#58536e] hover:bg-[#f2ecf9] border border-[#e1e1e5]'
                 }`}
               >
-                HCC V24 & V28 Risk Cockpit
+                Population & Cost Analytics
               </button>
             </div>
           </div>
 
+          {/* Interface Visual */}
           <div className="relative rounded-2xl bg-[#1c1636] border border-[#35295c] p-3 sm:p-4 shadow-2xl overflow-hidden max-w-5xl mx-auto">
             <div className="flex items-center justify-between px-3 py-2 bg-[#120b24] rounded-t-xl border-b border-white/10 mb-3">
-              <span className="text-[11px] text-purple-300 font-mono">
-                {activeTab === 'quality' ? 'live.itsguardian.com/health-plans/quality-manager' : 'live.itsguardian.com/health-plans/risk-adjustment'}
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
+                <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block" />
+                <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block" />
+                <span className="text-[11px] text-purple-300 font-mono ml-2">
+                  {activeTab === 'executive' ? 'live.itsguardian.com/analytics/executive-dashboard' : 'live.itsguardian.com/analytics/population-cost'}
+                </span>
+              </div>
               <span className="text-[10px] px-2 py-0.5 rounded bg-[#7b3fc7]/40 text-purple-200 border border-[#7b3fc7]/60 font-mono">
-                {activeTab === 'quality' ? 'Quality Cockpit' : 'RAF Cockpit'}
+                {activeTab === 'executive' ? 'Executive View' : 'Cost & PMPM Module'}
               </span>
             </div>
 
             <AnimatePresence mode="wait">
-              {activeTab === 'quality' ? (
+              {activeTab === 'executive' ? (
                 <motion.div
-                  key="quality"
+                  key="executive"
                   initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
@@ -391,14 +421,14 @@ export default function PayersPage() {
                   className="rounded-lg overflow-hidden bg-white border border-[#e9e4f0]"
                 >
                   <img
-                    src="/images/product-ui/ui-quality-manager.png"
-                    alt="Guardian Quality Manager Interface"
+                    src="/images/product-ui/ui-dashboard-main.png"
+                    alt="Guardian Executive Performance Cockpit"
                     className="w-full h-auto object-contain rounded-lg shadow-sm"
                   />
                 </motion.div>
               ) : (
                 <motion.div
-                  key="risk"
+                  key="population"
                   initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
@@ -406,8 +436,8 @@ export default function PayersPage() {
                   className="rounded-lg overflow-hidden bg-white border border-[#e9e4f0]"
                 >
                   <img
-                    src="/images/product-ui/ui-risk-stratification.png"
-                    alt="Guardian Risk Adjustment Cockpit"
+                    src="/images/product-ui/ui-pop-health-analytics.png"
+                    alt="Guardian Population & Financial Analytics Dashboard"
                     className="w-full h-auto object-contain rounded-lg shadow-sm"
                   />
                 </motion.div>
@@ -421,13 +451,13 @@ export default function PayersPage() {
       <section className="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-14">
           <span className="text-xs font-bold uppercase tracking-wider text-[#7b3fc7] bg-[#f2ecf9] px-3.5 py-1.5 rounded-full border border-[#d6cde2]">
-            Approved Capabilities
+            Analytics Capabilities
           </span>
           <h2 className="text-2xl sm:text-4xl font-bold text-[#1c1636] mt-4 mb-3 tracking-tight">
-            Key Capabilities for Health Plans & Payers
+            Key Analytics & Reporting Capabilities
           </h2>
           <p className="text-sm sm:text-base text-[#727272]">
-            Approved features directly supported by Product Profile 6.0 and Phase 1 feature inventory.
+            Approved features directly supported by Product Profile 6.0 (Page 5: Analytics & Reporting).
           </p>
         </div>
 
@@ -441,7 +471,7 @@ export default function PayersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-20px' }}
                 transition={{ duration: 0.35, delay: idx * 0.05 }}
-                className="p-6 sm:p-7 rounded-2xl bg-[#faf9fc] border border-[#e1e1e5] hover:border-[#7b3fc7]/40 hover:bg-white hover:shadow-lg transition-all duration-200 flex flex-col justify-between"
+                className="p-6 sm:p-7 rounded-2xl bg-white border border-[#e1e1e5] hover:border-[#7b3fc7]/40 hover:shadow-lg transition-all duration-200 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -479,16 +509,16 @@ export default function PayersPage() {
               People + Technology Model
             </span>
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 tracking-tight leading-snug">
-              Connecting Payer Analytics directly to Provider Workflows
+              Connecting Intelligence directly to Clinical Workflows
             </h3>
             <p className="text-sm sm:text-base text-purple-100/90 leading-relaxed font-normal mb-8">
-              Guardian bridges health plan data feeds with point-of-care provider tools—enabling payer organizations to share quality gap scorecards, support HCC V24/V28 risk adjustment, and engage members via conversational AI outreach.
+              Data alone does not produce outcomes. Guardian bridges executive intelligence with care management workflows—ensuring that PMPM cost insights, risk score variations, and quality gap findings drive direct point-of-care actions.
             </p>
             <Link
               to="/company/contact?intent=demo"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#1c1636] bg-white hover:bg-[#f2ecf9] transition-all duration-200"
             >
-              <span>Speak with a Payer Specialist</span>
+              <span>Speak with an Analytics Specialist</span>
               <ArrowRight className="w-4 h-4 text-[#7b3fc7]" />
             </Link>
           </div>
@@ -501,22 +531,22 @@ export default function PayersPage() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-[#8e8c99]">
-                Solutions Architecture
+                Platform Architecture
               </p>
               <h3 className="text-xl sm:text-2xl font-bold text-[#1c1636]">
-                Related Solution Domains
+                Related Platform Modules
               </h3>
             </div>
             <Link
-              to="/solutions"
+              to="/platform"
               className="inline-flex items-center gap-1 text-sm font-semibold text-[#7b3fc7] hover:underline self-start sm:self-auto"
             >
-              <span>View Solutions Overview</span>
+              <span>View Platform Overview</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {siblings.map((sibling) => (
               <Link
                 key={sibling.path}
@@ -526,7 +556,7 @@ export default function PayersPage() {
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-[10px] font-mono uppercase text-[#7b3fc7] font-semibold">
-                      Solution Domain
+                      Platform Module
                     </span>
                     <ArrowUpRight className="w-4 h-4 text-[#8e8c99] group-hover:text-[#7b3fc7] transition-colors" />
                   </div>
@@ -549,9 +579,13 @@ export default function PayersPage() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-[#1c1636] via-[#2d1b54] to-[#7b3fc7] p-8 sm:p-14 lg:p-16 text-center text-white shadow-2xl border border-white/10"
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="relative overflow-hidden rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-[#1c1636] via-[#2d1b54] to-[#7b3fc7] p-8 sm:p-14 lg:p-16 text-center text-white shadow-2xl shadow-[#7b3fc7]/20 border border-white/10"
         >
+          <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-[#ff7a57]/20 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-[#7b3fc7]/40 blur-3xl pointer-events-none" />
+          <div className="absolute inset-0 ambient-grid opacity-15 pointer-events-none" />
+
           <div className="relative z-10 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-purple-200 text-xs font-medium mb-6 backdrop-blur-md">
               <Sparkles className="w-3.5 h-3.5 text-[#ff7a57]" />
@@ -559,32 +593,33 @@ export default function PayersPage() {
             </div>
 
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.2] mb-5 tracking-tight">
-              Ready to Turn Network Data Into Better Performance?
+              Ready to Turn Healthcare Data Into Decisive Action?
             </h2>
 
-            <p className="text-purple-100/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-              Connect claims and clinical data, monitor CMS Star Ratings, and support risk adjustment and provider quality closure across your network.
+            <p className="text-purple-100/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
+              Equip your executive leadership and care teams with real-time KPI monitoring, PMPM cost analytics, and actionable decision support.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/company/contact?intent=demo"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#1c1636] bg-white hover:bg-[#f2ecf9] shadow-lg transition-all hover:scale-105 active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#1c1636] bg-white hover:bg-[#f2ecf9] shadow-lg shadow-black/15 transition-all duration-300 hover:scale-105 active:scale-95"
               >
-                <span>Schedule a Payer Solutions Demo</span>
+                <span>Schedule an Analytics Demo</span>
                 <ArrowRight className="w-4 h-4 text-[#7b3fc7]" />
               </Link>
 
               <Link
-                to="/solutions"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-medium text-xs sm:text-sm text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md transition-all"
+                to="/platform"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-medium text-xs sm:text-sm text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md transition-all duration-300"
               >
-                <span>Explore Solutions Overview</span>
+                <span>Explore Platform Overview</span>
               </Link>
             </div>
           </div>
         </motion.div>
       </section>
+
     </div>
   );
 }

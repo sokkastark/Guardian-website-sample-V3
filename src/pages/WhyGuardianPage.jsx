@@ -331,7 +331,7 @@ export default function WhyGuardianPage() {
             </div>
             <div className="p-6 rounded-2xl bg-white border border-[#e1e1e5]">
               <Lock className="w-8 h-8 text-[#ff7a57] mb-4" />
-              <h3 className="text-base font-bold text-[#1c1636] mb-1">HITRUST e1</h3>
+              <h3 className="text-base font-bold text-[#1c1636] mb-1">HITRUST Aligned</h3>
               <p className="text-xs text-[#727272]">Rigorous cybersecurity and healthcare risk certification.</p>
             </div>
           </div>

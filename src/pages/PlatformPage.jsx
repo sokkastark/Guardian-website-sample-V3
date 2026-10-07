@@ -340,7 +340,13 @@ export default function PlatformPage() {
       <section id="six-pillars" className="py-20 sm:py-28 bg-white border-b border-[#e9e4f0]">
         <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mb-14">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="max-w-3xl mb-14"
+          >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f2ecf9] text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-4 border border-[#7b3fc7]/20 shadow-xs">
               <Layers className="w-3.5 h-3.5 text-[#ff7a57]" />
               <span>THE SIX PILLARS</span>
@@ -351,15 +357,19 @@ export default function PlatformPage() {
             <p className="text-base sm:text-lg text-[#524b6b] leading-relaxed">
               Each pillar works together to help you connect data, understand your population, identify what matters, and take action — so you can measure real outcomes:
             </p>
-          </div>
+          </motion.div>
 
           {/* All 6 Pillars Grid - All 6 in One Single Horizontal Row on Desktop */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 lg:gap-4 xl:gap-5">
-            {sixPillars.map((pillar) => {
+            {sixPillars.map((pillar, idx) => {
               const PillarIcon = pillar.icon;
               return (
-                <div
+                <motion.div
                   key={pillar.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
                   className={`p-2.5 sm:p-3 rounded-[1.8rem] ${pillar.frameColor} shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between relative group`}
                 >
                   {/* Top Notch Cutout handle from Infographic Design */}
@@ -400,8 +410,8 @@ export default function PlatformPage() {
                           <span className={`${pillar.accentColor} font-bold`}>{pillar.items.length} Included</span>
                         </h4>
                         <div className="space-y-1.5">
-                          {pillar.items.map((item, idx) => (
-                            <div key={idx} className="flex items-start gap-1.5 text-[11px] text-[#1c1636]">
+                          {pillar.items.map((item, i) => (
+                            <div key={i} className="flex items-start gap-1.5 text-[11px] text-[#1c1636]">
                               <CheckCircle2 className={`w-3 h-3 ${pillar.accentColor} shrink-0 mt-0.5`} />
                               <span className="font-medium text-[11px] text-[#2d2744] leading-tight">{item}</span>
                             </div>
@@ -424,7 +434,7 @@ export default function PlatformPage() {
 
                   {/* Bottom Tab Cutout handle from Infographic Design */}
                   <div className="w-16 h-2.5 bg-white rounded-t-lg mx-auto -mb-2.5 sm:-mb-3 mt-2 shadow-xs" />
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -746,11 +756,15 @@ export default function PlatformPage() {
                 badgeBg: 'bg-[#4f46e5]/10 text-[#4f46e5]',
                 tag: 'OUTCOME 04'
               }
-            ].map((item) => {
+            ].map((item, idx) => {
               const ItemIcon = item.icon;
               return (
-                <div 
+                <motion.div 
                   key={item.id} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.06 }}
                   className={`bg-white rounded-2xl p-7 border border-[#e9e4f0] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group flex flex-col justify-between ${item.shadowGlow}`}
                 >
                   {/* Top Edge Accent Bar */}
@@ -790,7 +804,7 @@ export default function PlatformPage() {
                     </span>
                   </div>
 
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -1046,7 +1060,7 @@ export default function PlatformPage() {
               <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> CMS MIPS Certified Registry</span>
               <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> eHealth Exchange Implementer</span>
               <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> CareQuality Exchange Implementer</span>
-              <span className="flex items-center gap-1.5"><Lock className="w-4 h-4 text-[#ff7a57]" /> HITRUST e1 Certification</span>
+              <span className="flex items-center gap-1.5"><Lock className="w-4 h-4 text-[#ff7a57]" /> HITRUST Aligned Security</span>
             </div>
           </div>
 

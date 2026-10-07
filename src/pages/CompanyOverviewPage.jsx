@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
   Building2, 
@@ -18,6 +18,42 @@ import {
   Clock,
   Check
 } from 'lucide-react';
+
+function CountUpNumber({ target, prefix = '', suffix = '', duration = 4000 }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-20px' });
+
+  useEffect(() => {
+    if (!isInView) return;
+    let startTime = null;
+    let animationFrame;
+
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      // Smooth quadratic/cubic ease-out for clear, elegant count-up
+      const easeOutProgress = 1 - Math.pow(1 - progress, 2.8);
+      const currentCount = Math.floor(easeOutProgress * target);
+      setCount(currentCount);
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(step);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [isInView, target, duration]);
+
+  return (
+    <span ref={ref}>
+      {prefix}
+      {count.toLocaleString()}
+      {suffix}
+    </span>
+  );
+}
 
 export default function CompanyOverviewPage() {
   const valueChain = [
@@ -102,17 +138,17 @@ export default function CompanyOverviewPage() {
       title: 'Security & Trust',
       path: '/company/security-trust',
       tagline: 'CYBERSECURITY & COMPLIANCE',
-      headline: 'HITRUST e1 certified and CMS MIPS qualified registry architecture.',
-      description: 'Healthcare data requires uncompromising protection. Guardian operates on zero-trust cloud infrastructure, certified HITRUST e1 security, SOC 2 Type II compliance, and full HIPAA encryption.',
+      headline: 'HITRUST & SOC 2 aligned security with CMS MIPS Qualified Registry architecture.',
+      description: 'Healthcare data requires uncompromising protection. Guardian operates on zero-trust cloud infrastructure aligned with HITRUST and SOC 2 security standards, and full HIPAA encryption.',
       icon: ShieldCheck,
       gradient: 'from-[#059669] via-[#10b981] to-[#0d9488]',
       shadowGlow: 'hover:shadow-[0_20px_40px_rgba(16,185,129,0.22)]',
       accentColor: 'text-[#059669]',
       badgeBg: 'bg-[#059669]/10 text-[#059669]',
       highlights: [
-        'HITRUST e1 Certified Architecture',
-        'SOC 2 Type II Security Compliance',
-        'CMS MIPS Certified Qualified Registry',
+        'HITRUST & SOC 2 Security Frameworks',
+        'HIPAA Privacy & Security Compliance',
+        'CMS MIPS Qualified Registry Architecture',
         'CareQuality & eHealth Exchange'
       ]
     },
@@ -178,15 +214,15 @@ export default function CompanyOverviewPage() {
           <img 
             src="/images/experience-doctor.jpg" 
             alt="Guardian Healthcare leadership and clinical team" 
-            className="w-full h-full object-cover object-center filter brightness-[0.3] contrast-110"
+            className="w-full h-full object-cover object-center filter brightness-[0.6] contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1527]/98 via-[#0d1527]/90 to-[#0d1527]/75" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0d1527]/90 via-transparent to-[#0d1527]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1527]/90 via-[#0d1527]/70 to-[#0d1527]/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0d1527]/80 via-transparent to-[#0d1527]" />
           
           {/* Ambient Lighting Accents */}
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[450px] bg-[#7b3fc7]/25 blur-[160px] rounded-full" />
-          <div className="absolute bottom-10 right-10 w-[500px] h-[350px] bg-[#ff7a57]/20 blur-[140px] rounded-full" />
-          <div className="absolute inset-0 ambient-grid opacity-15" />
+          <div className="absolute top-1/4 left-1/4 w-[600px] h-[450px] bg-[#7b3fc7]/35 blur-[160px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-10 right-10 w-[500px] h-[350px] bg-[#ff7a57]/30 blur-[140px] rounded-full pointer-events-none" />
+          <div className="absolute inset-0 ambient-grid opacity-20" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -237,42 +273,51 @@ export default function CompanyOverviewPage() {
               transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
               className="lg:col-span-5 hidden lg:block"
             >
-              <div className="relative rounded-2xl bg-[#1a1233]/90 border border-white/20 backdrop-blur-xl p-4 shadow-2xl overflow-hidden group">
-                <div className="flex items-center justify-between px-3 py-1.5 bg-[#120b24] rounded-lg border-b border-white/10 mb-3">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block" />
-                    <span className="text-[10px] text-purple-300 font-mono ml-2">company.itsguardian.com</span>
-                  </div>
-                  <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#7b3fc7]/40 text-purple-200 border border-[#7b3fc7]/60">
-                    Enterprise Credentials
-                  </span>
-                </div>
+              <div className="relative group lg:scale-108 transition-transform duration-300">
+                {/* Glowing Backlight */}
+                <div className="absolute -inset-2 bg-gradient-to-tr from-[#7b3fc7]/50 via-[#8b5cf6]/40 to-[#ff7a57]/40 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500" />
 
-                <div className="space-y-3 text-white">
-                  <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 flex items-center justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-purple-200 block uppercase">Shared Savings Delivered</span>
-                      <span className="text-xl font-extrabold text-[#ff7a57] font-mono">$100,000,000+</span>
+                <div className="relative rounded-2xl bg-[#1a1233]/90 border border-white/25 backdrop-blur-xl p-5 shadow-[0_20px_50px_rgba(0,0,0,0.6)] overflow-hidden">
+                  <div className="flex items-center justify-between px-3 py-2 bg-[#120b24] rounded-lg border border-white/10 mb-3.5">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block" />
+                      <span className="text-[10px] text-purple-300 font-mono ml-2">company.itsguardian.com</span>
                     </div>
-                    <Award className="w-6 h-6 text-[#ff7a57]" />
+                    <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#7b3fc7]/40 text-purple-200 border border-[#7b3fc7]/60">
+                      Enterprise Credentials
+                    </span>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 flex items-center justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-purple-200 block uppercase">Connected Records</span>
-                      <span className="text-xl font-extrabold text-[#10b981] font-mono">10,000,000+</span>
+                  <div className="space-y-3 text-white">
+                    <div className="p-4 rounded-xl bg-white/12 border border-white/20 flex items-center justify-between shadow-md">
+                      <div>
+                        <span className="text-[10px] font-mono text-purple-200 block uppercase tracking-wider">Shared Savings Delivered</span>
+                        <span className="text-2xl font-extrabold text-[#ff7a57] font-mono">
+                          <CountUpNumber target={100000000} prefix="$" suffix="+" duration={4000} />
+                        </span>
+                      </div>
+                      <Award className="w-7 h-7 text-[#ff7a57]" />
                     </div>
-                    <ShieldCheck className="w-6 h-6 text-[#10b981]" />
-                  </div>
-                </div>
 
-                <div className="mt-3 flex items-center justify-between text-[11px] text-purple-200 font-mono px-1">
-                  <span className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> CMS MIPS Registry
-                  </span>
-                  <span className="text-purple-300">HITRUST e1 Certified</span>
+                    <div className="p-4 rounded-xl bg-white/12 border border-white/20 flex items-center justify-between shadow-md">
+                      <div>
+                        <span className="text-[10px] font-mono text-purple-200 block uppercase tracking-wider">Connected Records</span>
+                        <span className="text-2xl font-extrabold text-[#10b981] font-mono">
+                          <CountUpNumber target={10000000} suffix="+" duration={3600} />
+                        </span>
+                      </div>
+                      <ShieldCheck className="w-7 h-7 text-[#10b981]" />
+                    </div>
+                  </div>
+
+                  <div className="mt-3.5 flex items-center justify-between text-[11px] text-purple-200 font-mono px-1">
+                    <span className="flex items-center gap-1.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> CMS MIPS Registry
+                    </span>
+                    <span className="text-purple-300 font-medium">HITRUST &amp; SOC 2 Alignment</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -303,9 +348,13 @@ export default function CompanyOverviewPage() {
           {/* Infographic Connected Pathway */}
           <div className="relative pt-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {valueChain.map((step) => (
-                <div 
+              {valueChain.map((step, idx) => (
+                <motion.div 
                   key={step.num}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
                   className="p-6 rounded-2xl bg-white border border-[#e9e4f0] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between group"
                 >
                   {/* Top Step Header */}
@@ -332,7 +381,7 @@ export default function CompanyOverviewPage() {
                     <span>Step {step.num} of 05</span>
                     <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -346,7 +395,13 @@ export default function CompanyOverviewPage() {
       <section id="company-overview" className="py-20 sm:py-28 bg-white border-b border-[#e9e4f0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mb-14">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="max-w-3xl mb-14"
+          >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7b3fc7]/10 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-3 border border-[#7b3fc7]/20 shadow-2xs">
               <Layers className="w-3.5 h-3.5 text-[#ff7a57]" />
               <span>THE 5 COMPANY DIVISIONS</span>
@@ -357,15 +412,19 @@ export default function CompanyOverviewPage() {
             <p className="text-base text-[#524b6b] leading-relaxed">
               Explore the core divisions and canonical pages defining Guardian’s enterprise organization:
             </p>
-          </div>
+          </motion.div>
 
           {/* 5 Core Company Division Cards (Distinct Executive Corporate Profile Layout) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 pt-4">
             {companyPillars.map((pil, index) => {
               const PilIcon = pil.icon;
               return (
-                <div 
+                <motion.div 
                   key={pil.id} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.05 }}
                   className={`bg-white rounded-2xl border border-[#e9e4f0] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden group relative ${pil.shadowGlow}`}
                 >
                   {/* Top Solid Accent Bar */}
@@ -431,7 +490,7 @@ export default function CompanyOverviewPage() {
                     </div>
 
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -484,16 +543,16 @@ export default function CompanyOverviewPage() {
             </span>
             <div className="flex flex-wrap items-center gap-6 text-xs text-[#35304c] font-semibold">
               <span className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> CMS MIPS Certified Registry
+                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> CMS MIPS Qualified Registry Architecture
               </span>
               <span className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> eHealth Exchange Implementer
+                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> eHealth Exchange Interoperability
               </span>
               <span className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> CareQuality Exchange Implementer
+                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> CareQuality Framework Alignment
               </span>
               <span className="flex items-center gap-2">
-                <Lock className="w-4 h-4 text-[#ff7a57]" /> HITRUST e1 Certified Architecture
+                <Lock className="w-4 h-4 text-[#ff7a57]" /> HITRUST & HIPAA Security Alignment
               </span>
             </div>
           </div>

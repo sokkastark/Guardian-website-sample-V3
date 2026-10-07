@@ -24,7 +24,7 @@ export default function TrustSection() {
       desc: 'Trusted exchange framework connecting EHR networks and healthcare systems.',
     },
     {
-      name: 'HITRUST e1 Certified',
+      name: 'HITRUST Aligned Security',
       badge: 'Cybersecurity Maturity',
       isHitrust: true,
       desc: 'Rigorous validation of cybersecurity maturity and protection of PHI.',

@@ -6,138 +6,138 @@ import {
   Sparkles,
   ChevronRight,
   CheckCircle2,
-  Share2,
-  MapPin,
   Users,
-  Clock,
+  MessageSquare,
+  Send,
   CheckSquare,
   Zap,
   ArrowUpRight,
-  Search,
-  FileText
+  Target,
+  BarChart3,
+  Search
 } from 'lucide-react';
 
-export default function ReferralManagementPage() {
+export default function PatientEngagementPage() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
 
-  // Storytelling Model: Referral Request → Geo-Routing → Specialist Coordination → Status Tracking → Closed-Loop Confirmation
-  const referralPipeline = [
+  // Storytelling Model: Cohort Selection → Multichannel Outreach → Interactive Communication → Response Management → Clinical Follow-up
+  const engagementPipeline = [
     {
       step: '01',
-      stage: 'REFERRAL REQUEST',
-      title: 'Electronic Referral Creation & DSM Ingestion',
-      icon: Share2,
+      stage: 'COHORT SELECTION',
+      title: 'Targeted Population Cohort Segmentation',
+      icon: Users,
       badgeColor: 'bg-blue-50 text-blue-700 border-blue-200',
-      summary: 'Generate electronic referrals directly within clinical workflows or automatically ingest incoming Direct Secure Messaging (DSM) requests.',
+      summary: 'Segment patient populations using clinical parameters, care gaps, chronic conditions, and utilization criteria.',
       details: [
-        'Electronic referral creation from EMR & Patient 360',
-        'Automated referral creation from incoming DSM messages',
-        'Patient clinical history & CCDA document attachment'
+        'Multi-condition patient cohort builder',
+        'Filtering by open quality care gaps & screening needs',
+        'Direct integration with Patient 360 clinical history'
       ],
-      output: 'Electronic Referral Initiated'
+      output: 'Targeted Patient Campaign List'
     },
     {
       step: '02',
-      stage: 'GEO-ROUTING',
-      title: 'Provider Geo-Mapping & Specialist Search',
-      icon: MapPin,
+      stage: 'MULTICHANNEL OUTREACH',
+      title: 'Multichannel Outreach Engine',
+      icon: Send,
       badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
-      summary: 'Search and route patients to network specialists based on geo-mapping, specialty, insurance participation, and zip code proximity.',
+      summary: 'Launch automated patient communication campaigns via SMS, email, and conversational AI voice outreach.',
       details: [
-        'Provider geo-mapping across Clinically Integrated Networks (CIN)',
-        'Specialist search by provider name, specialty, taxonomy, & zip code',
-        'In-network prioritization to minimize out-of-network leakage'
+        'Automated SMS & email notification campaigns',
+        'Conversational AI voice outreach for preventive reminders',
+        'Customizable campaign messaging templates'
       ],
-      output: 'Optimal Specialist Selection'
+      output: 'Campaign Outreach Deployed'
     },
     {
       step: '03',
-      stage: 'COORDINATION',
-      title: 'PCP & Specialist Coordination',
-      icon: Users,
-      badgeColor: 'bg-amber-50 text-amber-700 border-amber-200',
-      summary: 'Coordinate clinical documentation, prior authorization records, and diagnostic reports between primary care and specialist practices.',
+      stage: 'INTERACTIVE COMM',
+      title: 'Interactive Patient Communication',
+      icon: MessageSquare,
+      badgeColor: 'bg-amber-50 text-amber-[#1c1636] border-amber-200',
+      summary: 'Engage patients with automated health questionnaires, appointment scheduling prompts, and screening confirmations.',
       details: [
-        'Secure document exchange (PDF, Word, C-CDA attachment)',
-        'Prior authorization status attachment & documentation',
-        'Direct secure messaging between PCP and specialist teams'
+        'Interactive electronic questionnaires & health scales',
+        'Self-service appointment scheduling prompts',
+        'Medication adherence & symptom check-ins'
       ],
-      output: 'Coordinated Specialist Package'
+      output: 'Patient Interaction Logged'
     },
     {
       step: '04',
-      stage: 'STATUS TRACKING',
-      title: 'Real-Time Referral Status Monitoring',
-      icon: Clock,
+      stage: 'RESPONSE MANAGEMENT',
+      title: 'Individual Patient Response Tracking',
+      icon: Target,
       badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
-      summary: 'Track referral progression through scheduling, appointment completion, and specialist consultation note generation.',
+      summary: 'Monitor individual patient campaign status, response rates, and comments directly on campaign dashboards.',
       details: [
-        'Real-time status monitoring (Pending, Scheduled, Completed)',
-        'Automated task alerts for unfulfilled or overdue referrals',
-        'Referral lifecycle dashboards for CIN operations'
+        'Real-time status tracking per individual patient',
+        'Automated escalation for non-responsive or urgent answers',
+        'Interventions & comments logging'
       ],
-      output: 'Active Referral Tracking'
+      output: 'Tracked Campaign Responses'
     },
     {
       step: '05',
-      stage: 'CLOSED-LOOP',
-      title: 'Closed-Loop Care Confirmation',
+      stage: 'CLINICAL FOLLOW-UP',
+      title: 'Closed-Loop Care Team Integration',
       icon: CheckSquare,
       badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-      summary: 'Receive specialist consult notes back into the PCP record to close the loop and ensure continuous patient care.',
+      summary: 'Route completed survey responses, care gap closures, and appointment requests to care managers and PCPs.',
       details: [
-        'Automated consult report retrieval & EMR filing',
-        'Closed-loop status confirmation in Patient 360',
-        'CIN network referral analytics & leakage tracking'
+        'Direct task routing to care coordinators',
+        'Care gap closure validation in Quality Manager',
+        'Longitudinal outreach performance analytics'
       ],
-      output: 'Closed-Loop Care Confirmed'
+      output: 'Closed-Loop Clinical Action'
     }
   ];
 
-  // Product Profile 6.0 Features (Page 6 & 8)
+  // Product Profile 6.0 Features (Page 7: Campaigns Engine)
   const capabilities = [
     {
-      title: 'Closed-Loop Referral Tracking',
-      description: 'End-to-end tracking of referral status from initial order creation to specialist note receipt and loop closure.',
-      category: 'Closed-Loop',
-      icon: CheckSquare
-    },
-    {
-      title: 'DSM-Automated Referral Creation',
-      description: 'Automated referral generation triggered by incoming Direct Secure Messaging (DSM) messages and C-CDA attachments.',
-      category: 'Automation',
-      icon: FileText
-    },
-    {
-      title: 'CIN Provider Geo-Mapping',
-      description: 'Interactive map and search directory filtering network specialists by specialty, location, zip code, and NPI.',
-      category: 'Network Search',
-      icon: MapPin
-    },
-    {
-      title: 'PCP & Specialist Coordination',
-      description: 'Collaborative workspace for primary care providers and specialists to share clinical notes, labs, and authorizations.',
-      category: 'Collaboration',
+      title: 'Patient Population Segmentation',
+      description: 'Filter and group patients by chronic conditions, care gap status, risk tier, or demographic parameters.',
+      category: 'Segmentation',
       icon: Users
     },
     {
-      title: 'National HIE & EMR Integration',
-      description: 'Seamless document retrieval and appointment scheduling integration across EMRs and Health Information Exchanges.',
-      category: 'Interoperability',
-      icon: Search
+      title: 'Targeted Campaign Creation',
+      description: 'Build tailored outreach campaigns for specific patient lists with customizable messaging and delivery triggers.',
+      category: 'Campaign Builder',
+      icon: Send
     },
     {
-      title: 'Referral & Leakage Analytics',
-      description: 'Operational analytics monitoring referral completion rates, turnaround times, and in-network retention.',
-      category: 'Analytics',
-      icon: Zap
+      title: 'Individual Patient Status Tracking',
+      description: 'Track campaign progress, outreach logs, and response status for every attributed patient in real time.',
+      category: 'Status Monitoring',
+      icon: Target
+    },
+    {
+      title: 'Conversational AI Patient Communication',
+      description: 'Deploy automated conversational AI for pre-visit preparation, post-discharge check-ins, and preventive outreach.',
+      category: 'AI Communication',
+      icon: MessageSquare
+    },
+    {
+      title: 'Campaign Dashboard & Commenting',
+      description: 'Centralized campaign cockpit allowing care teams to add clinical comments, assign interventions, and log notes.',
+      category: 'Dashboard',
+      icon: BarChart3
+    },
+    {
+      title: 'Direct Patient History Access',
+      description: 'Seamless access to complete Patient 360 clinical records directly from campaign management screens.',
+      category: 'Integration',
+      icon: Search
     }
   ];
 
   const siblings = [
-    { label: 'Transitions of Care / ADT', path: '/platform/transitions-of-care-adt', desc: 'Real-time hospital admit/discharge alerts & post-discharge follow-up.' },
+    { label: 'Telemedicine', path: '/platform/telemedicine', desc: 'Secure 1-click video consults with no patient software install.' },
     { label: 'Care Management', path: '/platform/care-management', desc: 'Centralized workspace to enroll, assess, and coordinate chronic care.' },
-    { label: 'Patient Engagement', path: '/platform/patient-engagement', desc: 'Multichannel patient outreach & campaign management.' },
+    { label: 'Referral Management', path: '/platform/referral-management', desc: 'Closed-loop referral routing and specialist coordination.' },
     { label: 'Patient Intelligence', path: '/platform/patient-intelligence', desc: 'Unified longitudinal patient record and 360-degree clinical view.' }
   ];
 
@@ -161,7 +161,7 @@ export default function ReferralManagementPage() {
             <ChevronRight className="w-3.5 h-3.5 text-purple-300/40" />
             <Link to="/platform" className="hover:text-white transition-colors">Platform</Link>
             <ChevronRight className="w-3.5 h-3.5 text-purple-300/40" />
-            <span className="text-white font-medium">Referral Management</span>
+            <span className="text-white font-medium">Patient Engagement</span>
           </motion.nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -173,15 +173,15 @@ export default function ReferralManagementPage() {
             >
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-purple-200 text-xs font-semibold uppercase tracking-wider backdrop-blur-md">
                 <Sparkles className="w-3.5 h-3.5 text-[#ff7a57]" />
-                <span>Closed-Loop CIN Referral Network</span>
+                <span>Targeted Campaigns & Conversational Outreach</span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.12]">
-                Closed-Loop Referral Routing & CIN Tracking
+                Targeted Patient Outreach & Campaign Engine
               </h1>
 
               <p className="text-base sm:text-lg text-purple-100/90 leading-relaxed font-normal max-w-2xl">
-                Guardian automates electronic referral creation, provider geo-mapping, and closed-loop specialist confirmation to eliminate care leakage and improve network coordination.
+                Guardian's Campaigns Engine enables care teams to segment populations, deploy automated outreach, track individual patient responses, and drive preventive care compliance.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -189,7 +189,7 @@ export default function ReferralManagementPage() {
                   to="/company/contact?intent=demo"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#1c1636] bg-white hover:bg-[#f2ecf9] shadow-lg transition-all duration-200 hover:scale-105 active:scale-95 shrink-0"
                 >
-                  <span>Request a Referral Demo</span>
+                  <span>Request an Engagement Demo</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#7b3fc7]" />
                 </Link>
 
@@ -210,15 +210,15 @@ export default function ReferralManagementPage() {
             >
               <div className="relative rounded-2xl bg-[#1a1233] border border-white/20 shadow-[0_24px_60px_rgba(0,0,0,0.5)] p-2.5 overflow-hidden">
                 <div className="flex items-center justify-between px-3 py-2 bg-[#120b24] rounded-t-xl border-b border-white/10 mb-2">
-                  <span className="text-[11px] text-purple-300 font-mono">live.itsguardian.com/referral-manager</span>
+                  <span className="text-[11px] text-purple-300 font-mono">live.itsguardian.com/patient-engagement</span>
                   <span className="text-[10px] px-2 py-0.5 rounded bg-[#7b3fc7]/40 text-purple-200 border border-[#7b3fc7]/60 font-mono">
-                    Referral Manager
+                    Campaigns Console
                   </span>
                 </div>
                 <div className="relative rounded-lg overflow-hidden bg-white border border-[#e9e4f0]">
                   <img 
-                    src="/images/product-ui/ui-referral-manager.png" 
-                    alt="Guardian Referral Manager Interface" 
+                    src="/images/product-ui/ui-er-rpm-triage.png" 
+                    alt="Guardian Patient Engagement & Triage Console" 
                     className="w-full h-auto object-contain rounded-lg shadow-sm"
                   />
                 </div>
@@ -228,23 +228,23 @@ export default function ReferralManagementPage() {
         </div>
       </section>
 
-      {/* VISUAL STORY: Referral Request → Geo-Routing → Specialist Coordination → Status Tracking → Closed-Loop Confirmation */}
+      {/* VISUAL STORY: Cohort Selection → Multichannel Outreach → Interactive Communication → Response Management */}
       <section className="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f2ecf9] border border-[#d6cde2] text-[#7b3fc7] text-xs font-bold uppercase tracking-wider mb-4">
-            <Share2 className="w-3.5 h-3.5 text-[#7b3fc7]" />
-            <span>Closed-Loop Referral Flow</span>
+            <Users className="w-3.5 h-3.5 text-[#7b3fc7]" />
+            <span>Patient Engagement Pipeline</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-bold text-[#1c1636] tracking-tight">
-            Request → Geo-Routing → Coordination → Tracking → Closed-Loop
+            Cohort → Outreach → Communication → Response → Follow-up
           </h2>
           <p className="text-sm sm:text-base text-[#727272] mt-3 leading-relaxed">
-            How Guardian connects PCPs, CIN networks, and specialists for seamless referral tracking.
+            How Guardian automates patient engagement from cohort selection to care team action.
           </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
-          {referralPipeline.map((item, idx) => {
+          {engagementPipeline.map((item, idx) => {
             const Icon = item.icon;
             const isSelected = activeStepIndex === idx;
             return (
@@ -283,21 +283,21 @@ export default function ReferralManagementPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className={`text-xs font-mono font-bold px-2.5 py-1 rounded-md ${referralPipeline[activeStepIndex].badgeColor}`}>
-                    Phase {referralPipeline[activeStepIndex].step}: {referralPipeline[activeStepIndex].stage}
+                  <span className={`text-xs font-mono font-bold px-2.5 py-1 rounded-md ${engagementPipeline[activeStepIndex].badgeColor}`}>
+                    Phase {engagementPipeline[activeStepIndex].step}: {engagementPipeline[activeStepIndex].stage}
                   </span>
                 </div>
 
                 <h3 className="text-xl sm:text-3xl font-bold text-[#1c1636]">
-                  {referralPipeline[activeStepIndex].title}
+                  {engagementPipeline[activeStepIndex].title}
                 </h3>
 
                 <p className="text-sm sm:text-base text-[#58536e] leading-relaxed">
-                  {referralPipeline[activeStepIndex].summary}
+                  {engagementPipeline[activeStepIndex].summary}
                 </p>
 
                 <div className="pt-2 space-y-2.5">
-                  {referralPipeline[activeStepIndex].details.map((d, dIdx) => (
+                  {engagementPipeline[activeStepIndex].details.map((d, dIdx) => (
                     <div key={dIdx} className="flex items-start gap-3">
                       <div className="w-5 h-5 rounded-full bg-[#f2ecf9] text-[#7b3fc7] flex items-center justify-center shrink-0 mt-0.5">
                         <CheckCircle2 className="w-3.5 h-3.5" />
@@ -312,11 +312,11 @@ export default function ReferralManagementPage() {
 
               <div className="lg:col-span-5 bg-[#faf9fc] rounded-2xl border border-[#e1e1e5] p-6 text-center space-y-4">
                 <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-[#1c1636] to-[#7b3fc7] text-white flex items-center justify-center shadow-md">
-                  {React.createElement(referralPipeline[activeStepIndex].icon, { className: "w-7 h-7" })}
+                  {React.createElement(engagementPipeline[activeStepIndex].icon, { className: "w-7 h-7" })}
                 </div>
                 <div>
-                  <p className="text-xs font-mono uppercase tracking-wider text-[#8e8c99]">Referral Pipeline Output</p>
-                  <p className="text-base font-bold text-[#1c1636] mt-1">{referralPipeline[activeStepIndex].output}</p>
+                  <p className="text-xs font-mono uppercase tracking-wider text-[#8e8c99]">Engagement Milestone Output</p>
+                  <p className="text-base font-bold text-[#1c1636] mt-1">{engagementPipeline[activeStepIndex].output}</p>
                 </div>
               </div>
             </div>
@@ -332,10 +332,10 @@ export default function ReferralManagementPage() {
               Approved Features
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold text-[#1c1636] mt-4 mb-3 tracking-tight">
-              Referral Management Capabilities
+              Campaigns Engine & Engagement Capabilities
             </h2>
             <p className="text-sm sm:text-base text-[#727272]">
-              Approved features sourced directly from Product Profile 6.0 (Page 6 & Page 8).
+              Approved features sourced directly from Product Profile 6.0 (Page 7: Campaigns Engine).
             </p>
           </div>
 
@@ -433,17 +433,17 @@ export default function ReferralManagementPage() {
         >
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.2] mb-5 tracking-tight">
-              Eliminate Network Leakage with Closed-Loop Referrals
+              Engage Patients with Targeted Campaign Intelligence
             </h2>
             <p className="text-purple-100/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-              Connect PCPs, specialists, and CIN networks with geo-mapping and real-time status tracking.
+              Segment patient lists, automate multichannel outreach, and track individual patient responses.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/company/contact?intent=demo"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#1c1636] bg-white hover:bg-[#f2ecf9] shadow-lg transition-all"
               >
-                <span>Schedule a Referral Demo</span>
+                <span>Schedule a Patient Engagement Demo</span>
                 <ArrowRight className="w-4 h-4 text-[#7b3fc7]" />
               </Link>
             </div>

@@ -210,15 +210,15 @@ export default function IntelligencePage() {
           <img 
             src="/images/people-technology-bg.jpg" 
             alt="Guardian Intelligence & Clinical Knowledge Mesh" 
-            className="w-full h-full object-cover object-center filter brightness-[0.3] contrast-110"
+            className="w-full h-full object-cover object-center filter brightness-[0.6] contrast-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1527]/98 via-[#0d1527]/90 to-[#0d1527]/75" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0d1527]/90 via-transparent to-[#0d1527]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1527]/90 via-[#0d1527]/75 to-[#0d1527]/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0d1527]/80 via-transparent to-[#0d1527]" />
           
           {/* Ambient Lighting Accents */}
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[450px] bg-[#7b3fc7]/25 blur-[160px] rounded-full" />
-          <div className="absolute bottom-10 right-10 w-[500px] h-[350px] bg-[#059669]/20 blur-[140px] rounded-full" />
-          <div className="absolute inset-0 ambient-grid opacity-20" />
+          <div className="absolute top-1/4 left-1/4 w-[600px] h-[450px] bg-[#7b3fc7]/30 blur-[140px] rounded-full" />
+          <div className="absolute bottom-10 right-10 w-[500px] h-[350px] bg-[#059669]/25 blur-[120px] rounded-full" />
+          <div className="absolute inset-0 ambient-grid opacity-25" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -267,34 +267,37 @@ export default function IntelligencePage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
-              className="lg:col-span-5 hidden lg:block"
+              className="lg:col-span-5 hidden lg:block transform lg:scale-108 transition-transform duration-300"
             >
-              <div className="relative rounded-2xl bg-[#1a1233]/90 border border-white/20 backdrop-blur-xl p-3 shadow-2xl overflow-hidden group">
-                <div className="flex items-center justify-between px-3 py-1.5 bg-[#120b24] rounded-lg border-b border-white/10 mb-2">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block" />
-                    <span className="text-[10px] text-purple-300 font-mono ml-2">ai.itsguardian.com</span>
+              <div className="relative group">
+                <div className="absolute -inset-2 bg-gradient-to-tr from-[#7b3fc7]/40 to-[#059669]/30 rounded-3xl blur-2xl opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                <div className="relative rounded-2xl bg-[#1a1233]/95 border border-white/30 backdrop-blur-xl p-3 shadow-2xl overflow-hidden">
+                  <div className="flex items-center justify-between px-3 py-1.5 bg-[#120b24] rounded-lg border-b border-white/15 mb-2">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/90 inline-block" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/90 inline-block" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-green-500/90 inline-block" />
+                      <span className="text-[10px] text-purple-200 font-mono ml-2">ai.itsguardian.com</span>
+                    </div>
+                    <span className="text-[9px] font-mono px-2.5 py-0.5 rounded bg-[#7b3fc7] text-white border border-purple-300/50 font-bold">
+                      Clinical AI Engine
+                    </span>
                   </div>
-                  <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#7b3fc7]/40 text-purple-200 border border-[#7b3fc7]/60">
-                    Clinical AI Engine
-                  </span>
-                </div>
 
-                <div className="relative rounded-md overflow-hidden bg-white border border-[#e9e4f0]">
-                  <img 
-                    src="/images/appliction images/ui-risk-stratification.png" 
-                    alt="Guardian Intelligence & Predictive AI Engine" 
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
+                  <div className="relative rounded-md overflow-hidden bg-white border border-[#e9e4f0] shadow-md">
+                    <img 
+                      src="/images/appliction images/ui-risk-stratification.png" 
+                      alt="Guardian Intelligence & Predictive AI Engine" 
+                      className="w-full h-auto object-contain filter brightness-[1.06] contrast-[1.03]"
+                    />
+                  </div>
 
-                <div className="mt-2.5 flex items-center justify-between text-[11px] text-purple-200 font-mono px-1">
-                  <span className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> Human-in-the-Loop Certified
-                  </span>
-                  <span className="text-purple-300">Semantic Data Graph</span>
+                  <div className="mt-2.5 flex items-center justify-between text-[11px] text-purple-200 font-mono px-1 font-medium">
+                    <span className="flex items-center gap-1.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> Human-in-the-Loop Certified
+                    </span>
+                    <span className="text-purple-300 font-bold">Semantic Data Graph</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -325,9 +328,13 @@ export default function IntelligencePage() {
           {/* Infographic Connected Pathway */}
           <div className="relative pt-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {continuumSteps.map((step) => (
-                <div 
+              {continuumSteps.map((step, idx) => (
+                <motion.div 
                   key={step.num}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
                   className="p-6 rounded-2xl bg-white border border-[#e9e4f0] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between group"
                 >
                   {/* Top Step Header */}
@@ -354,7 +361,7 @@ export default function IntelligencePage() {
                     <span>Step {step.num} of 05</span>
                     <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -368,7 +375,13 @@ export default function IntelligencePage() {
       <section id="intelligence-overview" className="py-20 sm:py-28 bg-white border-b border-[#e9e4f0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mb-14">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="max-w-3xl mb-14"
+          >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7b3fc7]/10 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-3 border border-[#7b3fc7]/20 shadow-2xs">
               <Layers className="w-3.5 h-3.5 text-[#ff7a57]" />
               <span>THE 5 INTELLIGENCE PILLARS</span>
@@ -379,7 +392,7 @@ export default function IntelligencePage() {
             <p className="text-base text-[#524b6b] leading-relaxed">
               Explore the five foundational pillars that power Guardian’s healthcare intelligence suite:
             </p>
-          </div>
+          </motion.div>
 
           <div className="space-y-8">
             
@@ -388,7 +401,13 @@ export default function IntelligencePage() {
               const mainPil = intelligencePillars[0];
               const MainIcon = mainPil.icon;
               return (
-                <div className="relative rounded-3xl bg-gradient-to-r from-[#1c1636] via-[#241744] to-[#0d1527] text-white p-8 sm:p-10 border border-white/10 shadow-2xl overflow-hidden group">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.5, ease: 'easeOut' }}
+                  className="relative rounded-3xl bg-gradient-to-r from-[#1c1636] via-[#241744] to-[#0d1527] text-white p-8 sm:p-10 border border-white/10 shadow-2xl overflow-hidden group"
+                >
                   {/* Glowing Ambient Mesh */}
                   <div className="absolute top-0 right-0 w-96 h-96 bg-[#7b3fc7]/20 blur-[130px] rounded-full pointer-events-none" />
                   <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#4f46e5]/15 blur-[120px] rounded-full pointer-events-none" />
@@ -442,7 +461,7 @@ export default function IntelligencePage() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               );
             })()}
 
@@ -451,8 +470,12 @@ export default function IntelligencePage() {
               {intelligencePillars.slice(1).map((pil, idx) => {
                 const PilIcon = pil.icon;
                 return (
-                  <div 
+                  <motion.div 
                     key={pil.id} 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-30px' }}
+                    transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.06 }}
                     className="p-7 rounded-2xl bg-[#faf8fd] border border-[#e9e4f0] hover:border-[#7b3fc7]/40 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group"
                   >
                     <div>
@@ -506,7 +529,7 @@ export default function IntelligencePage() {
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>

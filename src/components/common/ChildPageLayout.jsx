@@ -114,58 +114,63 @@ export default function ChildPageLayout({
               className="lg:col-span-7"
             >
               {heroImage ? (
-                <div className="relative rounded-2xl bg-[#1a1233] border border-white/20 shadow-[0_24px_60px_rgba(0,0,0,0.5)] p-2.5 overflow-hidden group transform lg:scale-105 origin-left sm:origin-center transition-transform duration-300">
-                  <div className="flex items-center justify-between px-3 py-2 bg-[#120b24] rounded-t-xl border-b border-white/10 mb-2">
-                    <div className="flex items-center gap-2">
-                      <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
-                      <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block" />
-                      <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block" />
-                      <span className="text-[11px] text-purple-300 font-mono ml-2">live.itsguardian.com</span>
+                <div className="relative group transform lg:scale-110 origin-left sm:origin-center transition-transform duration-300">
+                  {/* Ambient Glow Backlight to make hero image stand out */}
+                  <div className="absolute -inset-2 bg-gradient-to-tr from-[#7b3fc7]/40 via-[#8b5cf6]/30 to-[#ff7a57]/30 rounded-3xl blur-2xl opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none" />
+
+                  <div className="relative rounded-2xl bg-[#1a1233] border border-white/30 shadow-[0_24px_60px_rgba(0,0,0,0.6)] p-2.5 overflow-hidden">
+                    <div className="flex items-center justify-between px-3 py-2 bg-[#120b24] rounded-t-xl border-b border-white/15 mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="w-3 h-3 rounded-full bg-red-500/90 inline-block" />
+                        <span className="w-3 h-3 rounded-full bg-yellow-500/90 inline-block" />
+                        <span className="w-3 h-3 rounded-full bg-green-500/90 inline-block" />
+                        <span className="text-[11px] text-purple-200 font-mono ml-2">live.itsguardian.com</span>
+                      </div>
+                      <span className="text-[10px] px-2.5 py-0.5 rounded bg-[#7b3fc7] text-white border border-purple-300/50 font-mono font-bold shadow-xs">
+                        Live Environment
+                      </span>
                     </div>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-[#7b3fc7]/40 text-purple-200 border border-[#7b3fc7]/60 font-mono">
-                      Live Environment
-                    </span>
-                  </div>
-                  <div className="relative rounded-lg overflow-hidden bg-white border border-[#e9e4f0]">
-                    <img 
-                      src={heroImage} 
-                      alt={`${title} Interface`} 
-                      className="w-full h-auto object-contain rounded-lg shadow-sm"
-                    />
+                    <div className="relative rounded-lg overflow-hidden bg-white border border-[#e9e4f0] shadow-md">
+                      <img 
+                        src={heroImage} 
+                        alt={`${title} Interface`} 
+                        className="w-full h-auto object-contain rounded-lg shadow-sm filter brightness-[1.06] contrast-[1.03]"
+                      />
+                    </div>
                   </div>
                 </div>
               ) : (
-                <div className="relative rounded-3xl bg-white/5 border border-white/15 p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-black/30">
-                  <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
-                    <span className="text-xs font-mono uppercase tracking-wider text-purple-200">
+                <div className="relative rounded-3xl bg-white/12 border border-white/25 p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-black/40">
+                  <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/15">
+                    <span className="text-xs font-mono uppercase tracking-wider text-purple-200 font-bold">
                       {category} // Architecture
                     </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-medium">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/25 text-emerald-200 border border-emerald-400/40 text-[11px] font-semibold">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                       Connected
                     </span>
                   </div>
 
                   <div className="space-y-3">
-                    <div className="p-3.5 rounded-xl bg-white/10 border border-white/10">
-                      <p className="text-xs text-purple-200/80 mb-1">Focus Area</p>
-                      <p className="text-sm font-semibold text-white">{title}</p>
+                    <div className="p-4 rounded-xl bg-white/15 border border-white/20 shadow-xs">
+                      <p className="text-xs text-purple-200/90 mb-1 font-mono uppercase">Focus Area</p>
+                      <p className="text-base font-bold text-white">{title}</p>
                     </div>
-                    <div className="p-3.5 rounded-xl bg-white/10 border border-white/10">
-                      <p className="text-xs text-purple-200/80 mb-1">Operational Mode</p>
-                      <p className="text-sm font-semibold text-purple-100">People + Technology Enabled</p>
+                    <div className="p-4 rounded-xl bg-white/15 border border-white/20 shadow-xs">
+                      <p className="text-xs text-purple-200/90 mb-1 font-mono uppercase">Operational Mode</p>
+                      <p className="text-base font-semibold text-purple-100">People + Technology Enabled</p>
                     </div>
                     {heroVisualBadge && (
-                      <div className="p-3.5 rounded-xl bg-[#7b3fc7]/20 border border-[#7b3fc7]/40">
-                        <p className="text-xs text-purple-300 mb-0.5 font-mono uppercase">Key Foundation</p>
-                        <p className="text-xs font-medium text-white">{heroVisualBadge}</p>
+                      <div className="p-4 rounded-xl bg-[#7b3fc7]/30 border border-[#7b3fc7]/50 shadow-xs">
+                        <p className="text-xs text-purple-300 mb-0.5 font-mono uppercase font-bold">Key Foundation</p>
+                        <p className="text-sm font-semibold text-white">{heroVisualBadge}</p>
                       </div>
                     )}
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-purple-200/70">
+                  <div className="mt-6 pt-4 border-t border-white/15 flex items-center justify-between text-xs text-purple-200/90 font-medium">
                     <span>Guardian Health Service</span>
-                    <span>Enterprise Ready</span>
+                    <span className="font-mono text-purple-300">Enterprise Ready</span>
                   </div>
                 </div>
               )}
@@ -220,11 +225,11 @@ export default function ChildPageLayout({
                 return (
                   <motion.div
                     key={capText + idx}
-                    initial={{ opacity: 0, y: 15 }}
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-20px' }}
-                    transition={{ duration: 0.35, delay: idx * 0.04 }}
-                    className="flex items-start gap-3 p-4 sm:p-5 rounded-2xl bg-[#faf9fc] border border-[#e1e1e5] hover:bg-white hover:border-[#7b3fc7]/40 hover:shadow-md transition-all duration-200"
+                    viewport={{ once: true, margin: '-30px' }}
+                    transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.04 }}
+                    className="flex items-start gap-3 p-4 sm:p-5 rounded-2xl bg-[#faf9fc] border border-[#e1e1e5] hover:bg-white hover:border-[#7b3fc7]/40 hover:shadow-xs hover:-translate-y-0.5 transition-all duration-200"
                   >
                     <div className="w-8 h-8 rounded-xl bg-[#f2ecf9] flex items-center justify-center shrink-0 mt-0.5 text-[#7b3fc7]">
                       <CheckCircle2 className="w-4 h-4" />
@@ -263,8 +268,8 @@ export default function ChildPageLayout({
                 key={m.year + idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-20px' }}
-                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                viewport={{ once: true, margin: '-30px' }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.08 }}
                 className="p-7 rounded-2xl bg-white border border-[#e1e1e5] shadow-sm relative overflow-hidden"
               >
                 <div className="text-3xl font-black text-[#7b3fc7] mb-2 font-mono">
@@ -305,8 +310,8 @@ export default function ChildPageLayout({
                 key={cred.title + idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-20px' }}
-                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                viewport={{ once: true, margin: '-30px' }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.08 }}
                 className="p-6 rounded-2xl bg-white border border-[#e1e1e5] shadow-sm text-center flex flex-col items-center"
               >
                 <div className="w-12 h-12 rounded-2xl bg-[#f2ecf9] text-[#7b3fc7] flex items-center justify-center mb-4">
@@ -332,8 +337,8 @@ export default function ChildPageLayout({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-20px' }}
-            transition={{ duration: 0.5 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
             className="p-8 sm:p-12 lg:p-14 rounded-3xl bg-gradient-to-br from-[#1c1636] to-[#2d1b54] text-white shadow-xl relative overflow-hidden"
           >
             <div className="relative z-10 max-w-3xl">
@@ -385,7 +390,7 @@ export default function ChildPageLayout({
                 <Link
                   key={sibling.path}
                   to={sibling.path}
-                  className="group p-5 rounded-2xl bg-[#faf9fc] border border-[#e1e1e5] hover:border-[#7b3fc7]/40 hover:bg-white hover:shadow-md transition-all duration-200"
+                  className="group p-5 rounded-2xl bg-[#faf9fc] border border-[#e1e1e5] hover:border-[#7b3fc7]/40 hover:bg-white hover:-translate-y-0.5 hover:shadow-xs transition-all duration-200"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs font-mono uppercase text-[#7b3fc7] font-semibold">
@@ -406,10 +411,10 @@ export default function ChildPageLayout({
       {/* 8. PAGE-SPECIFIC CLOSING CTA */}
       <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          viewport={{ once: true, margin: '-30px' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
           className="relative overflow-hidden rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-[#1c1636] via-[#2d1b54] to-[#7b3fc7] p-8 sm:p-14 lg:p-16 text-center text-white shadow-2xl shadow-[#7b3fc7]/20 border border-white/10"
         >
           {/* Subtle Ambient Radial Lighting within Card */}

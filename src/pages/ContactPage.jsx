@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   Mail, 
   MapPin, 
   Send, 
   ArrowRight,
+  ChevronRight,
   Sparkles,
   Building,
   CheckCircle2,
@@ -13,6 +15,9 @@ import {
 } from 'lucide-react';
 
 export default function ContactPage() {
+  const [searchParams] = useSearchParams();
+  const intentParam = searchParams.get('intent');
+
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
@@ -20,9 +25,19 @@ export default function ContactPage() {
     email: '',
     organization: '',
     jobTitle: '',
-    interest: 'Platform',
-    message: ''
+    interest: intentParam === 'demo' ? 'Solutions' : 'Platform',
+    message: intentParam === 'demo' ? 'Requesting a product demonstration.' : ''
   });
+
+  useEffect(() => {
+    if (intentParam === 'demo') {
+      setFormData(prev => ({
+        ...prev,
+        interest: 'Solutions',
+        message: prev.message || 'Requesting a product demonstration.'
+      }));
+    }
+  }, [intentParam]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -83,6 +98,15 @@ export default function ContactPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          {/* Breadcrumbs */}
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-medium text-purple-200/70 mb-8">
+            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 opacity-50" />
+            <Link to="/company/about" className="hover:text-white transition-colors">Company</Link>
+            <ChevronRight className="w-3.5 h-3.5 opacity-50" />
+            <span className="text-white font-semibold">Contact</span>
+          </nav>
+
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -359,6 +383,45 @@ export default function ContactPage() {
                 <h3 className="text-base font-bold text-[#1c1636] mb-2">{step.title}</h3>
                 <p className="text-xs sm:text-sm text-[#727272] leading-relaxed">{step.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          SECTION 4.5: COMPANY SIBLING NAVIGATION
+          ───────────────────────────────────────────────────────────── */}
+      <section className="py-16 sm:py-24 bg-[#f8f7fb] text-[#1c1636] border-b border-[#edeaf2]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#7b3fc7] mb-3">
+            Company Navigation
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1c1636] mb-8">
+            Explore the Guardian Company Family.
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              { title: 'About Guardian', desc: 'Built from healthcare. Designed for action.', path: '/company/about' },
+              { title: 'Leadership', desc: 'People shaping the future of healthcare.', path: '/company/leadership' },
+              { title: 'Security & Trust', desc: 'HITRUST & SOC 2 aligned security architecture.', path: '/company/security-trust' },
+              { title: 'Careers', desc: 'Building technology-enabled healthcare teams.', path: '/company/careers' }
+            ].map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="group py-4 border-b-2 border-[#e1e1e5] hover:border-[#7b3fc7] transition-all duration-200 block"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-base font-bold text-[#1c1636] group-hover:text-[#7b3fc7] transition-colors">
+                    {link.title}
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-[#adabb7] group-hover:text-[#7b3fc7] group-hover:translate-x-1 transition-all" />
+                </div>
+                <p className="text-xs text-[#554e6d] mt-1 font-normal">
+                  {link.desc}
+                </p>
+              </Link>
             ))}
           </div>
         </div>

@@ -6,139 +6,126 @@ import {
   Sparkles,
   ChevronRight,
   CheckCircle2,
-  Share2,
-  MapPin,
-  Users,
-  Clock,
-  CheckSquare,
+  FileCheck,
+  Search,
+  FileText,
+  ShieldCheck,
+  TrendingUp,
   Zap,
   ArrowUpRight,
-  Search,
-  FileText
+  Layers,
+  Database,
+  Sliders
 } from 'lucide-react';
 
-export default function ReferralManagementPage() {
+export default function RiskAdjustmentPage() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
 
-  // Storytelling Model: Referral Request → Geo-Routing → Specialist Coordination → Status Tracking → Closed-Loop Confirmation
-  const referralPipeline = [
+  // Storytelling Model: Patient Data → Suspecting → Documentation → Coding → RAF Optimization
+  const mraPipeline = [
     {
       step: '01',
-      stage: 'REFERRAL REQUEST',
-      title: 'Electronic Referral Creation & DSM Ingestion',
-      icon: Share2,
+      stage: 'PATIENT DATA',
+      title: 'Integrated Clinical & Claims Review',
+      icon: Database,
       badgeColor: 'bg-blue-50 text-blue-700 border-blue-200',
-      summary: 'Generate electronic referrals directly within clinical workflows or automatically ingest incoming Direct Secure Messaging (DSM) requests.',
+      summary: 'Ingest multi-source EMR progress notes, problem lists, lab results, and historical claims to establish baseline diagnostic context.',
       details: [
-        'Electronic referral creation from EMR & Patient 360',
-        'Automated referral creation from incoming DSM messages',
-        'Patient clinical history & CCDA document attachment'
+        'Multi-practice EMR progress notes & lab ingestion',
+        'Historical claims & CMS CCLF file processing',
+        'Longitudinal chronic condition tracking across encounter years'
       ],
-      output: 'Electronic Referral Initiated'
+      output: 'Unified Diagnostic Baseline'
     },
     {
       step: '02',
-      stage: 'GEO-ROUTING',
-      title: 'Provider Geo-Mapping & Specialist Search',
-      icon: MapPin,
-      badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
-      summary: 'Search and route patients to network specialists based on geo-mapping, specialty, insurance participation, and zip code proximity.',
+      stage: 'SUSPECTING',
+      title: 'Automated HCC Gap & Condition Suspecting',
+      icon: Search,
+      badgeColor: 'bg-amber-50 text-amber-700 border-amber-200',
+      summary: 'Surface uncaptured chronic conditions, undocumented diagnoses, and dropped HCC codes using clinical suspecting algorithms.',
       details: [
-        'Provider geo-mapping across Clinically Integrated Networks (CIN)',
-        'Specialist search by provider name, specialty, taxonomy, & zip code',
-        'In-network prioritization to minimize out-of-network leakage'
+        'CMS HCC V24 & V28 suspecting logic',
+        'Lab biomarker & medication-triggered condition suspecting',
+        'Prior-year uncaptured chronic condition gap alerts'
       ],
-      output: 'Optimal Specialist Selection'
+      output: 'Actionable Suspected HCC Opportunities'
     },
     {
       step: '03',
-      stage: 'COORDINATION',
-      title: 'PCP & Specialist Coordination',
-      icon: Users,
-      badgeColor: 'bg-amber-50 text-amber-700 border-amber-200',
-      summary: 'Coordinate clinical documentation, prior authorization records, and diagnostic reports between primary care and specialist practices.',
+      stage: 'DOCUMENTATION',
+      title: 'Point-of-Care Clinical Validation',
+      icon: FileText,
+      badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
+      summary: 'Present suspected conditions to providers at the point of care for clinical assessment, MEAT documentation, and code validation.',
       details: [
-        'Secure document exchange (PDF, Word, C-CDA attachment)',
-        'Prior authorization status attachment & documentation',
-        'Direct secure messaging between PCP and specialist teams'
+        'Point-of-care pre-visit preparation summary',
+        'MEAT (Monitor, Evaluate, Assess, Treat) documentation support',
+        'Initial Preventive Physical Examination (IPPE) & AWV integration'
       ],
-      output: 'Coordinated Specialist Package'
+      output: 'Validated Clinical Documentation'
     },
     {
       step: '04',
-      stage: 'STATUS TRACKING',
-      title: 'Real-Time Referral Status Monitoring',
-      icon: Clock,
-      badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
-      summary: 'Track referral progression through scheduling, appointment completion, and specialist consultation note generation.',
-      details: [
-        'Real-time status monitoring (Pending, Scheduled, Completed)',
-        'Automated task alerts for unfulfilled or overdue referrals',
-        'Referral lifecycle dashboards for CIN operations'
-      ],
-      output: 'Active Referral Tracking'
-    },
-    {
-      step: '05',
-      stage: 'CLOSED-LOOP',
-      title: 'Closed-Loop Care Confirmation',
-      icon: CheckSquare,
+      stage: 'CODING & RAF',
+      title: 'Coder Chart Audits & RAF Optimization',
+      icon: ShieldCheck,
       badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-      summary: 'Receive specialist consult notes back into the PCP record to close the loop and ensure continuous patient care.',
+      summary: 'Enable certified risk coders to perform chart audits, validate diagnostic submissions, and maintain accurate RAF scores.',
       details: [
-        'Automated consult report retrieval & EMR filing',
-        'Closed-loop status confirmation in Patient 360',
-        'CIN network referral analytics & leakage tracking'
+        'Integrated risk coder chart audit workflow',
+        'CMS HCC V24 & V28 blended RAF score calculation',
+        'Prospective and retrospective risk adjustment analytics'
       ],
-      output: 'Closed-Loop Care Confirmed'
+      output: 'Compliant & Accurate RAF Score'
     }
   ];
 
-  // Product Profile 6.0 Features (Page 6 & 8)
+  // Product Profile 6.0 Features (Page 6: MRA / Risk Adjustment)
   const capabilities = [
     {
-      title: 'Closed-Loop Referral Tracking',
-      description: 'End-to-end tracking of referral status from initial order creation to specialist note receipt and loop closure.',
-      category: 'Closed-Loop',
-      icon: CheckSquare
+      title: 'CMS HCC V24 & V28 Dual-Engine Support',
+      description: 'Comprehensive support for both CMS HCC V24 and V28 risk models with blended RAF score calculations.',
+      category: 'CMS Models',
+      icon: ShieldCheck
     },
     {
-      title: 'DSM-Automated Referral Creation',
-      description: 'Automated referral generation triggered by incoming Direct Secure Messaging (DSM) messages and C-CDA attachments.',
-      category: 'Automation',
-      icon: FileText
+      title: 'RAF Score Calculation',
+      description: 'Automated prospective and retrospective Risk Adjustment Factor (RAF) score calculation at patient and population levels.',
+      category: 'Analytics',
+      icon: TrendingUp
     },
     {
-      title: 'CIN Provider Geo-Mapping',
-      description: 'Interactive map and search directory filtering network specialists by specialty, location, zip code, and NPI.',
-      category: 'Network Search',
-      icon: MapPin
-    },
-    {
-      title: 'PCP & Specialist Coordination',
-      description: 'Collaborative workspace for primary care providers and specialists to share clinical notes, labs, and authorizations.',
-      category: 'Collaboration',
-      icon: Users
-    },
-    {
-      title: 'National HIE & EMR Integration',
-      description: 'Seamless document retrieval and appointment scheduling integration across EMRs and Health Information Exchanges.',
-      category: 'Interoperability',
+      title: 'HCC Gap & Suspected Condition Discovery',
+      description: 'Algorithm-driven identification of suspected chronic conditions, uncaptured codes, and clinical documentation gaps.',
+      category: 'Suspecting Engine',
       icon: Search
     },
     {
-      title: 'Referral & Leakage Analytics',
-      description: 'Operational analytics monitoring referral completion rates, turnaround times, and in-network retention.',
-      category: 'Analytics',
-      icon: Zap
+      title: 'Risk Coder Chart Audits',
+      description: 'Dedicated workspace for risk coders to review medical charts, validate ICD-10 codes, and log audit decisions.',
+      category: 'Coder Workflow',
+      icon: FileCheck
+    },
+    {
+      title: 'Integrated Clinical & Claims Review',
+      description: 'Side-by-side reconciliation of clinical EHR documentation against billed claims data for complete accuracy.',
+      category: 'Reconciliation',
+      icon: Layers
+    },
+    {
+      title: 'Chronic Condition Tracking',
+      description: 'Multi-year longitudinal tracking of active chronic conditions to ensure annual re-certification and compliance.',
+      category: 'Compliance',
+      icon: Sliders
     }
   ];
 
   const siblings = [
-    { label: 'Transitions of Care / ADT', path: '/platform/transitions-of-care-adt', desc: 'Real-time hospital admit/discharge alerts & post-discharge follow-up.' },
-    { label: 'Care Management', path: '/platform/care-management', desc: 'Centralized workspace to enroll, assess, and coordinate chronic care.' },
-    { label: 'Patient Engagement', path: '/platform/patient-engagement', desc: 'Multichannel patient outreach & campaign management.' },
-    { label: 'Patient Intelligence', path: '/platform/patient-intelligence', desc: 'Unified longitudinal patient record and 360-degree clinical view.' }
+    { label: 'Risk Stratification', path: '/platform/risk-stratification', desc: 'Categorize populations into actionable risk tiers.' },
+    { label: 'Quality / Care Gaps', path: '/platform/quality-care-gaps', desc: 'Monitor HEDIS, MIPS, and Star Ratings performance.' },
+    { label: 'Patient Intelligence', path: '/platform/patient-intelligence', desc: 'Unified longitudinal patient record and 360-degree clinical view.' },
+    { label: 'Analytics & Reporting', path: '/platform/analytics', desc: 'Executive cockpits with real-time KPI surveillance.' }
   ];
 
   return (
@@ -161,7 +148,7 @@ export default function ReferralManagementPage() {
             <ChevronRight className="w-3.5 h-3.5 text-purple-300/40" />
             <Link to="/platform" className="hover:text-white transition-colors">Platform</Link>
             <ChevronRight className="w-3.5 h-3.5 text-purple-300/40" />
-            <span className="text-white font-medium">Referral Management</span>
+            <span className="text-white font-medium">Risk Adjustment / MRA</span>
           </motion.nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -173,15 +160,15 @@ export default function ReferralManagementPage() {
             >
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-purple-200 text-xs font-semibold uppercase tracking-wider backdrop-blur-md">
                 <Sparkles className="w-3.5 h-3.5 text-[#ff7a57]" />
-                <span>Closed-Loop CIN Referral Network</span>
+                <span>Dual-Engine CMS HCC V24 & V28 Support</span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.12]">
-                Closed-Loop Referral Routing & CIN Tracking
+                Precision Risk Adjustment & RAF Accuracy
               </h1>
 
               <p className="text-base sm:text-lg text-purple-100/90 leading-relaxed font-normal max-w-2xl">
-                Guardian automates electronic referral creation, provider geo-mapping, and closed-loop specialist confirmation to eliminate care leakage and improve network coordination.
+                Guardian's Risk Adjustment engine combines automated HCC suspecting, point-of-care clinical validation, and certified risk coder audit workflows to ensure accurate RAF scores.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -189,7 +176,7 @@ export default function ReferralManagementPage() {
                   to="/company/contact?intent=demo"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#1c1636] bg-white hover:bg-[#f2ecf9] shadow-lg transition-all duration-200 hover:scale-105 active:scale-95 shrink-0"
                 >
-                  <span>Request a Referral Demo</span>
+                  <span>Request an MRA Demo</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#7b3fc7]" />
                 </Link>
 
@@ -210,15 +197,15 @@ export default function ReferralManagementPage() {
             >
               <div className="relative rounded-2xl bg-[#1a1233] border border-white/20 shadow-[0_24px_60px_rgba(0,0,0,0.5)] p-2.5 overflow-hidden">
                 <div className="flex items-center justify-between px-3 py-2 bg-[#120b24] rounded-t-xl border-b border-white/10 mb-2">
-                  <span className="text-[11px] text-purple-300 font-mono">live.itsguardian.com/referral-manager</span>
+                  <span className="text-[11px] text-purple-300 font-mono">live.itsguardian.com/risk-adjustment</span>
                   <span className="text-[10px] px-2 py-0.5 rounded bg-[#7b3fc7]/40 text-purple-200 border border-[#7b3fc7]/60 font-mono">
-                    Referral Manager
+                    HCC V24 & V28 Engine
                   </span>
                 </div>
                 <div className="relative rounded-lg overflow-hidden bg-white border border-[#e9e4f0]">
                   <img 
-                    src="/images/product-ui/ui-referral-manager.png" 
-                    alt="Guardian Referral Manager Interface" 
+                    src="/images/product-ui/ui-risk-stratification.png" 
+                    alt="Guardian Risk Adjustment Cockpit" 
                     className="w-full h-auto object-contain rounded-lg shadow-sm"
                   />
                 </div>
@@ -228,23 +215,23 @@ export default function ReferralManagementPage() {
         </div>
       </section>
 
-      {/* VISUAL STORY: Referral Request → Geo-Routing → Specialist Coordination → Status Tracking → Closed-Loop Confirmation */}
+      {/* VISUAL STORY: Patient Data → Suspecting → Documentation → Coding → RAF Optimization */}
       <section className="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f2ecf9] border border-[#d6cde2] text-[#7b3fc7] text-xs font-bold uppercase tracking-wider mb-4">
-            <Share2 className="w-3.5 h-3.5 text-[#7b3fc7]" />
-            <span>Closed-Loop Referral Flow</span>
+            <ShieldCheck className="w-3.5 h-3.5 text-[#7b3fc7]" />
+            <span>Risk Adjustment Pipeline</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-bold text-[#1c1636] tracking-tight">
-            Request → Geo-Routing → Coordination → Tracking → Closed-Loop
+            Data → Suspecting → Documentation → Coding → RAF
           </h2>
           <p className="text-sm sm:text-base text-[#727272] mt-3 leading-relaxed">
-            How Guardian connects PCPs, CIN networks, and specialists for seamless referral tracking.
+            How Guardian automates prospective and retrospective risk adjustment management.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
-          {referralPipeline.map((item, idx) => {
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-8">
+          {mraPipeline.map((item, idx) => {
             const Icon = item.icon;
             const isSelected = activeStepIndex === idx;
             return (
@@ -283,21 +270,21 @@ export default function ReferralManagementPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className={`text-xs font-mono font-bold px-2.5 py-1 rounded-md ${referralPipeline[activeStepIndex].badgeColor}`}>
-                    Phase {referralPipeline[activeStepIndex].step}: {referralPipeline[activeStepIndex].stage}
+                  <span className={`text-xs font-mono font-bold px-2.5 py-1 rounded-md ${mraPipeline[activeStepIndex].badgeColor}`}>
+                    Phase {mraPipeline[activeStepIndex].step}: {mraPipeline[activeStepIndex].stage}
                   </span>
                 </div>
 
                 <h3 className="text-xl sm:text-3xl font-bold text-[#1c1636]">
-                  {referralPipeline[activeStepIndex].title}
+                  {mraPipeline[activeStepIndex].title}
                 </h3>
 
                 <p className="text-sm sm:text-base text-[#58536e] leading-relaxed">
-                  {referralPipeline[activeStepIndex].summary}
+                  {mraPipeline[activeStepIndex].summary}
                 </p>
 
                 <div className="pt-2 space-y-2.5">
-                  {referralPipeline[activeStepIndex].details.map((d, dIdx) => (
+                  {mraPipeline[activeStepIndex].details.map((d, dIdx) => (
                     <div key={dIdx} className="flex items-start gap-3">
                       <div className="w-5 h-5 rounded-full bg-[#f2ecf9] text-[#7b3fc7] flex items-center justify-center shrink-0 mt-0.5">
                         <CheckCircle2 className="w-3.5 h-3.5" />
@@ -312,11 +299,11 @@ export default function ReferralManagementPage() {
 
               <div className="lg:col-span-5 bg-[#faf9fc] rounded-2xl border border-[#e1e1e5] p-6 text-center space-y-4">
                 <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-[#1c1636] to-[#7b3fc7] text-white flex items-center justify-center shadow-md">
-                  {React.createElement(referralPipeline[activeStepIndex].icon, { className: "w-7 h-7" })}
+                  {React.createElement(mraPipeline[activeStepIndex].icon, { className: "w-7 h-7" })}
                 </div>
                 <div>
-                  <p className="text-xs font-mono uppercase tracking-wider text-[#8e8c99]">Referral Pipeline Output</p>
-                  <p className="text-base font-bold text-[#1c1636] mt-1">{referralPipeline[activeStepIndex].output}</p>
+                  <p className="text-xs font-mono uppercase tracking-wider text-[#8e8c99]">Risk Adjustment Output</p>
+                  <p className="text-base font-bold text-[#1c1636] mt-1">{mraPipeline[activeStepIndex].output}</p>
                 </div>
               </div>
             </div>
@@ -332,10 +319,10 @@ export default function ReferralManagementPage() {
               Approved Features
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold text-[#1c1636] mt-4 mb-3 tracking-tight">
-              Referral Management Capabilities
+              MRA & Risk Adjustment Capabilities
             </h2>
             <p className="text-sm sm:text-base text-[#727272]">
-              Approved features sourced directly from Product Profile 6.0 (Page 6 & Page 8).
+              Approved features sourced directly from Product Profile 6.0 (Page 6: MRA / Risk Adjustment).
             </p>
           </div>
 
@@ -433,17 +420,17 @@ export default function ReferralManagementPage() {
         >
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.2] mb-5 tracking-tight">
-              Eliminate Network Leakage with Closed-Loop Referrals
+              Optimize RAF Scoring with Precision Risk Adjustment
             </h2>
             <p className="text-purple-100/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-              Connect PCPs, specialists, and CIN networks with geo-mapping and real-time status tracking.
+              Combine dual-engine CMS HCC V24 & V28 suspecting with risk coder chart audit management.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/company/contact?intent=demo"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#1c1636] bg-white hover:bg-[#f2ecf9] shadow-lg transition-all"
               >
-                <span>Schedule a Referral Demo</span>
+                <span>Schedule a Risk Adjustment Demo</span>
                 <ArrowRight className="w-4 h-4 text-[#7b3fc7]" />
               </Link>
             </div>

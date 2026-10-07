@@ -212,15 +212,15 @@ export default function SolutionsPage() {
           <img 
             src="/images/who-we-serve-doctor.jpg" 
             alt="Healthcare professionals using Guardian platform solutions" 
-            className="w-full h-full object-cover object-center filter brightness-[0.35] contrast-110"
+            className="w-full h-full object-cover object-center filter brightness-[0.6] contrast-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1527]/98 via-[#0d1527]/90 to-[#0d1527]/75" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0d1527]/90 via-transparent to-[#0d1527]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1527]/90 via-[#0d1527]/75 to-[#0d1527]/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0d1527]/80 via-transparent to-[#0d1527]" />
           
           {/* Ambient Lighting Accents */}
-          <div className="absolute top-1/4 right-1/4 w-[600px] h-[450px] bg-[#7b3fc7]/25 blur-[160px] rounded-full" />
-          <div className="absolute bottom-10 left-10 w-[500px] h-[350px] bg-[#ff7a57]/20 blur-[140px] rounded-full" />
-          <div className="absolute inset-0 ambient-grid opacity-15" />
+          <div className="absolute top-1/4 right-1/4 w-[600px] h-[450px] bg-[#7b3fc7]/30 blur-[140px] rounded-full" />
+          <div className="absolute bottom-10 left-10 w-[500px] h-[350px] bg-[#ff7a57]/25 blur-[120px] rounded-full" />
+          <div className="absolute inset-0 ambient-grid opacity-20" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -269,34 +269,37 @@ export default function SolutionsPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
-              className="lg:col-span-5 hidden lg:block"
+              className="lg:col-span-5 hidden lg:block transform lg:scale-108 transition-transform duration-300"
             >
-              <div className="relative rounded-2xl bg-[#1a1233]/90 border border-white/20 backdrop-blur-xl p-3 shadow-2xl overflow-hidden group">
-                <div className="flex items-center justify-between px-3 py-1.5 bg-[#120b24] rounded-lg border-b border-white/10 mb-2">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block" />
-                    <span className="text-[10px] text-purple-300 font-mono ml-2">solutions.itsguardian.com</span>
+              <div className="relative group">
+                <div className="absolute -inset-2 bg-gradient-to-tr from-[#7b3fc7]/40 to-[#ff7a57]/30 rounded-3xl blur-2xl opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                <div className="relative rounded-2xl bg-[#1a1233]/95 border border-white/30 backdrop-blur-xl p-3 shadow-2xl overflow-hidden">
+                  <div className="flex items-center justify-between px-3 py-1.5 bg-[#120b24] rounded-lg border-b border-white/15 mb-2">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/90 inline-block" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/90 inline-block" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-green-500/90 inline-block" />
+                      <span className="text-[10px] text-purple-200 font-mono ml-2">solutions.itsguardian.com</span>
+                    </div>
+                    <span className="text-[9px] font-mono px-2.5 py-0.5 rounded bg-[#7b3fc7] text-white border border-purple-300/50 font-bold">
+                      Enterprise Suite
+                    </span>
                   </div>
-                  <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#7b3fc7]/40 text-purple-200 border border-[#7b3fc7]/60">
-                    Enterprise Suite
-                  </span>
-                </div>
 
-                <div className="relative rounded-md overflow-hidden bg-white border border-[#e9e4f0]">
-                  <img 
-                    src="/images/appliction images/Main Platform Dashboard.png" 
-                    alt="Guardian Population Health & Solutions Dashboard" 
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
+                  <div className="relative rounded-md overflow-hidden bg-white border border-[#e9e4f0] shadow-md">
+                    <img 
+                      src="/images/appliction images/Main Platform Dashboard.png" 
+                      alt="Guardian Population Health & Solutions Dashboard" 
+                      className="w-full h-auto object-contain filter brightness-[1.06] contrast-[1.03]"
+                    />
+                  </div>
 
-                <div className="mt-2.5 flex items-center justify-between text-[11px] text-purple-200 font-mono px-1">
-                  <span className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> 4 Core Stakeholder Solutions
-                  </span>
-                  <span className="text-purple-300">VBC & CIN Orchestration</span>
+                  <div className="mt-2.5 flex items-center justify-between text-[11px] text-purple-200 font-mono px-1 font-medium">
+                    <span className="flex items-center gap-1.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> 4 Core Stakeholder Solutions
+                    </span>
+                    <span className="text-purple-300 font-bold">VBC & CIN Orchestration</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -328,8 +331,12 @@ export default function SolutionsPage() {
           <div className="relative pt-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
               {progressionSteps.map((step, idx) => (
-                <div 
+                <motion.div 
                   key={step.num}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
                   className="p-6 rounded-2xl bg-white border border-[#e9e4f0] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between group"
                 >
                   {/* Top Step Header */}
@@ -356,7 +363,7 @@ export default function SolutionsPage() {
                     <span>Step {step.num} of 05</span>
                     <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -370,7 +377,13 @@ export default function SolutionsPage() {
       <section id="solutions-overview" className="py-20 sm:py-28 bg-white border-b border-[#e9e4f0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mb-14">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="max-w-3xl mb-14"
+          >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7b3fc7]/10 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-3 border border-[#7b3fc7]/20 shadow-2xs">
               <Building2 className="w-3.5 h-3.5 text-[#ff7a57]" />
               <span>WHO WE SERVE</span>
@@ -381,15 +394,19 @@ export default function SolutionsPage() {
             <p className="text-base text-[#524b6b] leading-relaxed">
               Guardian’s solution portfolio is organized around the operational models, clinical workflows, and performance contracts of modern healthcare organizations:
             </p>
-          </div>
+          </motion.div>
 
           {/* 4 Corporate Stakeholder Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-2">
-            {solutionAreas.map((sol) => {
+            {solutionAreas.map((sol, idx) => {
               const SolIcon = sol.icon;
               return (
-                <div 
+                <motion.div 
                   key={sol.id} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.06 }}
                   className="p-8 rounded-3xl bg-[#faf8fd] border border-[#e9e4f0] hover:border-[#7b3fc7]/40 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group relative overflow-hidden"
                 >
                   {/* Top Solid Gradient Edge Stripe */}
@@ -426,8 +443,8 @@ export default function SolutionsPage() {
                         Key Capabilities & Workflows:
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        {sol.capabilities.map((cap, idx) => (
-                          <div key={idx} className="flex items-start gap-1.5 text-xs text-[#1c1636]">
+                        {sol.capabilities.map((cap, i) => (
+                          <div key={i} className="flex items-start gap-1.5 text-xs text-[#1c1636]">
                             <CheckCircle2 className={`w-3.5 h-3.5 ${sol.accentColor} shrink-0 mt-0.5`} />
                             <span className="font-medium text-[11.5px] leading-tight text-[#35304c]">{cap}</span>
                           </div>
@@ -447,7 +464,7 @@ export default function SolutionsPage() {
                     </Link>
                   </div>
 
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -664,16 +681,16 @@ export default function SolutionsPage() {
             </span>
             <div className="flex flex-wrap items-center gap-6 text-xs text-[#35304c] font-semibold">
               <span className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> CMS MIPS Certified Registry
+                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> CMS MIPS Qualified Registry Architecture
               </span>
               <span className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> eHealth Exchange Implementer
+                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> eHealth Exchange Interoperability
               </span>
               <span className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> CareQuality Exchange Implementer
+                <ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> CareQuality Framework Alignment
               </span>
               <span className="flex items-center gap-2">
-                <Lock className="w-4 h-4 text-[#ff7a57]" /> HITRUST e1 Certified Architecture
+                <Lock className="w-4 h-4 text-[#ff7a57]" /> HITRUST & HIPAA Security Alignment
               </span>
             </div>
           </div>

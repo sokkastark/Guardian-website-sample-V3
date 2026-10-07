@@ -39,12 +39,12 @@ import VideosPage from './pages/resources/VideosPage';
 import CareersPage from './pages/company/CareersPage';
 
 // Capability & Feature Pages
-import PopulationHealthPage from './pages/solutions/PopulationHealthPage';
-import CareManagementPage from './pages/solutions/CareManagementPage';
-import RiskAdjustmentPage from './pages/solutions/RiskAdjustmentPage';
-import QualityPerformancePage from './pages/solutions/QualityPerformancePage';
-import PatientEngagementPage from './pages/solutions/PatientEngagementPage';
-import AnalyticsIntelligencePage from './pages/solutions/AnalyticsIntelligencePage';
+import PopulationHealthPage from './pages/platform/PopulationHealthPage';
+import AnalyticsPage from './pages/platform/AnalyticsPage';
+import CareManagementPage from './pages/platform/CareManagementPage';
+import RiskAdjustmentPage from './pages/platform/RiskAdjustmentPage';
+import QualityCareGapsPage from './pages/platform/QualityCareGapsPage';
+import PatientEngagementPage from './pages/platform/PatientEngagementPage';
 
 // Integration & Data Pages
 import DataIntegrationPage from './pages/platform/DataIntegrationPage';
@@ -89,12 +89,12 @@ export default function App() {
 
             {/* ── PLATFORM CANONICAL ROUTES ── */}
             <Route path="/platform/population-health" element={<PopulationHealthPage />} />
-            <Route path="/platform/analytics" element={<AnalyticsIntelligencePage />} />
+            <Route path="/platform/analytics" element={<AnalyticsPage />} />
             <Route path="/platform/patient-intelligence" element={<PatientIntelligencePage />} />
             <Route path="/platform/patient-intelligence/patient-360" element={<Patient360Page />} />
             <Route path="/platform/risk-stratification" element={<RiskStratificationPage />} />
             <Route path="/platform/risk-adjustment" element={<RiskAdjustmentPage />} />
-            <Route path="/platform/quality-care-gaps" element={<QualityPerformancePage />} />
+            <Route path="/platform/quality-care-gaps" element={<QualityCareGapsPage />} />
             <Route path="/platform/care-management" element={<CareManagementPage />} />
             <Route path="/platform/transitions-of-care-adt" element={<TransitionsOfCarePage />} />
             <Route path="/platform/referral-management" element={<ReferralManagementPage />} />

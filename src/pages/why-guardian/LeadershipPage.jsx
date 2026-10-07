@@ -60,7 +60,7 @@ export default function LeadershipPage() {
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-medium text-purple-200/70 mb-8">
             <Link to="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5 opacity-50" />
-            <Link to="/why-guardian" className="hover:text-white transition-colors">Why Guardian</Link>
+            <Link to="/company/about" className="hover:text-white transition-colors">Company</Link>
             <ChevronRight className="w-3.5 h-3.5 opacity-50" />
             <span className="text-white font-semibold">Leadership</span>
           </nav>
@@ -87,7 +87,7 @@ export default function LeadershipPage() {
                   Guardian brings together healthcare experience, technology, and operational expertise to help organizations move from information to action.
                 </p>
 
-                <div>
+                <div className="flex flex-wrap items-center gap-4">
                   <a
                     href="#meet-the-team"
                     className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full font-medium text-sm text-[#1c1636] bg-white hover:bg-[#f2ecf9] shadow-lg shadow-black/20 transition-all duration-200 hover:scale-105 active:scale-95"
@@ -95,6 +95,12 @@ export default function LeadershipPage() {
                     <span>Meet the team</span>
                     <ArrowRight className="w-4 h-4 text-[#7b3fc7]" />
                   </a>
+                  <Link
+                    to="/company/contact?intent=demo"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-medium text-sm text-white bg-[#7b3fc7] hover:bg-[#9565d2] transition-all duration-200"
+                  >
+                    <span>Request Demo</span>
+                  </Link>
                 </div>
               </motion.div>
             </div>
@@ -152,31 +158,36 @@ export default function LeadershipPage() {
       <HowWeWorkPathway />
 
       {/* ─────────────────────────────────────────────────────────────
-          05 — EXPLORE GUARDIAN: Clean Editorial Links
+          05 — EXPLORE COMPANY SIBLINGS: Clean Editorial Links
           ───────────────────────────────────────────────────────────── */}
       <section className="py-16 sm:py-24 bg-[#f8f7fb] text-[#1c1636] border-t border-[#edeaf2]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-xs font-semibold uppercase tracking-wider text-[#7b3fc7] mb-3">
-            Explore More
+            Company Navigation
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1c1636] mb-8">
-            Explore more of Guardian.
+            Explore the Guardian Company Family.
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {exploreLinks.map((link) => (
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              { title: 'About Guardian', desc: 'Built from healthcare. Designed for action.', path: '/company/about' },
+              { title: 'Security & Trust', desc: 'HITRUST & SOC 2 aligned security architecture.', path: '/company/security-trust' },
+              { title: 'Careers', desc: 'Building technology-enabled healthcare teams.', path: '/company/careers' },
+              { title: 'Contact', desc: 'Start a conversation with Guardian.', path: '/company/contact' }
+            ].map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className="group py-4 border-b-2 border-[#e1e1e5] hover:border-[#7b3fc7] transition-all duration-200 block"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-bold text-[#1c1636] group-hover:text-[#7b3fc7] transition-colors">
+                  <span className="text-base font-bold text-[#1c1636] group-hover:text-[#7b3fc7] transition-colors">
                     {link.title}
                   </span>
                   <ArrowRight className="w-4 h-4 text-[#adabb7] group-hover:text-[#7b3fc7] group-hover:translate-x-1 transition-all" />
                 </div>
-                <p className="text-xs sm:text-sm text-[#554e6d] mt-1 font-normal">
+                <p className="text-xs text-[#554e6d] mt-1 font-normal">
                   {link.desc}
                 </p>
               </Link>
@@ -198,16 +209,16 @@ export default function LeadershipPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
-              to="/contact"
+              to="/company/contact?intent=demo"
               className="w-full sm:w-auto px-8 py-3.5 rounded-full font-medium text-sm text-[#1c1636] bg-white hover:bg-[#f2ecf9] shadow-lg transition-all duration-200 hover:scale-105 active:scale-95"
             >
-              Talk to Guardian
+              Request a Demo
             </Link>
             <Link
-              to="/why-guardian"
+              to="/company/about"
               className="w-full sm:w-auto px-6 py-3.5 rounded-full font-medium text-sm text-white/90 hover:text-white bg-white/10 hover:bg-white/15 border border-white/20 transition-all duration-200"
             >
-              Why Guardian Overview
+              About Guardian
             </Link>
           </div>
         </div>

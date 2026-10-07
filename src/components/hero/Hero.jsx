@@ -131,7 +131,7 @@ export default function Hero() {
                 </div>
                 <div className="flex items-center gap-1">
                   <Award className="w-3.5 h-3.5 text-[#fb923c]" />
-                  <span className="font-medium text-[10px] sm:text-[11px]">HITRUST e1</span>
+                  <span className="font-medium text-[10px] sm:text-[11px]">HITRUST Aligned</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Layers className="w-3.5 h-3.5 text-[#a855f7]" />
