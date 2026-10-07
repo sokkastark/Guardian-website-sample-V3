@@ -62,35 +62,45 @@ export default function CompanyOverviewPage() {
       label: 'CONNECT',
       title: 'EHR & Claims Ingestion',
       desc: 'Bring information together across EHRs, claims, HIE feeds, and pharmacy systems.',
-      gradient: 'from-[#4f46e5] to-[#7c3aed]'
+      ribbonBg: 'bg-gradient-to-r from-[#0d9488] to-[#14b8a6]',
+      foldBorderColor: 'border-t-[#0f766e]',
+      numberColor: 'text-[#0d9488]',
     },
     {
       num: '02',
       label: 'UNDERSTAND',
       title: 'Longitudinal Context',
       desc: 'Synthesize raw data into longitudinal patient charts, risk stratification, and cohort analytics.',
-      gradient: 'from-[#7b3fc7] to-[#9565d2]'
+      ribbonBg: 'bg-gradient-to-r from-[#65a30d] to-[#84cc16]',
+      foldBorderColor: 'border-t-[#4d7c0f]',
+      numberColor: 'text-[#65a30d]',
     },
     {
       num: '03',
       label: 'PRIORITIZE',
       title: 'Risk & Gap Identification',
       desc: 'Surface high-risk patients, HEDIS care gaps, and MRA suspecting opportunities needing action.',
-      gradient: 'from-[#059669] to-[#10b981]'
+      ribbonBg: 'bg-gradient-to-r from-[#d97706] to-[#eab308]',
+      foldBorderColor: 'border-t-[#a16207]',
+      numberColor: 'text-[#d97706]',
     },
     {
       num: '04',
       label: 'ACT',
       title: 'Coordinated Workflows',
       desc: 'Equip multidisciplinary care teams with automated task routing, care plans, and point-of-care alerts.',
-      gradient: 'from-[#ff7a57] to-[#ea580c]'
+      ribbonBg: 'bg-gradient-to-r from-[#ff7a57] to-[#ea580c]',
+      foldBorderColor: 'border-t-[#c2410c]',
+      numberColor: 'text-[#ea580c]',
     },
     {
       num: '05',
       label: 'MEASURE',
       title: 'Clinical & Financial Impact',
       desc: 'Track quality score improvements, PMPY cost reductions, and shared savings growth.',
-      gradient: 'from-[#1c1636] to-[#7b3fc7]'
+      ribbonBg: 'bg-gradient-to-r from-[#ec4899] to-[#db2777]',
+      foldBorderColor: 'border-t-[#be185d]',
+      numberColor: 'text-[#db2777]',
     }
   ];
 
@@ -345,9 +355,9 @@ export default function CompanyOverviewPage() {
             </p>
           </div>
 
-          {/* Infographic Connected Pathway */}
-          <div className="relative pt-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {/* Infographic Connected 3D Folded Ribbon Pathway */}
+          <div className="relative pt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-5">
               {valueChain.map((step, idx) => (
                 <motion.div 
                   key={step.num}
@@ -355,31 +365,42 @@ export default function CompanyOverviewPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-30px' }}
                   transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
-                  className="p-6 rounded-2xl bg-white border border-[#e9e4f0] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between group"
+                  className="bg-white rounded-3xl border border-[#e9e4f0] shadow-[0_12px_35px_rgba(28,22,54,0.06)] hover:shadow-[0_20px_45px_rgba(28,22,54,0.12)] transition-all duration-300 hover:-translate-y-1.5 relative flex flex-col justify-between group pt-0 pb-6 px-6"
                 >
-                  {/* Top Step Header */}
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-md bg-gradient-to-r ${step.gradient} text-white shadow-2xs`}>
+                  {/* Top 3D Folded Ribbon Bar Header */}
+                  <div className="relative -mx-6 mb-6">
+                    <div className={`relative -mr-3 px-3 py-2.5 ${step.ribbonBg} text-white shadow-md rounded-r-xs flex items-center justify-start gap-2.5 z-10`}>
+                      {/* White Circular Step Number Badge */}
+                      <div className={`w-8 h-8 rounded-full bg-white ${step.numberColor} font-mono font-extrabold text-xs flex items-center justify-center shadow-md shrink-0 border-2 border-white`}>
                         {step.num}
-                      </span>
-                      <span className="text-[9.5px] font-extrabold tracking-widest text-[#8e8a9f] uppercase truncate ml-1">
+                      </div>
+
+                      {/* Ribbon Category Label */}
+                      <span className="text-[11px] font-extrabold tracking-widest uppercase text-white font-mono truncate">
                         {step.label}
                       </span>
                     </div>
 
-                    <h3 className="text-base font-extrabold text-[#1c1636] mb-2 leading-tight group-hover:text-[#7b3fc7] transition-colors">
-                      {step.title}
-                    </h3>
-                    <p className="text-xs text-[#524b6b] leading-relaxed">
-                      {step.desc}
-                    </p>
+                    {/* 3D Fold Triangle underneath the right hanging ribbon tail */}
+                    <div className={`absolute right-[-12px] bottom-[-8px] w-0 h-0 border-t-[8px] ${step.foldBorderColor} border-r-[8px] border-r-transparent z-0`} />
                   </div>
 
-                  {/* Bottom Pathway Connector Indicator */}
-                  <div className="mt-4 pt-3 border-t border-[#f0ebf8] flex items-center justify-between text-[11px] font-bold text-[#7b3fc7]">
-                    <span>Step {step.num} of 05</span>
-                    <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  {/* Card Content Body */}
+                  <div className="flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-base font-extrabold text-[#1c1636] mb-2 leading-snug group-hover:text-[#7b3fc7] transition-colors">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs text-[#524b6b] leading-relaxed">
+                        {step.desc}
+                      </p>
+                    </div>
+
+                    {/* Bottom Step Indicator */}
+                    <div className="mt-5 pt-3 border-t border-[#f0ebf8] flex items-center justify-between text-[11px] font-bold text-[#7b3fc7]">
+                      <span>Step {step.num} of 05</span>
+                      <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                 </motion.div>
               ))}
