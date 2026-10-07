@@ -339,25 +339,25 @@ export default function CompanyOverviewPage() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 2: THE GUARDIAN VALUE CHAIN (INFOGRAPHIC PATHWAY)
           ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-28 bg-[#faf8fd] border-b border-[#e9e4f0] relative overflow-hidden">
+      <section className="py-12 sm:py-16 bg-[#faf8fd] border-b border-[#e9e4f0] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7b3fc7]/10 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-3 border border-[#7b3fc7]/20 shadow-2xs">
+          <div className="max-w-3xl mb-8">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7b3fc7]/10 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-2.5 border border-[#7b3fc7]/20 shadow-2xs">
               <Sparkles className="w-3.5 h-3.5 text-[#ff7a57]" />
               <span>OUR VALUE CREATION PATHWAY</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1c1636] tracking-tight mb-4 leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1c1636] tracking-tight mb-3 leading-tight">
               From healthcare data to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fc7] via-[#4f46e5] to-[#ff7a57]">synchronized clinical action.</span>
             </h2>
-            <p className="text-base sm:text-lg text-[#524b6b] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#524b6b] leading-relaxed">
               Guardian’s operational methodology connects 5 core stages to bridge data silos and drive clinical and financial outcomes:
             </p>
           </div>
 
           {/* Infographic Connected 3D Folded Ribbon Pathway */}
-          <div className="relative pt-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 xl:gap-7">
+          <div className="relative pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 xl:gap-6">
               {valueChain.map((step, idx) => (
                 <motion.div 
                   key={step.num}
@@ -365,36 +365,36 @@ export default function CompanyOverviewPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-30px' }}
                   transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
-                  className="bg-white rounded-[26px] border border-[#e5e0ee] shadow-[0_15px_35px_rgba(28,22,54,0.07)] hover:shadow-[0_25px_50px_rgba(28,22,54,0.14)] transition-all duration-300 hover:-translate-y-1.5 relative flex flex-col justify-between group pt-4 pb-7 px-6 min-h-[290px]"
+                  className="bg-white rounded-[22px] border border-[#e5e0ee] shadow-[0_10px_30px_rgba(28,22,54,0.06)] hover:shadow-[0_18px_40px_rgba(28,22,54,0.12)] transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between group pt-3 pb-5 px-5 min-h-[210px] sm:min-h-[220px]"
                 >
-                  {/* Top 3D Ribbon Bar Header (Proportional Tight 3D Ribbon Fold) */}
-                  <div className="relative -mx-6 mt-2 mb-6">
-                    <div className="relative flex items-center z-10 pl-1.5">
+                  {/* Top 3D Ribbon Bar Header (Proportional Compact Ribbon) */}
+                  <div className="relative -mx-5 mt-1 mb-4">
+                    <div className="relative flex items-center z-10 pl-1">
                       {/* Left Circular Ring Collar Badge */}
-                      <div className={`w-11 h-11 rounded-full ${step.ribbonBg} shadow-[0_4px_10px_rgba(0,0,0,0.22)] flex items-center justify-center shrink-0 z-20`}>
-                        <div className={`w-7.5 h-7.5 rounded-full bg-white ${step.numberColor} font-mono font-extrabold text-xs flex items-center justify-center shadow-inner`}>
+                      <div className={`w-10 h-10 rounded-full ${step.ribbonBg} shadow-[0_3px_8px_rgba(0,0,0,0.2)] flex items-center justify-center shrink-0 z-20`}>
+                        <div className={`w-7 h-7 rounded-full bg-white ${step.numberColor} font-mono font-extrabold text-[11px] flex items-center justify-center shadow-inner`}>
                           {step.num}
                         </div>
                       </div>
 
                       {/* Main Horizontal Ribbon Bar */}
-                      <div className={`flex-1 h-9.5 ${step.ribbonBg} -ml-5 pl-7 pr-3 flex items-center justify-center text-white shadow-md z-10 -mr-2.5 rounded-r-xs`}>
-                        <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white font-sans text-center truncate">
+                      <div className={`flex-1 h-8.5 ${step.ribbonBg} -ml-5 pl-6 pr-2.5 flex items-center justify-center text-white shadow-sm z-10 -mr-2 rounded-r-xs`}>
+                        <span className="text-[10.5px] font-semibold tracking-[0.16em] uppercase text-white font-sans text-center truncate">
                           {step.label}
                         </span>
                       </div>
                     </div>
 
-                    {/* 3D Fold Ribbon Tail Wrapping Around Right Edge (Tight 10px Overhang) */}
-                    <div className={`absolute -right-[10px] top-[32px] w-0 h-0 border-t-[10px] ${step.foldBorderColor} border-r-[10px] border-r-transparent z-0`} />
+                    {/* 3D Fold Ribbon Tail Wrapping Around Right Edge */}
+                    <div className={`absolute -right-[8px] top-[28px] w-0 h-0 border-t-[8px] ${step.foldBorderColor} border-r-[8px] border-r-transparent z-0`} />
                   </div>
 
                   {/* Card Content Body */}
-                  <div className="flex-1 flex flex-col justify-start pt-1">
-                    <h3 className="text-base font-extrabold text-[#1c1636] mb-2 leading-snug group-hover:text-[#7b3fc7] transition-colors">
+                  <div className="flex-1 flex flex-col justify-start pt-0.5">
+                    <h3 className="text-sm sm:text-base font-extrabold text-[#1c1636] mb-1.5 leading-snug group-hover:text-[#7b3fc7] transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-xs text-[#524b6b] leading-relaxed font-normal">
+                    <p className="text-[11.5px] text-[#524b6b] leading-relaxed font-normal">
                       {step.desc}
                     </p>
                   </div>
