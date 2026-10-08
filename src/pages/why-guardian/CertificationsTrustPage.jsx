@@ -17,6 +17,8 @@ import {
   Eye,
   Award
 } from 'lucide-react';
+import { RibbonStepGrid } from '../../components/common/RibbonStepCard';
+import RelatedPlatformModules from '../../components/common/RelatedPlatformModules';
 
 const trustPillars = [
   {
@@ -30,8 +32,8 @@ const trustPillars = [
         desc: 'Engineered according to HITRUST Common Security Framework (CSF) control objectives and SOC 2 Type II trust service criteria.'
       },
       {
-        title: 'HIPAA Privacy & Security Compliance',
-        desc: 'Comprehensive Administrative, Physical, and Technical Safeguards enforcing HIPAA compliance for all Protected Health Information (PHI).'
+        title: 'HIPAA Privacy & Security Framework',
+        desc: 'Comprehensive Administrative, Physical, and Technical Safeguards aligned with the HIPAA Privacy and Security Rules for all Protected Health Information (PHI).'
       },
       {
         title: 'CMS MIPS Qualified Registry Architecture',
@@ -96,33 +98,53 @@ const trustPillars = [
 const pipelineStages = [
   {
     num: '01',
+    label: 'INGESTION',
     title: 'Ingestion & Encryption',
     icon: Lock,
-    desc: 'TLS 1.3 encrypted data streams (EHR, Claims, ADT) ingested into isolated secure dropzones with cryptographic checksum validation.'
+    desc: 'TLS 1.3 encrypted data streams (EHR, Claims, ADT) ingested into isolated secure dropzones with cryptographic checksum validation.',
+    ribbonBg: 'bg-[#10b981]',
+    foldColor: '#047857',
+    numberColor: 'text-[#047857]'
   },
   {
     num: '02',
+    label: 'ISOLATION',
     title: 'Multi-Tenant Isolation',
     icon: Server,
-    desc: 'Data separated into organization-specific logical partitions with strict database boundary security controls.'
+    desc: 'Patient and clinical data separated into organization-specific logical partitions with strict database boundary security controls.',
+    ribbonBg: 'bg-[#0284c7]',
+    foldColor: '#0369a1',
+    numberColor: 'text-[#0369a1]'
   },
   {
     num: '03',
+    label: 'ACCESS',
     title: 'RBAC & Identity Verification',
     icon: UserCheck,
-    desc: 'SAML 2.0 / OIDC SSO authentication enforcing granular role-based permissions before granting record access.'
+    desc: 'SAML 2.0 / OIDC SSO authentication enforcing granular role-based permissions before granting record access.',
+    ribbonBg: 'bg-[#7b3fc7]',
+    foldColor: '#4c1d95',
+    numberColor: 'text-[#4c1d95]'
   },
   {
     num: '04',
+    label: 'AUDIT',
     title: 'Continuous Audit Logging',
     icon: Eye,
-    desc: 'Every system query, record view, and clinical action logged to immutable, time-stamped compliance audit trails.'
+    desc: 'Every system query, record view, and clinical action logged to immutable, time-stamped compliance audit trails.',
+    ribbonBg: 'bg-[#f97316]',
+    foldColor: '#c2410c',
+    numberColor: 'text-[#c2410c]'
   },
   {
     num: '05',
+    label: 'GOVERNANCE',
     title: 'Compliance & Quality Registry',
     icon: Award,
-    desc: 'Standardized MIPS QCDR calculation and CareQuality interoperability exchange under verified governance protocols.'
+    desc: 'Standardized MIPS QCDR calculation and CareQuality interoperability exchange under verified governance protocols.',
+    ribbonBg: 'bg-[#ec4899]',
+    foldColor: '#be185d',
+    numberColor: 'text-[#be185d]'
   }
 ];
 
@@ -188,41 +210,28 @@ export default function CertificationsTrustPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          02 — SECURITY PIPELINE: 5-Stage Interactive Flow
+          02 — SECURITY PIPELINE: 5-Stage 3D Folded Ribbon Pathway (Light Section)
           ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-24 bg-[#100a26] text-white border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#ff7a57] block mb-2">
-              Defense In Depth
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-              End-to-End Healthcare Security Pipeline
+      <section className="py-20 sm:py-28 bg-white text-[#1c1636] border-b border-[#e9e4f0] relative overflow-hidden">
+        {/* Subtle Ambient Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-gradient-to-tr from-[#7b3fc7]/5 via-[#0284c7]/5 to-[#ff7a57]/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl mb-14">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7b3fc7]/10 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-3 border border-[#7b3fc7]/20 shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#ff7a57]" />
+              <span>Defense In Depth</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1c1636] leading-tight mb-3">
+              End-to-End Healthcare <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fc7] via-[#4f46e5] to-[#ff7a57]">Security Pipeline</span>
             </h2>
-            <p className="text-sm sm:text-base text-purple-200/80 mt-2">
+            <p className="text-base sm:text-lg text-[#524b6b] leading-relaxed">
               How patient data is protected from initial ingestion through registry analytics and clinical exchange.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            {pipelineStages.map((stage) => {
-              const Icon = stage.icon;
-              return (
-                <div
-                  key={stage.num}
-                  className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-[#7b3fc7]/60 transition-all flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs font-mono font-bold text-[#ff7a57]">{stage.num}</span>
-                      <Icon className="w-5 h-5 text-purple-300" />
-                    </div>
-                    <h3 className="text-sm font-bold text-white mb-2">{stage.title}</h3>
-                    <p className="text-xs text-purple-200/70 leading-relaxed">{stage.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="relative pt-2">
+            <RibbonStepGrid steps={pipelineStages} />
           </div>
         </div>
       </section>
@@ -290,41 +299,19 @@ export default function CertificationsTrustPage() {
       {/* ─────────────────────────────────────────────────────────────
           04 — SIBLING NAVIGATION
           ───────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#f8f7fb] text-[#1c1636] border-b border-[#edeaf2]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#7b3fc7] mb-3">
-            Company Navigation
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1c1636] mb-8">
-            Explore the Guardian Company Family.
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {[
-              { title: 'About Guardian', desc: 'Built from healthcare. Designed for action.', path: '/company/about' },
-              { title: 'Leadership', desc: 'People shaping the future of healthcare.', path: '/company/leadership' },
-              { title: 'Careers', desc: 'Building technology-enabled healthcare teams.', path: '/company/careers' },
-              { title: 'Contact', desc: 'Start a conversation with Guardian.', path: '/company/contact' }
-            ].map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="group py-4 border-b-2 border-[#e1e1e5] hover:border-[#7b3fc7] transition-all duration-200 block"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-base font-bold text-[#1c1636] group-hover:text-[#7b3fc7] transition-colors">
-                    {link.title}
-                  </span>
-                  <ArrowRight className="w-4 h-4 text-[#adabb7] group-hover:text-[#7b3fc7] group-hover:translate-x-1 transition-all" />
-                </div>
-                <p className="text-xs text-[#554e6d] mt-1 font-normal">
-                  {link.desc}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RelatedPlatformModules
+        modules={[
+          { title: 'About Guardian', desc: 'Built from healthcare. Designed for action.', path: '/company/about' },
+          { title: 'Leadership', desc: 'People shaping the future of healthcare.', path: '/company/leadership' },
+          { title: 'Careers', desc: 'Building technology-enabled healthcare teams.', path: '/company/careers' },
+          { title: 'Contact', desc: 'Start a conversation with Guardian.', path: '/company/contact' }
+        ]}
+        title="Explore the Guardian Company Family."
+        kicker="Company Navigation"
+        tagPrefix="COMPANY"
+        overviewLink=""
+        actionText="Explore"
+      />
 
       {/* ─────────────────────────────────────────────────────────────
           05 — FINAL CTA

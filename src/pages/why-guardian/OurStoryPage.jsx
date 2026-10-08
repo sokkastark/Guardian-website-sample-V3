@@ -8,7 +8,7 @@ export default function OurStoryPage() {
     { year: '2017', title: 'National Data Exchanges', description: 'Expanded nationwide connectivity across clinical networks and health information exchanges.' },
     { year: '2018', title: '1 Million Records Milestone', description: 'Reached over one million longitudinal patient health records unified on the platform.' },
     { year: '2019', title: 'First $100M Shared Savings', description: 'Surpassed one hundred million dollars in aggregate shared savings generated for client partners.' },
-    { year: '2021', title: 'CMS MIPS Certified Registry', description: 'Attained official CMS Qualified Clinical Data Registry (QCDR) status for performance reporting.' }
+    { year: '2021', title: 'CMS MIPS Registry Architecture', description: 'Achieved CMS MIPS Qualified Registry architecture status for performance reporting.' }
   ];
 
   const capabilities = [

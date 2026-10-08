@@ -20,6 +20,7 @@ import {
   Lock,
   MessageSquare
 } from 'lucide-react';
+import { RibbonStepGrid } from '../components/common/RibbonStepCard';
 
 export default function ResourcesPage() {
   const learningPathway = [
@@ -28,35 +29,45 @@ export default function ResourcesPage() {
       label: 'LEARN',
       title: 'Industry Perspective',
       desc: 'Discover regulatory shifts (CMS V28, MIPS, ACO REACH) and interoperability standards.',
-      gradient: 'from-[#4f46e5] to-[#7c3aed]'
+      ribbonBg: 'bg-[#10b981]',
+      foldColor: '#047857',
+      numberColor: 'text-[#047857]'
     },
     {
       num: '02',
       label: 'CONTEXTUALIZE',
       title: 'Healthcare Framework',
       desc: 'Frame industry insights within your organization’s specific clinical and financial contracts.',
-      gradient: 'from-[#7b3fc7] to-[#9565d2]'
+      ribbonBg: 'bg-[#84cc16]',
+      foldColor: '#4d7c0f',
+      numberColor: 'text-[#4d7c0f]'
     },
     {
       num: '03',
       label: 'IDENTIFY',
       title: 'Opportunity Mapping',
       desc: 'Uncover immediate risk adjustment, care gap closure, and readmission reduction opportunities.',
-      gradient: 'from-[#059669] to-[#10b981]'
+      ribbonBg: 'bg-[#eab308]',
+      foldColor: '#a16207',
+      numberColor: 'text-[#a16207]'
     },
     {
       num: '04',
       label: 'APPLY',
       title: 'Workflow Execution',
       desc: 'Implement proven care management playbooks, automated task routing, and point-of-care alerts.',
-      gradient: 'from-[#ff7a57] to-[#ea580c]'
+      ribbonBg: 'bg-[#f97316]',
+      foldColor: '#c2410c',
+      numberColor: 'text-[#c2410c]'
     },
     {
       num: '05',
       label: 'MEASURE',
       title: 'Quantified Outcomes',
       desc: 'Track clinical quality score improvements, PMPY cost savings, and shared savings growth.',
-      gradient: 'from-[#1c1636] to-[#7b3fc7]'
+      ribbonBg: 'bg-[#ec4899]',
+      foldColor: '#be185d',
+      numberColor: 'text-[#be185d]'
     }
   ];
 
@@ -307,45 +318,9 @@ export default function ResourcesPage() {
             </p>
           </div>
 
-          {/* Infographic Connected Pathway */}
-          <div className="relative pt-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {learningPathway.map((step, idx) => (
-                <motion.div 
-                  key={step.num}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-30px' }}
-                  transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
-                  className="p-6 rounded-2xl bg-white border border-[#e9e4f0] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between group"
-                >
-                  {/* Top Step Header */}
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-md bg-gradient-to-r ${step.gradient} text-white shadow-2xs`}>
-                        {step.num}
-                      </span>
-                      <span className="text-[9.5px] font-extrabold tracking-widest text-[#8e8a9f] uppercase truncate ml-1">
-                        {step.label}
-                      </span>
-                    </div>
-
-                    <h3 className="text-base font-extrabold text-[#1c1636] mb-2 leading-tight group-hover:text-[#7b3fc7] transition-colors">
-                      {step.title}
-                    </h3>
-                    <p className="text-xs text-[#524b6b] leading-relaxed">
-                      {step.desc}
-                    </p>
-                  </div>
-
-                  {/* Bottom Pathway Connector Indicator */}
-                  <div className="mt-4 pt-3 border-t border-[#f0ebf8] flex items-center justify-between text-[11px] font-bold text-[#7b3fc7]">
-                    <span>Step {step.num} of 05</span>
-                    <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          {/* Infographic Connected 3D Folded Ribbon Pathway */}
+          <div className="relative pt-2">
+            <RibbonStepGrid steps={learningPathway} />
           </div>
 
         </div>
@@ -509,7 +484,7 @@ export default function ResourcesPage() {
                   30-Day Readmission Reduction via Real-Time ADT Workflows
                 </h3>
                 <p className="text-xs sm:text-sm text-[#524b6b] leading-relaxed mb-6 font-normal">
-                  Examining how a regional CIN achieved a 24% reduction in avoidable readmissions using automated care manager alert dispatch.
+                  Examining how a regional CIN tracks and intervenes on avoidable readmissions using automated care manager alert dispatch.
                 </p>
               </div>
               <div className="pt-4 border-t border-[#f0ebf8]">

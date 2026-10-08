@@ -122,12 +122,12 @@ export default function Hero() {
             {/* Micro Trust Indicators */}
             <div className="pt-3 sm:pt-6 border-t border-white/15 w-full max-w-md">
               <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider text-purple-200/60 block mb-1.5 sm:mb-2.5">
-                Healthcare Standards & Certifications
+                Healthcare Standards & Security Alignment
               </span>
               <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-5 gap-y-1.5 sm:gap-y-2 text-[11px] sm:text-xs text-purple-200/90">
                 <div className="flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#38bdf8]" />
-                  <span className="font-medium text-[10px] sm:text-[11px]">CMS MIPS</span>
+                  <span className="font-medium text-[10px] sm:text-[11px]">CMS MIPS Architecture</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Award className="w-3.5 h-3.5 text-[#fb923c]" />
@@ -135,7 +135,7 @@ export default function Hero() {
                 </div>
                 <div className="flex items-center gap-1">
                   <Layers className="w-3.5 h-3.5 text-[#a855f7]" />
-                  <span className="font-medium text-[10px] sm:text-[11px]">CareQuality</span>
+                  <span className="font-medium text-[10px] sm:text-[11px]">CareQuality Framework</span>
                 </div>
               </div>
             </div>

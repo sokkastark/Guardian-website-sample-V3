@@ -13,7 +13,7 @@ export default function PatientEngagementPage() {
 
   const capabilities = [
     'Telemedicine: Secure 1-Click Browser Video Consults & Virtual Waiting Rooms (No Login/App Required)',
-    'Conversational AI Patient Communication & Automated Follow-Up Scheduling',
+    'Multichannel Patient Communication & Automated Follow-Up Scheduling',
     'Patient Population Campaigns Engine & Targeted Cohort Segmentation',
     'Real-Time Patient Clinical History Access During Virtual Consultation Visits',
     'Targeted Outreach Overcoming SDOH Barriers, Transportation & Specialist Booking',

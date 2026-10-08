@@ -18,6 +18,7 @@ import {
   DollarSign,
   Activity
 } from 'lucide-react';
+import RelatedPlatformModules from '../../components/common/RelatedPlatformModules';
 
 export default function PayersPage() {
   const [activeTab, setActiveTab] = useState('quality');
@@ -74,11 +75,11 @@ export default function PayersPage() {
       title: 'Point-of-Care Gap Closure & Outreach',
       icon: CheckSquare,
       badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-      summary: 'Deliver point-of-care care gap alerts during clinical encounters and deploy conversational AI outreach to schedule member screenings.',
+      summary: 'Deliver point-of-care care gap alerts during clinical encounters and deploy automated communication workflows to schedule member screenings.',
       details: [
         'Point-of-care clinical care gap notifications',
-        'Conversational AI outreach (SMS/voice) for screening reminders',
-        'CMS Certified MIPS/Quality Registry exception tracking'
+        'Multichannel outreach (SMS, email, care coordinator) for screening reminders',
+        'CMS MIPS Qualified Registry Architecture and exception tracking'
       ],
       output: 'Closed Member Care Gaps'
     },
@@ -125,8 +126,8 @@ export default function PayersPage() {
       icon: Users
     },
     {
-      title: 'Conversational AI Member Outreach',
-      description: 'Automated conversational AI outreach (SMS/voice) to remind members of preventive screenings and schedule appointments.',
+      title: 'Multichannel Member Engagement',
+      description: 'Automated outreach workflows (SMS and care manager communication) to remind members of preventive screenings and schedule appointments.',
       category: 'Member Outreach',
       icon: MessageSquare
     },
@@ -413,6 +414,9 @@ export default function PayersPage() {
                 </motion.div>
               )}
             </AnimatePresence>
+            <p className="text-xs text-[#716b89] text-center mt-3 leading-relaxed italic">
+              *Illustrative sample demonstration data. Patient records, metrics, and outcomes are for demonstration purposes only.
+            </p>
           </div>
         </div>
       </section>
@@ -482,7 +486,7 @@ export default function PayersPage() {
               Connecting Payer Analytics directly to Provider Workflows
             </h3>
             <p className="text-sm sm:text-base text-purple-100/90 leading-relaxed font-normal mb-8">
-              Guardian bridges health plan data feeds with point-of-care provider tools—enabling payer organizations to share quality gap scorecards, support HCC V24/V28 risk adjustment, and engage members via conversational AI outreach.
+              Guardian bridges health plan data feeds with point-of-care provider tools—enabling payer organizations to share quality gap scorecards, support HCC V24/V28 risk adjustment, and engage members via multichannel care coordination outreach.
             </p>
             <Link
               to="/company/contact?intent=demo"
@@ -496,52 +500,15 @@ export default function PayersPage() {
       </section>
 
       {/* 6. SIBLING NAVIGATION */}
-      <section className="py-16 sm:py-20 border-t border-[#e1e1e5]/80 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#8e8c99]">
-                Solutions Architecture
-              </p>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#1c1636]">
-                Related Solution Domains
-              </h3>
-            </div>
-            <Link
-              to="/solutions"
-              className="inline-flex items-center gap-1 text-sm font-semibold text-[#7b3fc7] hover:underline self-start sm:self-auto"
-            >
-              <span>View Solutions Overview</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {siblings.map((sibling) => (
-              <Link
-                key={sibling.path}
-                to={sibling.path}
-                className="group p-5 rounded-2xl bg-[#faf9fc] border border-[#e1e1e5] hover:border-[#7b3fc7]/40 hover:bg-white hover:shadow-md transition-all duration-200 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-mono uppercase text-[#7b3fc7] font-semibold">
-                      Solution Domain
-                    </span>
-                    <ArrowUpRight className="w-4 h-4 text-[#8e8c99] group-hover:text-[#7b3fc7] transition-colors" />
-                  </div>
-                  <p className="text-base font-bold text-[#1c1636] group-hover:text-[#7b3fc7] transition-colors mb-2">
-                    {sibling.label}
-                  </p>
-                  <p className="text-xs text-[#58536e] leading-relaxed">
-                    {sibling.desc}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RelatedPlatformModules
+        modules={siblings}
+        title="Related Solution Domains"
+        kicker="Solutions Architecture"
+        tagPrefix="SOLUTION"
+        overviewLink="/solutions"
+        overviewText="View Solutions Overview"
+        actionText="View Solution"
+      />
 
       {/* 7. CLOSING CTA */}
       <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

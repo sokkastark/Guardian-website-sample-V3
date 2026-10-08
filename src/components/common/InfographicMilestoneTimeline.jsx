@@ -75,9 +75,9 @@ export const milestonesData = [
   },
   {
     year: '2021',
-    tag: 'CERTIFIED',
+    tag: 'REGISTRY',
     title: 'CMS MIPS Registry Architecture',
-    desc: 'Certified as an official CMS MIPS Qualified Registry for quality reporting.',
+    desc: 'Achieved CMS MIPS Qualified Registry architecture status for quality reporting.',
     color: '#10b981', // Vibrant Green
     borderColor: 'border-[#10b981]',
     textColor: 'text-[#10b981]',

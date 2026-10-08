@@ -10,6 +10,7 @@ import {
   ArrowUpRight
 } from 'lucide-react';
 import InteractiveWorkflowPipeline from '../workflow/InteractiveWorkflowPipeline';
+import RelatedPlatformModules from './RelatedPlatformModules';
 
 export default function ChildPageLayout({
   category,
@@ -137,6 +138,9 @@ export default function ChildPageLayout({
                         className="w-full h-auto object-contain rounded-lg shadow-sm filter brightness-[1.06] contrast-[1.03]"
                       />
                     </div>
+                    <p className="text-xs text-purple-200/70 text-center mt-2.5 leading-relaxed italic">
+                      *Illustrative sample demonstration data. Patient records, metrics, and outcomes are for demonstration purposes only.
+                    </p>
                   </div>
                 </div>
               ) : (
@@ -364,48 +368,15 @@ export default function ChildPageLayout({
       )}
 
       {/* 7. SIBLING NAVIGATION */}
-      {siblings.length > 0 && (
-        <section className="py-16 sm:py-20 border-t border-[#e1e1e5]/80 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-[#adabb7]">
-                  Related Capabilities
-                </p>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1c1636]">
-                  More in {category}
-                </h3>
-              </div>
-              <Link
-                to={categoryPath}
-                className="inline-flex items-center gap-1 text-sm font-semibold text-[#7b3fc7] hover:underline self-start sm:self-auto"
-              >
-                <span>View all {category}</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {siblings.map((sibling) => (
-                <Link
-                  key={sibling.path}
-                  to={sibling.path}
-                  className="group p-5 rounded-2xl bg-[#faf9fc] border border-[#e1e1e5] hover:border-[#7b3fc7]/40 hover:bg-white hover:-translate-y-0.5 hover:shadow-xs transition-all duration-200"
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-mono uppercase text-[#7b3fc7] font-semibold">
-                      {category}
-                    </span>
-                    <ArrowUpRight className="w-4 h-4 text-[#adabb7] group-hover:text-[#7b3fc7] transition-colors" />
-                  </div>
-                  <p className="text-base font-bold text-[#1c1636] group-hover:text-[#7b3fc7] transition-colors">
-                    {sibling.label}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
+      {siblings && siblings.length > 0 && (
+        <RelatedPlatformModules
+          modules={siblings}
+          title={`More in ${category}`}
+          kicker={`Related ${category} Capabilities`}
+          tagPrefix={category ? category.slice(0, 8).toUpperCase() : 'MODULE'}
+          overviewLink={categoryPath}
+          overviewText={`View all ${category}`}
+        />
       )}
 
       {/* 8. PAGE-SPECIFIC CLOSING CTA */}

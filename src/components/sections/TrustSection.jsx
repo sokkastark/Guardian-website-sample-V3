@@ -6,35 +6,35 @@ import { ShieldCheck, Award, Lock, Network, ArrowRight } from 'lucide-react';
 export default function TrustSection() {
   const certifications = [
     {
-      name: 'CMS MIPS Certified Registry',
-      badge: 'Federal Accreditation',
+      name: 'CMS MIPS Qualified Registry Architecture',
+      badge: 'Federal Quality Reporting',
       image: '/images/cert-cms.webp',
-      desc: 'Official Centers for Medicare & Medicaid Services qualified clinical data registry.',
+      desc: 'Centers for Medicare & Medicaid Services qualified clinical data registry architecture.',
     },
     {
-      name: 'eHealth Exchange Implementer',
+      name: 'eHealth Exchange Interoperability Alignment',
       badge: 'National Network',
       image: '/images/cert-ehealth.webp',
-      desc: 'Active participant in the largest public-private health information exchange network.',
+      desc: 'Active participant alignment with national health information exchange protocols.',
     },
     {
-      name: 'CareQuality Implementer',
+      name: 'CareQuality Framework Alignment',
       badge: 'Universal Framework',
       image: '/images/cert-carequality.webp',
-      desc: 'Trusted exchange framework connecting EHR networks and healthcare systems.',
+      desc: 'Trusted exchange framework alignment connecting EHR networks and healthcare systems.',
     },
     {
-      name: 'HITRUST Aligned Security',
+      name: 'HITRUST & SOC 2 Security Alignment',
       badge: 'Cybersecurity Maturity',
       isHitrust: true,
-      desc: 'Rigorous validation of cybersecurity maturity and protection of PHI.',
+      desc: 'Rigorous architectural alignment with HITRUST CSF and SOC 2 security controls protecting PHI.',
     },
   ];
 
   return (
     <div id="trust-root" className="select-none">
       {/* ─────────────────────────────────────────────────────────────
-          PART 1: TRUST & COMPLIANCE SECTION
+          PART 1: TRUST & SECURITY FRAMEWORKS SECTION
           ───────────────────────────────────────────────────────────── */}
       <section id="trust" className="relative py-24 sm:py-28 bg-[#faf8fd] text-[#1c1636] overflow-hidden border-t border-[#ede7f6]">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -51,7 +51,7 @@ export default function TrustSection() {
               {/* Eyebrow Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f3edf9] border border-[#7b3fc7]/25 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-5 shadow-xs">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#7b3fc7] animate-pulse" />
-                <span>TRUST & COMPLIANCE</span>
+                <span>TRUST & SECURITY FRAMEWORKS</span>
               </div>
 
               {/* Headline */}

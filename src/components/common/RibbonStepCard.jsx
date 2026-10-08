@@ -35,6 +35,7 @@ export default function RibbonStepCard({
   index = 0,
   minHeight = 'min-h-[210px] sm:min-h-[220px]',
   className = '',
+  icon: Icon,
   children
 }) {
   const animationDelay = delay !== undefined ? delay : index * 0.05;
@@ -45,7 +46,7 @@ export default function RibbonStepCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-30px' }}
       transition={{ duration: 0.5, ease: 'easeOut', delay: animationDelay }}
-      className={`relative group transition-all duration-300 hover:-translate-y-1 ${className}`}
+      className={`relative group transition-all duration-300 hover:-translate-y-1 h-full flex flex-col ${className}`}
     >
       {/* ─────────────────────────────────────────────────────────────
           LAYER 3: RIBBON SHADOW TRIANGLE SHAPE (BACK LAYER - z-0)
@@ -61,7 +62,7 @@ export default function RibbonStepCard({
       {/* ─────────────────────────────────────────────────────────────
           LAYER 2: WHITE CARD BODY (MIDDLE LAYER - z-10)
           ───────────────────────────────────────────────────────────── */}
-      <div className={`relative z-10 bg-white rounded-[22px] border border-[#e5e0ee] shadow-[0_10px_30px_rgba(28,22,54,0.06)] group-hover:shadow-[0_18px_40px_rgba(28,22,54,0.12)] transition-shadow duration-300 pt-3 pb-5 px-5 ${minHeight} flex flex-col justify-between overflow-visible`}>
+      <div className={`relative z-10 bg-white rounded-[22px] border border-[#e5e0ee] shadow-[0_10px_30px_rgba(28,22,54,0.06)] group-hover:shadow-[0_18px_40px_rgba(28,22,54,0.12)] transition-shadow duration-300 pt-3 pb-5 px-5 ${minHeight} flex flex-col justify-between overflow-visible h-full flex-1`}>
         
         {/* ─────────────────────────────────────────────────────────────
             LAYER 1: RIBBON BAR HEADER (FRONT LAYER - z-30)
@@ -77,8 +78,8 @@ export default function RibbonStepCard({
             </div>
 
             {/* Main Horizontal Ribbon Bar with Square Right Edge Overhang */}
-            <div className={`flex-1 h-[34px] ${ribbonBg} -ml-5 pl-6 pr-2.5 flex items-center justify-center text-white z-30 -mr-[16px] rounded-none shadow-[0_4px_8px_rgba(0,0,0,0.16)]`}>
-              <span className="text-[10.5px] font-semibold tracking-[0.16em] uppercase text-white font-sans text-center truncate">
+            <div className={`flex-1 h-[34px] ${ribbonBg} -ml-5 pl-5 pr-2 flex items-center justify-center text-white z-30 -mr-[16px] rounded-none shadow-[0_4px_8px_rgba(0,0,0,0.16)]`}>
+              <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.08em] sm:tracking-[0.12em] uppercase text-white font-sans text-center truncate">
                 {label}
               </span>
             </div>
@@ -90,6 +91,11 @@ export default function RibbonStepCard({
           children
         ) : (
           <div className="flex-1 flex flex-col justify-start pt-0.5">
+            {Icon && (
+              <div className="w-8 h-8 rounded-lg bg-[#7b3fc7]/10 text-[#7b3fc7] flex items-center justify-center mb-2.5">
+                <Icon className="w-4 h-4" />
+              </div>
+            )}
             {title && (
               <h3 className="text-sm sm:text-base font-extrabold text-[#1c1636] mb-1.5 leading-snug group-hover:text-[#7b3fc7] transition-colors">
                 {title}
@@ -129,6 +135,7 @@ export function RibbonStepGrid({
           label={step.label}
           title={step.title}
           desc={step.desc}
+          icon={step.icon}
           ribbonBg={step.ribbonBg}
           foldColor={step.foldColor}
           numberColor={step.numberColor}

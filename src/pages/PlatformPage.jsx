@@ -31,6 +31,7 @@ import {
   Lightbulb
 } from 'lucide-react';
 import PlatformFeatureInventory from '../components/platform/PlatformFeatureInventory';
+import EcosystemInteroperabilitySection from '../components/platform/EcosystemInteroperabilitySection';
 
 export default function PlatformPage() {
   const [hoveredStageId, setHoveredStageId] = useState('connect');
@@ -268,7 +269,7 @@ export default function PlatformPage() {
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-white leading-[1.12] mb-6">
-                The operating system for <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-white to-[#ff7a57]">value-based care.</span>
+                One connected view of <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-white to-[#ff7a57]">healthcare.</span>
               </h1>
 
               <p className="text-base sm:text-lg text-purple-100/90 leading-relaxed max-w-2xl mb-8 font-normal">
@@ -320,6 +321,10 @@ export default function PlatformPage() {
                     className="w-full h-auto object-contain"
                   />
                 </div>
+
+                <p className="text-xs text-purple-200/70 text-center mt-2 leading-relaxed italic">
+                  *Illustrative sample demonstration data. Metrics and records are for demonstration purposes only.
+                </p>
 
                 <div className="mt-2.5 flex items-center justify-between text-[11px] text-purple-200 font-mono px-1">
                   <span className="flex items-center gap-1.5">
@@ -1019,53 +1024,9 @@ export default function PlatformPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 9: TRUST & CREDENTIALS
+          SECTION 9: TRUST & CREDENTIALS (GRAPHIC-RICH ECOSYSTEM)
           ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-24 bg-[#faf8fd] border-b border-[#e9e4f0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#7b3fc7] block mb-2">
-              INTEROPERABILITY & TRUST
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#1c1636] tracking-tight mb-4">
-              Designed for the healthcare ecosystem.
-            </h2>
-            <p className="text-base text-[#524b6b] leading-relaxed">
-              Guardian’s platform is built around healthcare data exchange and interoperability, supporting the flow of information across systems and organizations.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="p-6 rounded-2xl bg-white border border-[#e9e4f0] shadow-xs">
-              <h3 className="text-base font-bold text-[#1c1636] mb-2">Interoperability</h3>
-              <p className="text-xs text-[#524b6b] leading-relaxed">Connect healthcare information seamlessly across systems and organizations.</p>
-            </div>
-            <div className="p-6 rounded-2xl bg-white border border-[#e9e4f0] shadow-xs">
-              <h3 className="text-base font-bold text-[#1c1636] mb-2">Data Exchange</h3>
-              <p className="text-xs text-[#524b6b] leading-relaxed">Move information where it needs to go across the connected care environment.</p>
-            </div>
-            <div className="p-6 rounded-2xl bg-white border border-[#e9e4f0] shadow-xs">
-              <h3 className="text-base font-bold text-[#1c1636] mb-2">Healthcare-Ready Infrastructure</h3>
-              <p className="text-xs text-[#524b6b] leading-relaxed">Support the information and compliance needs of enterprise healthcare organizations.</p>
-            </div>
-          </div>
-
-          {/* Credentials Bar */}
-          <div className="p-6 rounded-2xl bg-white border border-[#e9e4f0] flex flex-wrap items-center justify-between gap-4 shadow-xs">
-            <span className="text-xs font-semibold text-[#1c1636] uppercase tracking-wider">
-              Healthcare Industry Credentials & Frameworks:
-            </span>
-            <div className="flex flex-wrap items-center gap-6 text-xs text-[#35304c] font-medium">
-              <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> CMS MIPS Certified Registry</span>
-              <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> eHealth Exchange Implementer</span>
-              <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-[#7b3fc7]" /> CareQuality Exchange Implementer</span>
-              <span className="flex items-center gap-1.5"><Lock className="w-4 h-4 text-[#ff7a57]" /> HITRUST Aligned Security</span>
-            </div>
-          </div>
-
-        </div>
-      </section>
+      <EcosystemInteroperabilitySection />
 
       {/* ─────────────────────────────────────────────────────────────
           SECTION 10: FINAL CTA (PREMIUM WEBSITE CLOSING BANNER)

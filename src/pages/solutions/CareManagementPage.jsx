@@ -15,7 +15,7 @@ export default function CareManagementPage() {
     'Centralized Care Management Workspace & Care Plan Builder',
     '150+ Clinical Assessment Scales & Forms (Depression, Cognitive, Fall Risk, ADL, Custom Scoring)',
     'Real-time ADT event notifications & Hospital Discharge summary retrieval',
-    'Transitions of Care (TOC) conversational AI text & call outreach within 24 hours',
+    'Transitions of Care (TOC) patient outreach workflows (SMS & care team follow-up) within 24 hours',
     'CCM, TCM, RPM & PCM multi-program patient tracking & task management',
     'Closed-loop Referral Management within Clinically Integrated Network (CIN)',
     'Medication management, polypharmacy adherence, and SDOH barrier mitigation'

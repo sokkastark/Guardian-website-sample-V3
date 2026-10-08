@@ -18,6 +18,7 @@ import {
   Search,
   Network
 } from 'lucide-react';
+import RelatedPlatformModules from '../../components/common/RelatedPlatformModules';
 
 export default function ProvidersPage() {
   const [activeTab, setActiveTab] = useState('referral');
@@ -369,6 +370,9 @@ export default function ProvidersPage() {
                 className="w-full h-auto object-contain rounded-lg shadow-sm"
               />
             </motion.div>
+            <p className="text-xs text-[#716b89] text-center mt-3 leading-relaxed italic">
+              *Illustrative sample demonstration data. Patient records, metrics, and outcomes are for demonstration purposes only.
+            </p>
           </div>
         </div>
       </section>
@@ -452,52 +456,15 @@ export default function ProvidersPage() {
       </section>
 
       {/* 6. SIBLING NAVIGATION */}
-      <section className="py-16 sm:py-20 border-t border-[#e1e1e5]/80 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#8e8c99]">
-                Solutions Architecture
-              </p>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#1c1636]">
-                Related Solution Domains
-              </h3>
-            </div>
-            <Link
-              to="/solutions"
-              className="inline-flex items-center gap-1 text-sm font-semibold text-[#7b3fc7] hover:underline self-start sm:self-auto"
-            >
-              <span>View Solutions Overview</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {siblings.map((sibling) => (
-              <Link
-                key={sibling.path}
-                to={sibling.path}
-                className="group p-5 rounded-2xl bg-[#faf9fc] border border-[#e1e1e5] hover:border-[#00b8a9]/40 hover:bg-white hover:shadow-md transition-all duration-200 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-mono uppercase text-[#00897b] font-semibold">
-                      Solution Domain
-                    </span>
-                    <ArrowUpRight className="w-4 h-4 text-[#8e8c99] group-hover:text-[#00897b] transition-colors" />
-                  </div>
-                  <p className="text-base font-bold text-[#1c1636] group-hover:text-[#00897b] transition-colors mb-2">
-                    {sibling.label}
-                  </p>
-                  <p className="text-xs text-[#58536e] leading-relaxed">
-                    {sibling.desc}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RelatedPlatformModules
+        modules={siblings}
+        title="Related Solution Domains"
+        kicker="Solutions Architecture"
+        tagPrefix="SOLUTION"
+        overviewLink="/solutions"
+        overviewText="View Solutions Overview"
+        actionText="View Solution"
+      />
 
       {/* 7. CLOSING CTA */}
       <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

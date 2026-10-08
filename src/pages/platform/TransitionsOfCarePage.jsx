@@ -17,6 +17,7 @@ import {
   Layers,
   Hospital
 } from 'lucide-react';
+import RelatedPlatformModules from '../../components/common/RelatedPlatformModules';
 
 export default function TransitionsOfCarePage() {
   const [activeTab, setActiveTab] = useState('adt');
@@ -69,10 +70,10 @@ export default function TransitionsOfCarePage() {
     {
       step: '04',
       stage: 'OUTREACH',
-      title: 'Conversational Patient Outreach',
+      title: 'Patient Transition Outreach',
       icon: MessageSquare,
       badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
-      summary: 'Initiate 24-48 hour automated conversational outreach (SMS/voice) to verify discharge status, symptoms, and medication access.',
+      summary: 'Initiate 24-48 hour patient outreach workflows (SMS and care manager communication) to verify discharge status, symptoms, and medication access.',
       details: [
         'Automated 24-48 hour post-discharge patient outreach',
         'Symptom checker & medication access verification',
@@ -111,8 +112,8 @@ export default function TransitionsOfCarePage() {
       icon: FileText
     },
     {
-      title: 'Conversational Patient Outreach',
-      description: 'Automated 24-hour conversational outreach verifying patient status, medication access, and post-discharge needs.',
+      title: 'Patient Transition Outreach',
+      description: 'Automated 24-hour outreach workflows verifying patient status, medication access, and post-discharge needs.',
       category: 'Patient Outreach',
       icon: MessageSquare
     },
@@ -183,7 +184,7 @@ export default function TransitionsOfCarePage() {
               </h1>
 
               <p className="text-base sm:text-lg text-purple-100/90 leading-relaxed font-normal max-w-2xl">
-                Guardian delivers instant admit, discharge, and transfer alerts combined with automated discharge summary retrieval and 24-hour conversational outreach to prevent hospital readmissions.
+                Guardian delivers instant admit, discharge, and transfer alerts combined with automated discharge summary retrieval and 24-hour patient outreach workflows to support readmission prevention.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -224,6 +225,9 @@ export default function TransitionsOfCarePage() {
                     className="w-full h-auto object-contain rounded-lg shadow-sm"
                   />
                 </div>
+                <p className="text-xs text-purple-200/70 text-center mt-2.5 leading-relaxed italic">
+                  *Illustrative sample demonstration data. Patient records, metrics, and outcomes are for demonstration purposes only.
+                </p>
               </div>
             </motion.div>
           </div>
@@ -407,6 +411,9 @@ export default function TransitionsOfCarePage() {
                 </motion.div>
               )}
             </AnimatePresence>
+            <p className="text-xs text-[#716b89] text-center mt-3 leading-relaxed italic">
+              *Illustrative sample demonstration data. Patient records, metrics, and outcomes are for demonstration purposes only.
+            </p>
           </div>
         </div>
       </section>
@@ -460,52 +467,7 @@ export default function TransitionsOfCarePage() {
       </section>
 
       {/* SIBLING NAV */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#8e8c99]">
-                Platform Architecture
-              </p>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#1c1636]">
-                Related Platform Modules
-              </h3>
-            </div>
-            <Link
-              to="/platform"
-              className="inline-flex items-center gap-1 text-sm font-semibold text-[#7b3fc7] hover:underline self-start sm:self-auto"
-            >
-              <span>View Platform Overview</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {siblings.map((sibling) => (
-              <Link
-                key={sibling.path}
-                to={sibling.path}
-                className="group p-5 rounded-2xl bg-[#faf9fc] border border-[#e1e1e5] hover:border-[#7b3fc7]/40 hover:bg-white hover:shadow-md transition-all duration-200 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-mono uppercase text-[#7b3fc7] font-semibold">
-                      Platform Module
-                    </span>
-                    <ArrowUpRight className="w-4 h-4 text-[#8e8c99] group-hover:text-[#7b3fc7] transition-colors" />
-                  </div>
-                  <p className="text-base font-bold text-[#1c1636] group-hover:text-[#7b3fc7] transition-colors mb-2">
-                    {sibling.label}
-                  </p>
-                  <p className="text-xs text-[#58536e] leading-relaxed">
-                    {sibling.desc}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RelatedPlatformModules modules={siblings} />
 
       {/* CLOSING CTA */}
       <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -521,7 +483,7 @@ export default function TransitionsOfCarePage() {
               Prevent Readmissions with Real-Time ADT Intelligence
             </h2>
             <p className="text-purple-100/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-              Connect hospital event feeds, retrieve discharge summaries automatically, and automate 24-hour outreach.
+              Connect hospital event feeds, retrieve discharge summaries automatically, and support timely patient outreach workflows.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link

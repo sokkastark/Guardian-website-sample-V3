@@ -5,6 +5,7 @@ import { Sparkles, ArrowRight, ChevronRight } from 'lucide-react';
 import LeadershipEditorial from '../../components/sections/LeadershipEditorial';
 import MeetTheTeamGallery from '../../components/sections/MeetTheTeamGallery';
 import HowWeWorkPathway from '../../components/sections/HowWeWorkPathway';
+import RelatedPlatformModules from '../../components/common/RelatedPlatformModules';
 
 const exploreLinks = [
   {
@@ -158,43 +159,21 @@ export default function LeadershipPage() {
       <HowWeWorkPathway />
 
       {/* ─────────────────────────────────────────────────────────────
-          05 — EXPLORE COMPANY SIBLINGS: Clean Editorial Links
+          05 — EXPLORE COMPANY SIBLINGS
           ───────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#f8f7fb] text-[#1c1636] border-t border-[#edeaf2]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#7b3fc7] mb-3">
-            Company Navigation
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1c1636] mb-8">
-            Explore the Guardian Company Family.
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {[
-              { title: 'About Guardian', desc: 'Built from healthcare. Designed for action.', path: '/company/about' },
-              { title: 'Security & Trust', desc: 'HITRUST & SOC 2 aligned security architecture.', path: '/company/security-trust' },
-              { title: 'Careers', desc: 'Building technology-enabled healthcare teams.', path: '/company/careers' },
-              { title: 'Contact', desc: 'Start a conversation with Guardian.', path: '/company/contact' }
-            ].map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="group py-4 border-b-2 border-[#e1e1e5] hover:border-[#7b3fc7] transition-all duration-200 block"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-base font-bold text-[#1c1636] group-hover:text-[#7b3fc7] transition-colors">
-                    {link.title}
-                  </span>
-                  <ArrowRight className="w-4 h-4 text-[#adabb7] group-hover:text-[#7b3fc7] group-hover:translate-x-1 transition-all" />
-                </div>
-                <p className="text-xs text-[#554e6d] mt-1 font-normal">
-                  {link.desc}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RelatedPlatformModules
+        modules={[
+          { title: 'About Guardian', desc: 'Built from healthcare. Designed for action.', path: '/company/about' },
+          { title: 'Security & Trust', desc: 'HITRUST & SOC 2 aligned security architecture.', path: '/company/security-trust' },
+          { title: 'Careers', desc: 'Building technology-enabled healthcare teams.', path: '/company/careers' },
+          { title: 'Contact', desc: 'Start a conversation with Guardian.', path: '/company/contact' }
+        ]}
+        title="Explore the Guardian Company Family."
+        kicker="Company Navigation"
+        tagPrefix="COMPANY"
+        overviewLink=""
+        actionText="Explore"
+      />
 
       {/* ─────────────────────────────────────────────────────────────
           06 — FINAL CTA: Compact & Focused

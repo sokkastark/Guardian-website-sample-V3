@@ -151,19 +151,19 @@ export default function CompanyOverviewPage() {
       id: 'security-trust',
       title: 'Security & Trust',
       path: '/company/security-trust',
-      tagline: 'CYBERSECURITY & COMPLIANCE',
+      tagline: 'CYBERSECURITY & FRAMEWORK ALIGNMENT',
       headline: 'HITRUST & SOC 2 aligned security with CMS MIPS Qualified Registry architecture.',
-      description: 'Healthcare data requires uncompromising protection. Guardian operates on zero-trust cloud infrastructure aligned with HITRUST and SOC 2 security standards, and full HIPAA encryption.',
+      description: 'Healthcare data requires uncompromising protection. Guardian operates on zero-trust cloud infrastructure aligned with HITRUST and SOC 2 security standards, and full HIPAA encryption protocols.',
       icon: ShieldCheck,
       gradient: 'from-[#059669] via-[#10b981] to-[#0d9488]',
       shadowGlow: 'hover:shadow-[0_20px_40px_rgba(16,185,129,0.22)]',
       accentColor: 'text-[#059669]',
       badgeBg: 'bg-[#059669]/10 text-[#059669]',
       highlights: [
-        'HITRUST & SOC 2 Security Frameworks',
-        'HIPAA Privacy & Security Compliance',
+        'HITRUST & SOC 2 Security Alignment',
+        'HIPAA Privacy & Security Framework',
         'CMS MIPS Qualified Registry Architecture',
-        'CareQuality & eHealth Exchange'
+        'CareQuality & eHealth Exchange Alignment'
       ]
     },
     {
@@ -250,7 +250,7 @@ export default function CompanyOverviewPage() {
     {
       num: '06',
       year: '2021',
-      desc: 'Certified as an official CMS MIPS Qualified Registry for quality reporting.',
+      desc: 'Achieved CMS MIPS Qualified Registry architecture status for quality reporting.',
       ribbonBg: 'bg-[#ec4899]',
       foldBorderColor: 'border-t-[#be185d]',
       numberColor: 'text-[#be185d]',
@@ -370,7 +370,7 @@ export default function CompanyOverviewPage() {
 
                   <div className="mt-3.5 flex items-center justify-between text-[11px] text-purple-200 font-mono px-1">
                     <span className="flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> CMS MIPS Registry
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> CMS MIPS Qualified Registry Architecture
                     </span>
                     <span className="text-purple-300 font-medium">HITRUST &amp; SOC 2 Alignment</span>
                   </div>

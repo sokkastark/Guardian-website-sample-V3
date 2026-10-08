@@ -124,6 +124,9 @@ export default function Patient360Page() {
                     className="w-full h-auto object-contain rounded-lg shadow-sm"
                   />
                 </div>
+                <p className="text-xs text-purple-200/70 text-center mt-2.5 leading-relaxed italic">
+                  *Illustrative sample demonstration data. Patient records, metrics, and outcomes are for demonstration purposes only.
+                </p>
               </div>
             </motion.div>
           </div>

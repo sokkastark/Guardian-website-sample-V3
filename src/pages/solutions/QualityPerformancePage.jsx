@@ -14,7 +14,7 @@ export default function QualityPerformancePage() {
   const capabilities = [
     'Proactive Quality Care Gap Identification, Real-Time Surveillance & Closure',
     'MSSP Quality Measures, MIPS Performance, CMS Star Ratings & HEDIS Surveillance',
-    'CMS Certified MIPS Registry for Measure Validation & Direct Submission',
+    'CMS MIPS Qualified Registry Architecture for Measure Validation & Submission',
     'Encounters Module: Annual Wellness Visit (AWV), Health Risk Assessment (HRA), IPPE',
     'Provider Quality Scorecards & Preventive Care Tracking',
     'Quality Measure Library with Manual Override & Interactive Action Dashboards'
@@ -41,7 +41,7 @@ export default function QualityPerformancePage() {
       capabilities={capabilities}
       capabilitiesTitle="Key Capabilities"
       capabilitiesSubtitle="What Guardian helps healthcare organizations achieve in quality performance"
-      heroVisualBadge="CMS MIPS Certified Registry"
+      heroVisualBadge="CMS MIPS Qualified Registry Architecture"
       heroImage="/images/product-ui/ui-quality-manager.png"
       mockupUrl="Quality-Manager"
       contextType="quality-performance"

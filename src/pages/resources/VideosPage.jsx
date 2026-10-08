@@ -17,6 +17,7 @@ import {
   Smartphone,
   FileText
 } from 'lucide-react';
+import RelatedPlatformModules from '../../components/common/RelatedPlatformModules';
 
 export default function VideosPage() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -412,45 +413,15 @@ export default function VideosPage() {
       </section>
 
       {/* 6. SIBLING NAVIGATION */}
-      <section className="py-16 bg-white border-t border-[#e9e5f0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#f43f5e]">
-              Explore Resources Family
-            </span>
-            <h3 className="text-xl font-bold text-[#1c1636] mt-2">
-              Resources Navigation
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {siblings.map((sib, idx) => (
-              <Link
-                key={idx}
-                to={sib.path}
-                className="group p-6 rounded-2xl bg-[#fff1f2] border border-[#e9e5f0] hover:border-[#f43f5e] hover:shadow-md transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-bold text-[#f43f5e] uppercase tracking-wider">Resource Center</span>
-                    <ArrowUpRight className="w-4 h-4 text-[#706890] group-hover:text-[#f43f5e] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </div>
-                  <h4 className="text-base font-bold text-[#1c1636] mb-2 group-hover:text-[#f43f5e] transition-colors">
-                    {sib.label}
-                  </h4>
-                  <p className="text-xs text-[#625b82] leading-relaxed">
-                    {sib.desc}
-                  </p>
-                </div>
-                <div className="mt-4 pt-3 border-t border-[#e9e5f0] text-xs font-semibold text-[#f43f5e] flex items-center space-x-1">
-                  <span>Explore Module</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RelatedPlatformModules
+        modules={siblings}
+        title="Resources Navigation"
+        kicker="Explore Resources Family"
+        tagPrefix="RESOURCE"
+        overviewLink="/resources"
+        overviewText="View Resources Overview"
+        actionText="View Resource"
+      />
 
       {/* 7. DARK CLOSING CTA */}
       <section className="py-20 bg-gradient-to-b from-[#1c1636] to-[#140f28] text-white">

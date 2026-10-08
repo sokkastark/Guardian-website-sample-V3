@@ -152,7 +152,7 @@ export default function PlatformSection() {
 
                 <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-[#10b981] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
                   <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>HIPAA &amp; SOC 2 Verified</span>
+                  <span>HIPAA &amp; SOC 2 Framework Alignment</span>
                 </div>
               </div>
 
@@ -525,6 +525,9 @@ export default function PlatformSection() {
 
               </div>
             </div>
+            <p className="text-xs text-[#716b89] text-center mt-3 mb-6 leading-relaxed italic">
+              *Illustrative sample demonstration data. Patient records, metrics, and outcomes are for demonstration purposes only.
+            </p>
           </motion.div>
 
         </div>

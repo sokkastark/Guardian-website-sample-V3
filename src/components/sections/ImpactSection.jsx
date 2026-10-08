@@ -189,6 +189,11 @@ export default function ImpactSection() {
               );
             })}
 
+            {/* Illustrative Benchmark Disclaimer */}
+            <p className="text-xs text-purple-200/70 leading-relaxed italic text-right pt-1">
+              * Metrics represent illustrative program benchmarks and sample operational targets. Individual outcomes vary based on population baseline and implementation scope.
+            </p>
+
             {/* Handwritten script annotation */}
             <div className="pt-2 text-right pr-2">
               <span className="font-['Caveat',cursive] text-2xl sm:text-3xl text-purple-200/80 -rotate-3 inline-block tracking-wide">

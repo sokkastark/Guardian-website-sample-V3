@@ -23,6 +23,7 @@ import {
   Zap,
   Check
 } from 'lucide-react';
+import { RibbonStepGrid } from '../components/common/RibbonStepCard';
 
 export default function SolutionsPage() {
   const [activeCapabilityTab, setActiveCapabilityTab] = useState('pop-health');
@@ -30,38 +31,48 @@ export default function SolutionsPage() {
   const progressionSteps = [
     { 
       num: '01', 
-      label: 'SEE', 
-      title: 'Data Visibility',
-      desc: 'Bring EHR, claims, HIE feeds, and pharmacy data into a single unified view.',
-      gradient: 'from-[#4f46e5] to-[#7c3aed]'
+      label: 'CONNECT', 
+      title: 'EHR & Claims Ingestion',
+      desc: 'Bring information together across EHRs, claims, HIE feeds, and pharmacy systems.',
+      ribbonBg: 'bg-[#10b981]',
+      foldColor: '#047857',
+      numberColor: 'text-[#047857]'
     },
     { 
       num: '02', 
       label: 'UNDERSTAND', 
       title: 'Longitudinal Context',
-      desc: 'Synthesize data into longitudinal patient charts, risk stratification, and cohort analytics.',
-      gradient: 'from-[#7b3fc7] to-[#9565d2]'
+      desc: 'Synthesize raw data into longitudinal patient charts, risk stratification, and cohort analytics.',
+      ribbonBg: 'bg-[#84cc16]',
+      foldColor: '#4d7c0f',
+      numberColor: 'text-[#4d7c0f]'
     },
     { 
       num: '03', 
       label: 'PRIORITIZE', 
       title: 'Risk & Gap Identification',
-      desc: 'Identify high-risk patients, HEDIS care gaps, and MRA suspecting opportunities needing attention.',
-      gradient: 'from-[#059669] to-[#10b981]'
+      desc: 'Surface high-risk patients, HEDIS care gaps, and MRA suspecting opportunities needing action.',
+      ribbonBg: 'bg-[#eab308]',
+      foldColor: '#a16207',
+      numberColor: 'text-[#a16207]'
     },
     { 
       num: '04', 
       label: 'ACT', 
       title: 'Coordinated Workflows',
-      desc: 'Equip care teams with automated task routing, care plans, and point-of-care alerts.',
-      gradient: 'from-[#ff7a57] to-[#ea580c]'
+      desc: 'Equip multidisciplinary care teams with automated task routing, care plans, and point-of-care alerts.',
+      ribbonBg: 'bg-[#f97316]',
+      foldColor: '#c2410c',
+      numberColor: 'text-[#c2410c]'
     },
     { 
       num: '05', 
       label: 'MEASURE', 
-      title: 'Value-Based Outcomes',
-      desc: 'Track quality measure compliance, readmission reductions, and shared savings performance.',
-      gradient: 'from-[#1c1636] to-[#7b3fc7]'
+      title: 'Clinical & Financial Impact',
+      desc: 'Track quality score improvements, PMPY cost reductions, and shared savings growth.',
+      ribbonBg: 'bg-[#ec4899]',
+      foldColor: '#be185d',
+      numberColor: 'text-[#be185d]'
     }
   ];
 
@@ -294,6 +305,10 @@ export default function SolutionsPage() {
                     />
                   </div>
 
+                  <p className="text-xs text-purple-200/70 text-center mt-2 leading-relaxed italic">
+                    *Illustrative sample demonstration data. Metrics and records are for demonstration purposes only.
+                  </p>
+
                   <div className="mt-2.5 flex items-center justify-between text-[11px] text-purple-200 font-mono px-1 font-medium">
                     <span className="flex items-center gap-1.5">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> 4 Core Stakeholder Solutions
@@ -327,45 +342,9 @@ export default function SolutionsPage() {
             </p>
           </div>
 
-          {/* Infographic Connected Pathway */}
-          <div className="relative pt-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {progressionSteps.map((step, idx) => (
-                <motion.div 
-                  key={step.num}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-30px' }}
-                  transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
-                  className="p-6 rounded-2xl bg-white border border-[#e9e4f0] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between group"
-                >
-                  {/* Top Step Header */}
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-md bg-gradient-to-r ${step.gradient} text-white shadow-2xs`}>
-                        {step.num}
-                      </span>
-                      <span className="text-[10px] font-extrabold tracking-widest text-[#8e8a9f] uppercase">
-                        {step.label}
-                      </span>
-                    </div>
-
-                    <h3 className="text-base font-extrabold text-[#1c1636] mb-2 leading-tight group-hover:text-[#7b3fc7] transition-colors">
-                      {step.title}
-                    </h3>
-                    <p className="text-xs text-[#524b6b] leading-relaxed">
-                      {step.desc}
-                    </p>
-                  </div>
-
-                  {/* Bottom Pathway Connector Indicator */}
-                  <div className="mt-4 pt-3 border-t border-[#f0ebf8] flex items-center justify-between text-[11px] font-bold text-[#7b3fc7]">
-                    <span>Step {step.num} of 05</span>
-                    <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          {/* Infographic Connected 3D Folded Ribbon Pathway */}
+          <div className="relative pt-2">
+            <RibbonStepGrid steps={progressionSteps} />
           </div>
 
         </div>
@@ -492,7 +471,7 @@ export default function SolutionsPage() {
           </div>
 
           {/* Interactive Capability Module Showcase */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             {/* Left Column: Capability Selector Tabs */}
             <div className="lg:col-span-5 space-y-3">
@@ -502,16 +481,21 @@ export default function SolutionsPage() {
                   <div
                     key={mod.id}
                     onClick={() => setActiveCapabilityTab(mod.id)}
-                    className={`p-4 sm:p-5 rounded-2xl border transition-all cursor-pointer ${
+                    className={`p-4 sm:p-5 rounded-2xl border transition-all duration-200 cursor-pointer ${
                       isActive 
-                        ? 'bg-white border-[#7b3fc7] shadow-md -translate-x-1' 
-                        : 'bg-white/60 border-[#e9e4f0] hover:bg-white hover:border-purple-300'
+                        ? 'bg-white border-[#7b3fc7] border-l-4 border-l-[#7b3fc7] shadow-lg -translate-x-1 ring-1 ring-[#7b3fc7]/15' 
+                        : 'bg-white/65 border-[#e9e4f0] hover:bg-white hover:border-[#7b3fc7]/40 hover:shadow-xs'
                     }`}
                   >
                     <div className="flex items-center justify-between mb-1.5">
-                      <h3 className={`text-base font-extrabold ${isActive ? 'text-[#7b3fc7]' : 'text-[#1c1636]'}`}>
-                        {mod.title}
-                      </h3>
+                      <div className="flex items-center gap-2">
+                        {isActive && (
+                          <span className="w-2 h-2 rounded-full bg-[#7b3fc7] animate-pulse" />
+                        )}
+                        <h3 className={`text-base font-extrabold ${isActive ? 'text-[#7b3fc7]' : 'text-[#1c1636]'}`}>
+                          {mod.title}
+                        </h3>
+                      </div>
                       <Link 
                         to={mod.path}
                         className="text-[11px] font-bold text-[#7b3fc7] hover:underline flex items-center gap-0.5"
@@ -527,7 +511,14 @@ export default function SolutionsPage() {
 
                     <div className="flex flex-wrap gap-1.5">
                       {mod.highlights.map((h, i) => (
-                        <span key={i} className="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#f2ecf9] text-[#7b3fc7] border border-[#7b3fc7]/20">
+                        <span 
+                          key={i} 
+                          className={`text-[10px] font-semibold px-2 py-0.5 rounded border transition-colors ${
+                            isActive 
+                              ? 'bg-[#f2ecf9] text-[#7b3fc7] border-[#7b3fc7]/30' 
+                              : 'bg-gray-100 text-[#524b6b] border-gray-200'
+                          }`}
+                        >
                           {h}
                         </span>
                       ))}
@@ -537,31 +528,54 @@ export default function SolutionsPage() {
               })}
             </div>
 
-            {/* Right Column: Product UI Screenshot Proof Display */}
-            <div className="lg:col-span-7">
-              <div className="relative rounded-2xl bg-[#1c1636] p-3.5 border border-[#2e1065] shadow-2xl overflow-hidden">
-                <div className="flex items-center justify-between px-3 py-2 bg-[#120b24] rounded-xl border-b border-white/10 mb-3">
+            {/* Right Column: Product UI Screenshot Proof Display (Stitched to Top) */}
+            <div className="lg:col-span-7 lg:sticky lg:top-24 self-start">
+              <div className="relative rounded-2xl bg-[#1c1636] p-3.5 border border-[#2e1065] shadow-2xl overflow-hidden transition-all duration-300">
+                {/* Browser / Application Window Top Bar */}
+                <div className="flex items-center justify-between px-3 py-2.5 bg-[#120b24] rounded-xl border-b border-white/10 mb-3">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
                     <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
                     <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block" />
-                    <span className="text-[11px] text-purple-200 font-mono ml-2">
+                    <span className="text-[11px] text-purple-200 font-mono ml-2 font-semibold truncate max-w-[200px] sm:max-w-none">
                       {capabilityModules.find(m => m.id === activeCapabilityTab)?.title} Module
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono px-2.5 py-0.5 rounded bg-[#7b3fc7] text-white">
-                    Live UI Preview
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <Link
+                      to={capabilityModules.find(m => m.id === activeCapabilityTab)?.path || '#'}
+                      className="text-[10px] font-mono font-bold text-purple-200 hover:text-white px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition-colors hidden sm:inline-flex items-center gap-1"
+                    >
+                      <span>Explore Page</span>
+                      <ChevronRight className="w-3 h-3" />
+                    </Link>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded bg-[#7b3fc7] text-white font-medium">
+                      Live UI Preview
+                    </span>
+                  </div>
                 </div>
 
-                <div className="relative rounded-lg overflow-hidden bg-white border border-[#e9e4f0]">
-                  <img 
-                    src={capabilityModules.find(m => m.id === activeCapabilityTab)?.image || '/images/appliction images/Main Platform Dashboard.png'}
-                    alt="Guardian Healthcare Solution UI Capability Showcase"
-                    className="w-full h-auto object-contain max-h-[460px]"
-                  />
+                {/* Image Viewport (Top Anchored, Smooth Crossfade) */}
+                <div className="relative rounded-lg overflow-hidden bg-white border border-[#e9e4f0] shadow-inner">
+                  <AnimatePresence mode="wait">
+                    <motion.img 
+                      key={activeCapabilityTab}
+                      src={capabilityModules.find(m => m.id === activeCapabilityTab)?.image || '/images/appliction images/Main Platform Dashboard.png'}
+                      alt={`${capabilityModules.find(m => m.id === activeCapabilityTab)?.title} Healthcare Solution UI Capability Showcase`}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.22, ease: 'easeOut' }}
+                      className="w-full h-auto object-contain max-h-[520px] block"
+                    />
+                  </AnimatePresence>
                 </div>
               </div>
+
+              {/* Demonstration Data Disclaimer */}
+              <p className="text-xs text-[#716b89] leading-relaxed italic text-right mt-2.5">
+                *Illustrative sample demonstration data. Module records and metrics are for demonstration purposes only.
+              </p>
             </div>
 
           </div>

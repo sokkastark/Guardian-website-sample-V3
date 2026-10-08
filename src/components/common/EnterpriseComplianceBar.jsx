@@ -10,22 +10,22 @@ import {
 export default function EnterpriseComplianceBar() {
   const complianceItems = [
     {
-      title: 'CMS MIPS Qualified Registry',
+      title: 'CMS MIPS Qualified Registry Architecture',
       icon: Award,
       color: '#7b3fc7'
     },
     {
-      title: 'eHealth Exchange',
+      title: 'eHealth Exchange Alignment',
       icon: Network,
       color: '#4f46e5'
     },
     {
-      title: 'CareQuality Framework',
+      title: 'CareQuality Framework Alignment',
       icon: ShieldCheck,
       color: '#059669'
     },
     {
-      title: 'HITRUST & HIPAA',
+      title: 'HITRUST & SOC 2 Security Alignment',
       icon: Lock,
       color: '#ea580c'
     }
@@ -54,10 +54,10 @@ export default function EnterpriseComplianceBar() {
           {/* Content Area */}
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-sm sm:text-base md:text-lg font-black text-[#7b3fc7] tracking-wider uppercase mb-1.5 font-sans">
-              ENTERPRISE COMPLIANCE & RECOGNITION
+              ENTERPRISE SECURITY & FRAMEWORK ALIGNMENT
             </h3>
             <p className="text-xs sm:text-[13px] text-[#524b6b] leading-relaxed mb-3.5 max-w-4xl font-normal">
-              Guardian maintains rigorous alignment with zero-trust healthcare data frameworks, CMS MIPS Qualified Registry standards, and national health information networks.
+              Guardian maintains rigorous architectural alignment with zero-trust healthcare data frameworks, CMS MIPS Qualified Registry standards, and national health information networks.
             </p>
 
             {/* Badges List */}

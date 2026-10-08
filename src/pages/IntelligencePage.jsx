@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
   BrainCircuit, 
@@ -22,6 +22,7 @@ import {
   Zap,
   Check
 } from 'lucide-react';
+import { RibbonStepGrid } from '../components/common/RibbonStepCard';
 
 export default function IntelligencePage() {
   const [activeTab, setActiveTab] = useState('knowledge-graph');
@@ -32,35 +33,45 @@ export default function IntelligencePage() {
       label: 'KNOWLEDGE GRAPH',
       title: 'Semantic Data Mesh',
       desc: 'Link diagnoses, medications, labs, encounters, and social factors into a unified relational graph.',
-      gradient: 'from-[#7b3fc7] to-[#9565d2]'
+      ribbonBg: 'bg-[#10b981]',
+      foldColor: '#047857',
+      numberColor: 'text-[#047857]'
     },
     {
       num: '02',
       label: 'AI & NLP ENGINE',
       title: 'Clinical Document Extraction',
       desc: 'Extract clinical concepts, suspect conditions, and map local EHR codes to standard terminologies.',
-      gradient: 'from-[#4f46e5] to-[#7c3aed]'
+      ribbonBg: 'bg-[#84cc16]',
+      foldColor: '#4d7c0f',
+      numberColor: 'text-[#4d7c0f]'
     },
     {
       num: '03',
       label: 'PREDICTIVE RISK',
       title: 'Risk Stratification & Forecasts',
       desc: 'Forecast 30-day readmission risk, ED high-utilizer probability, and CMS-HCC RAF trajectory.',
-      gradient: 'from-[#059669] to-[#10b981]'
+      ribbonBg: 'bg-[#eab308]',
+      foldColor: '#a16207',
+      numberColor: 'text-[#a16207]'
     },
     {
       num: '04',
       label: 'INTELLIGENT WORKFLOWS',
       title: 'Automated Action Dispatch',
       desc: 'Deliver point-of-care gap alerts, care plan recommendations, and automated task routing.',
-      gradient: 'from-[#ff7a57] to-[#ea580c]'
+      ribbonBg: 'bg-[#f97316]',
+      foldColor: '#c2410c',
+      numberColor: 'text-[#c2410c]'
     },
     {
       num: '05',
       label: 'HUMAN-IN-THE-LOOP',
       title: 'Clinician Governance',
       desc: 'Keep care teams in control with transparent, auditable evidence and clinician override tools.',
-      gradient: 'from-[#1c1636] to-[#7b3fc7]'
+      ribbonBg: 'bg-[#ec4899]',
+      foldColor: '#be185d',
+      numberColor: 'text-[#be185d]'
     }
   ];
 
@@ -292,9 +303,13 @@ export default function IntelligencePage() {
                     />
                   </div>
 
+                  <p className="text-xs text-purple-200/70 text-center mt-2 leading-relaxed italic">
+                    *Illustrative sample demonstration data. Metrics and records are for demonstration purposes only.
+                  </p>
+
                   <div className="mt-2.5 flex items-center justify-between text-[11px] text-purple-200 font-mono px-1 font-medium">
                     <span className="flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> Human-in-the-Loop Certified
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" /> Human-in-the-Loop Architecture
                     </span>
                     <span className="text-purple-300 font-bold">Semantic Data Graph</span>
                   </div>
@@ -325,45 +340,9 @@ export default function IntelligencePage() {
             </p>
           </div>
 
-          {/* Infographic Connected Pathway */}
-          <div className="relative pt-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {continuumSteps.map((step, idx) => (
-                <motion.div 
-                  key={step.num}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-30px' }}
-                  transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.05 }}
-                  className="p-6 rounded-2xl bg-white border border-[#e9e4f0] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between group"
-                >
-                  {/* Top Step Header */}
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-md bg-gradient-to-r ${step.gradient} text-white shadow-2xs`}>
-                        {step.num}
-                      </span>
-                      <span className="text-[9.5px] font-extrabold tracking-widest text-[#8e8a9f] uppercase truncate ml-1">
-                        {step.label}
-                      </span>
-                    </div>
-
-                    <h3 className="text-base font-extrabold text-[#1c1636] mb-2 leading-tight group-hover:text-[#7b3fc7] transition-colors">
-                      {step.title}
-                    </h3>
-                    <p className="text-xs text-[#524b6b] leading-relaxed">
-                      {step.desc}
-                    </p>
-                  </div>
-
-                  {/* Bottom Pathway Connector Indicator */}
-                  <div className="mt-4 pt-3 border-t border-[#f0ebf8] flex items-center justify-between text-[11px] font-bold text-[#7b3fc7]">
-                    <span>Step {step.num} of 05</span>
-                    <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          {/* Infographic Connected 3D Folded Ribbon Pathway */}
+          <div className="relative pt-2">
+            <RibbonStepGrid steps={continuumSteps} />
           </div>
 
         </div>
@@ -559,7 +538,7 @@ export default function IntelligencePage() {
           </div>
 
           {/* Interactive Showcase Tabs */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             {/* Left Selector Tabs */}
             <div className="lg:col-span-5 space-y-3">
@@ -569,16 +548,21 @@ export default function IntelligencePage() {
                   <div
                     key={item.id}
                     onClick={() => setActiveTab(item.id)}
-                    className={`p-4 sm:p-5 rounded-2xl border transition-all cursor-pointer ${
+                    className={`p-4 sm:p-5 rounded-2xl border transition-all duration-200 cursor-pointer ${
                       isActive 
-                        ? 'bg-white border-[#7b3fc7] shadow-md -translate-x-1' 
-                        : 'bg-white/60 border-[#e9e4f0] hover:bg-white hover:border-purple-300'
+                        ? 'bg-white border-[#7b3fc7] border-l-4 border-l-[#7b3fc7] shadow-lg -translate-x-1 ring-1 ring-[#7b3fc7]/15' 
+                        : 'bg-white/65 border-[#e9e4f0] hover:bg-white hover:border-[#7b3fc7]/40 hover:shadow-xs'
                     }`}
                   >
                     <div className="flex items-center justify-between mb-1.5">
-                      <h3 className={`text-base font-extrabold ${isActive ? 'text-[#7b3fc7]' : 'text-[#1c1636]'}`}>
-                        {item.title}
-                      </h3>
+                      <div className="flex items-center gap-2">
+                        {isActive && (
+                          <span className="w-2 h-2 rounded-full bg-[#7b3fc7] animate-pulse" />
+                        )}
+                        <h3 className={`text-base font-extrabold ${isActive ? 'text-[#7b3fc7]' : 'text-[#1c1636]'}`}>
+                          {item.title}
+                        </h3>
+                      </div>
                       <Link 
                         to={item.path}
                         className="text-[11px] font-bold text-[#7b3fc7] hover:underline flex items-center gap-0.5"
@@ -594,7 +578,14 @@ export default function IntelligencePage() {
 
                     <div className="flex flex-wrap gap-1.5">
                       {item.highlights.map((h, i) => (
-                        <span key={i} className="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#f2ecf9] text-[#7b3fc7] border border-[#7b3fc7]/20">
+                        <span 
+                          key={i} 
+                          className={`text-[10px] font-semibold px-2 py-0.5 rounded border transition-colors ${
+                            isActive 
+                              ? 'bg-[#f2ecf9] text-[#7b3fc7] border-[#7b3fc7]/30' 
+                              : 'bg-gray-100 text-[#524b6b] border-gray-200'
+                          }`}
+                        >
                           {h}
                         </span>
                       ))}
@@ -604,31 +595,54 @@ export default function IntelligencePage() {
               })}
             </div>
 
-            {/* Right Display */}
-            <div className="lg:col-span-7">
-              <div className="relative rounded-2xl bg-[#1c1636] p-3.5 border border-[#2e1065] shadow-2xl overflow-hidden">
-                <div className="flex items-center justify-between px-3 py-2 bg-[#120b24] rounded-xl border-b border-white/10 mb-3">
+            {/* Right Display (Stitched to Top) */}
+            <div className="lg:col-span-7 lg:sticky lg:top-24 self-start">
+              <div className="relative rounded-2xl bg-[#1c1636] p-3.5 border border-[#2e1065] shadow-2xl overflow-hidden transition-all duration-300">
+                {/* Browser / Application Window Top Bar */}
+                <div className="flex items-center justify-between px-3 py-2.5 bg-[#120b24] rounded-xl border-b border-white/10 mb-3">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
                     <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
                     <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block" />
-                    <span className="text-[11px] text-purple-200 font-mono ml-2">
+                    <span className="text-[11px] text-purple-200 font-mono ml-2 font-semibold truncate max-w-[200px] sm:max-w-none">
                       {uiShowcase.find(m => m.id === activeTab)?.title}
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono px-2.5 py-0.5 rounded bg-[#7b3fc7] text-white">
-                    Live AI Proof
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <Link
+                      to={uiShowcase.find(m => m.id === activeTab)?.path || '#'}
+                      className="text-[10px] font-mono font-bold text-purple-200 hover:text-white px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition-colors hidden sm:inline-flex items-center gap-1"
+                    >
+                      <span>Explore Page</span>
+                      <ChevronRight className="w-3 h-3" />
+                    </Link>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded bg-[#7b3fc7] text-white font-medium">
+                      Live AI Proof
+                    </span>
+                  </div>
                 </div>
 
-                <div className="relative rounded-lg overflow-hidden bg-white border border-[#e9e4f0]">
-                  <img 
-                    src={uiShowcase.find(m => m.id === activeTab)?.image || '/images/appliction images/ui-risk-stratification.png'}
-                    alt="Guardian Intelligence Platform Interface Proof"
-                    className="w-full h-auto object-contain max-h-[460px]"
-                  />
+                {/* Image Viewport (Top Anchored, Smooth Crossfade) */}
+                <div className="relative rounded-lg overflow-hidden bg-white border border-[#e9e4f0] shadow-inner">
+                  <AnimatePresence mode="wait">
+                    <motion.img 
+                      key={activeTab}
+                      src={uiShowcase.find(m => m.id === activeTab)?.image || '/images/appliction images/ui-risk-stratification.png'}
+                      alt={`${uiShowcase.find(m => m.id === activeTab)?.title} Platform Interface Proof`}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.22, ease: 'easeOut' }}
+                      className="w-full h-auto object-contain max-h-[520px] block"
+                    />
+                  </AnimatePresence>
                 </div>
               </div>
+
+              {/* Demonstration Data Disclaimer */}
+              <p className="text-xs text-[#716b89] leading-relaxed italic text-right mt-2.5">
+                *Illustrative sample demonstration data. Module records and metrics are for demonstration purposes only.
+              </p>
             </div>
 
           </div>

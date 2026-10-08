@@ -316,8 +316,8 @@ export default function WhyGuardianPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="p-6 rounded-2xl bg-white border border-[#e1e1e5]">
               <ShieldCheck className="w-8 h-8 text-[#7b3fc7] mb-4" />
-              <h3 className="text-base font-bold text-[#1c1636] mb-1">CMS MIPS Registry</h3>
-              <p className="text-xs text-[#727272]">Certified Registry status for quality and performance reporting.</p>
+              <h3 className="text-base font-bold text-[#1c1636] mb-1">CMS MIPS Registry Architecture</h3>
+              <p className="text-xs text-[#727272]">Infrastructure designed for quality and performance reporting alignment.</p>
             </div>
             <div className="p-6 rounded-2xl bg-white border border-[#e1e1e5]">
               <Layers className="w-8 h-8 text-[#7b3fc7] mb-4" />
@@ -331,8 +331,8 @@ export default function WhyGuardianPage() {
             </div>
             <div className="p-6 rounded-2xl bg-white border border-[#e1e1e5]">
               <Lock className="w-8 h-8 text-[#ff7a57] mb-4" />
-              <h3 className="text-base font-bold text-[#1c1636] mb-1">HITRUST Aligned</h3>
-              <p className="text-xs text-[#727272]">Rigorous cybersecurity and healthcare risk certification.</p>
+              <h3 className="text-base font-bold text-[#1c1636] mb-1">HITRUST &amp; SOC 2 Alignment</h3>
+              <p className="text-xs text-[#727272]">Security controls engineered to align with HITRUST and SOC 2 frameworks.</p>
             </div>
           </div>
         </div>
